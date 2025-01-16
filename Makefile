@@ -24,8 +24,18 @@ label-studio:
 	@echo "Waiting for Label Studio to start up..."
 	@sleep 10  # Give Label Studio time to start
 
+# Ensure Label Studio is running and get API key if needed
+ensure-label-studio:
+	@echo "Starting Label Studio..."
+	. venv/bin/activate && label-studio start &
+	@echo "Waiting for Label Studio to start up..."
+	@sleep 10
+	@echo "\n✅ Label Studio should now be running at http://localhost:8080"
+	@echo "If this is your first time, please create an account."
+	@echo "Then get your API key from Account & Settings > Access Token"
+
 # Step 3: Create project (only needed once)
-create-project: label-studio
+create-project: ensure-label-studio
 	. venv/bin/activate && python src/create_project.py
 
 # Step 4: CSV Converter Tools

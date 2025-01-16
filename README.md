@@ -26,14 +26,22 @@ A tool for annotating conversations using Label Studio.
    ```bash
    make create-project
    ```
-   This creates the Label Studio project with the correct taxonomy structure.
+   This will:
+   - Start Label Studio
+   - Guide you through getting your API key
+   - Create the project with the correct taxonomy structure
+   
+   Note: You'll be prompted to input your API key if it's not set. To skip this prompt in the future:
+   ```bash
+   export LABEL_STUDIO_API_KEY=your-key-here
+   ```
 
-4. Start Label Studio and create an account:
+4. Start Label Studio for regular use:
    ```bash
    make run
    ```
    - Visit http://localhost:8080
-   - Create an account or log in
+   - Log in to your account
    - The project should be available in your workspace
 
 ## Project Synchronization
@@ -48,7 +56,7 @@ A tool for annotating conversations using Label Studio.
 ## Available Commands
 
 - `make setup` - First-time setup of virtual environment and dependencies
-- `make create-project` - Create/update the Label Studio project structure
+- `make create-project` - Create/update the Label Studio project structure (will prompt for API key if needed)
 - `make run` - Start Label Studio and access the project
 - `make convert` - Convert CSV files to JSON format for import
 - `make test-converter` - Run tests for the CSV converter
@@ -72,4 +80,8 @@ If you encounter issues:
 2. Check if Label Studio is running: http://localhost:8080
 3. Try stopping and restarting Label Studio: `make stop-label-studio && make run`
 4. If project is missing: Run `make create-project` to set up the project structure
+5. API key issues:
+   - Your API key is specific to your Label Studio installation
+   - Get a new key from Account & Settings > Access Token
+   - Either enter it when prompted or set it as an environment variable
 
