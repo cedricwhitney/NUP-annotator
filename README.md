@@ -14,7 +14,7 @@ A tool for annotating conversations using Label Studio.
 1. Clone the repository:
    ```bash
    git clone https://github.com/cedricwhitney/NUP-annotator.git
-   cd conversation_project
+   cd NUP-annotator
    ```
 
 2. Set up the environment:
@@ -22,7 +22,13 @@ A tool for annotating conversations using Label Studio.
    make setup
    ```
 
-3. Start Label Studio and create an account:
+3. First-time setup (only needed once per computer):
+   ```bash
+   make create-project
+   ```
+   This creates the Label Studio project with the correct taxonomy structure.
+
+4. Start Label Studio and create an account:
    ```bash
    make run
    ```
@@ -30,9 +36,19 @@ A tool for annotating conversations using Label Studio.
    - Create an account or log in
    - The project should be available in your workspace
 
+## Project Synchronization
+
+- Each new installation needs to run `make create-project` once
+- The project structure is maintained in git (in create_project.py)
+- Updates to the project structure will be shared via git
+- When project structure changes, users should:
+  1. Pull the latest changes: `git pull`
+  2. Run `make create-project` again to update their local project
+
 ## Available Commands
 
 - `make setup` - First-time setup of virtual environment and dependencies
+- `make create-project` - Create/update the Label Studio project structure
 - `make run` - Start Label Studio and access the project
 - `make convert` - Convert CSV files to JSON format for import
 - `make test-converter` - Run tests for the CSV converter
@@ -55,3 +71,5 @@ If you encounter issues:
 1. Ensure Python 3.x is installed: `python3 --version`
 2. Check if Label Studio is running: http://localhost:8080
 3. Try stopping and restarting Label Studio: `make stop-label-studio && make run`
+4. If project is missing: Run `make create-project` to set up the project structure
+
