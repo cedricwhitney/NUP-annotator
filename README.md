@@ -13,7 +13,7 @@ A tool for annotating conversations using Label Studio.
 
 1. Clone the repository:
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/cedricwhitney/NUP-annotator.git
    cd conversation_project
    ```
 
