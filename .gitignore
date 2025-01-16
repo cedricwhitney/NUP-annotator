@@ -1,0 +1,38 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environment
+.env
+.venv
+env/
+ENV/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Data files
+data/*.csv
+data/*.json
+!data/example.csv  # Keep example file if exists
+
+# Label Studio
+*.sqlite3
+label_studio.log*
+
+# OS specific
+.DS_Store
+Thumbs.db

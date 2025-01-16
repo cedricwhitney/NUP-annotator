@@ -1,0 +1,11 @@
+# Core dependencies
+label-studio>=1.0.0
+label-studio-sdk>=0.0.32
+pandas>=1.3.0
+
+# Testing
+pytest>=7.0.0
+
+# Development
+black>=22.0.0  # code formatting
+flake8>=4.0.0  # linting
