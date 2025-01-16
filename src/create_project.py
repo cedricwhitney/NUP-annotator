@@ -2,8 +2,12 @@ import os
 import sys
 import requests
 from label_studio_sdk import Client
+import json
 
 LABEL_STUDIO_URL = os.getenv("LABEL_STUDIO_URL", "http://localhost:8080")
+
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+TASKS_FILE = os.path.join(DATA_DIR, 'initial_tasks.json')
 
 def get_api_key():
     api_key = os.getenv("LABEL_STUDIO_API_KEY")
@@ -120,6 +124,13 @@ LABEL_CONFIG = """
 </View>
 """
 
+def load_tasks():
+    if not os.path.exists(TASKS_FILE):
+        print(f"❌ Missing initial tasks file: {TASKS_FILE}")
+        sys.exit(1)
+    with open(TASKS_FILE) as f:
+        return json.load(f)
+
 def main():
     api_key = get_api_key()
     
@@ -128,6 +139,7 @@ def main():
     print(f"📡 Connecting to Label Studio at {LABEL_STUDIO_URL}...")
 
     try:
+        # Create project
         project_name = "DUP Taxonomy Annotation"
         print(f"🛠 Creating new project: {project_name}")
         project = ls.start_project(
@@ -135,6 +147,12 @@ def main():
             label_config=LABEL_CONFIG,
         )
         print(f"🎉 Project created: {project.id}")
+        
+        # Import tasks
+        print("📥 Importing initial tasks...")
+        tasks = load_tasks()
+        project.import_tasks(tasks)
+        print(f"✅ Imported {len(tasks)} tasks")
         
         # Save the API key for future use
         print("\n💡 Tip: To skip this prompt next time, set your API key as an environment variable:")

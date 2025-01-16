@@ -27,7 +27,8 @@ ENV/
 # Data files
 data/*.csv
 data/*.json
-!data/example.csv  # Keep example file if exists
+# Exception for our default dataset
+!data/initial_tasks.json
 
 # Label Studio
 *.sqlite3

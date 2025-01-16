@@ -19,3 +19,13 @@ pythonpath = ["src"]
 [tool.setuptools.optional-dependencies]
 dev = ["pytest", "black", "flake8"]
 
+[tool.poetry]
+# ... other configuration ...
+
+# Include the data directory and initial tasks
+include = [
+    "data/initial_tasks.json",
+]
+
+# ... rest of configuration ...
+

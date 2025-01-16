@@ -1,6 +1,16 @@
 # Conversation Project
 
-A tool for annotating conversations using Label Studio.
+A tool for annotating conversations using Label Studio. This project uses the open source version of [Label Studio](https://github.com/heartexlabs/label-studio) - many thanks to the Label Studio team for making this possible!
+
+## Overview
+
+This project facilitates consistent annotation across multiple annotators:
+- Each annotator runs their own local instance of Label Studio
+- All instances are configured with the same taxonomy structure
+- Annotators work independently on their local installations
+- Results can be exported and compared across annotators
+
+The setup ensures everyone has identical project configuration while maintaining independent workspaces.
 
 ## Prerequisites
 
@@ -53,6 +63,18 @@ A tool for annotating conversations using Label Studio.
   1. Pull the latest changes: `git pull`
   2. Run `make create-project` again to update their local project
 
+## Annotation Workflow
+
+1. Each annotator:
+   - Sets up their own local Label Studio instance
+   - Works independently on their assigned conversations
+   - Maintains their own annotations in their local database
+
+2. For comparison:
+   - Annotators export their completed annotations from Label Studio
+   - Exports can be collected and compared to assess agreement
+   - Results can be analyzed while maintaining independent workspaces
+
 ## Available Commands
 
 - `make setup` - First-time setup of virtual environment and dependencies
@@ -64,14 +86,27 @@ A tool for annotating conversations using Label Studio.
 
 ## Project Structure
 
-    conversation_project/
-    ├── src/
-    │   ├── converter.py       # CSV to JSON converter
-    │   ├── create_project.py  # Label Studio project setup
+The repository is organized as follows:
+
+    conversation_project/          # This is a directory structure diagram
+    ├── src/                      # Source code directory
+    │   ├── converter.py          # (Advanced) CSV to JSON converter for new datasets
+    │   ├── create_project.py     # Label Studio project setup
     │   └── label_studio_integration.py
-    ├── tests/                 # Converter tests
-    ├── data/                  # Place CSV files here for conversion
-    └── Makefile
+    ├── data/                     # Data directory
+    │   └── initial_tasks.json    # Pre-converted dataset for all users
+    ├── tests/                    # Converter tests
+    └── Makefile                  # Project automation
+
+Note: This is a visualization of how the project files are organized, not a configuration file.
+
+## Advanced Usage
+
+The `converter.py` script is available for converting new CSV files to the Label Studio JSON format. This is an advanced feature for users who need to create new datasets:
+
+```bash
+make convert
+```
 
 ## Troubleshooting
 
@@ -84,4 +119,8 @@ If you encounter issues:
    - Your API key is specific to your Label Studio installation
    - Get a new key from Account & Settings > Access Token
    - Either enter it when prompted or set it as an environment variable
+
+## Acknowledgments
+
+This project uses [Label Studio](https://github.com/heartexlabs/label-studio), an open source data labeling tool. We're grateful to the Label Studio team for providing this excellent platform for annotation projects.
 
