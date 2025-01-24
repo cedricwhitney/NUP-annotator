@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/converter.py
+src/conversation_project.egg-info/PKG-INFO
+src/conversation_project.egg-info/SOURCES.txt
+src/conversation_project.egg-info/dependency_links.txt
+src/conversation_project.egg-info/top_level.txt
+tests/test_converter.py

@@ -1,7 +1,7 @@
 import pytest
 import os
 import json
-from src.converter import main
+from src.tools.csv_to_labelstudio import main
 
 
 @pytest.fixture
@@ -26,22 +26,26 @@ def expected_json():
     """
     return [
         {
-            "conversation": [
-                {"role": "human", "text": "Hello!"},
-                {"role": "llm", "text": "Hi, how can I help?"},
-                {"role": "human", "text": "I need assistance."},
-                {"role": "llm", "text": "Of course!"},
-                {"role": "human", "text": "Thanks!"}
-            ]
+            "data": {
+                "conversation": [
+                    {"role": "human", "text": "Hello!"},
+                    {"role": "llm", "text": "Hi, how can I help?"},
+                    {"role": "human", "text": "I need assistance."},
+                    {"role": "llm", "text": "Of course!"},
+                    {"role": "human", "text": "Thanks!"}
+                ]
+            }
         },
         {
-            "conversation": [
-                {"role": "human", "text": "Hi there!"},
-                {"role": "llm", "text": "Hello!"},
-                {"role": "human", "text": "What's the weather?"},
-                {"role": "llm", "text": "It's sunny!"},
-                {"role": "human", "text": "Great!"}
-            ]
+            "data": {
+                "conversation": [
+                    {"role": "human", "text": "Hi there!"},
+                    {"role": "llm", "text": "Hello!"},
+                    {"role": "human", "text": "What's the weather?"},
+                    {"role": "llm", "text": "It's sunny!"},
+                    {"role": "human", "text": "Great!"}
+                ]
+            }
         }
     ]
 

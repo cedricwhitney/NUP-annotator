@@ -1,4 +1,4 @@
-.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python
+.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl
 
 # Check Python installation
 check-python:
@@ -35,8 +35,13 @@ ensure-label-studio:
 	@echo "Then get your API key from Account & Settings > Access Token"
 
 # Step 3: Create project (only needed once)
-create-project: ensure-label-studio
-	. venv/bin/activate && python src/create_project.py
+create-project:
+	@echo "Creating Label Studio project..."
+	@echo "This will:"
+	@echo "1. List available data files"
+	@echo "2. Convert and validate your chosen file"
+	@echo "3. Set up the project in Label Studio"
+	PYTHONPATH=. . venv/bin/activate && python src/core/create_project.py
 
 # Step 4: CSV Converter Tools
 convert:
@@ -56,3 +61,33 @@ run: label-studio
 stop-label-studio:
 	@echo "Stopping Label Studio..."
 	@pkill -f "label-studio" || true
+
+# Validate JSON format
+validate-json:
+	@echo "Validating JSON format..."
+	. venv/bin/activate && python src/tools/validate_labelstudio_json.py data/your_tasks.json
+
+# Convert CSV to Label Studio format
+convert-csv:
+	@echo "Converting CSV to Label Studio format..."
+	. venv/bin/activate && python src/tools/csv_to_labelstudio.py
+
+# Run all tests
+test:
+	@echo "Running all tests..."
+	PYTHONPATH=. . venv/bin/activate && pytest tests/tools/
+
+# Run CSV conversion tests
+test-csv:
+	@echo "Running CSV conversion tests..."
+	PYTHONPATH=. . venv/bin/activate && pytest tests/tools/test_csv_converter.py
+
+# Run JSON validation tests
+test-json:
+	@echo "Running JSON validation tests..."
+	PYTHONPATH=. . venv/bin/activate && pytest tests/tools/test_json_validator.py
+
+# Run JSONL conversion tests
+test-jsonl:
+	@echo "Running JSONL conversion tests..."
+	PYTHONPATH=. . venv/bin/activate && pytest tests/tools/test_jsonl_converter.py

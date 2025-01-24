@@ -3,6 +3,17 @@ import pandas as pd
 import json
 
 def main():
+    """Convert conversation CSV to Label Studio JSON format.
+    
+    Expected CSV format:
+        Turn 0, Turn 1, Turn 2, Turn 3, Turn 4
+        "Hello", "Hi there", "How are you?", "I'm good", "Great!"
+    
+    Will be converted to Label Studio format with:
+        - Even-numbered turns (0, 2, 4) marked as "human"
+        - Odd-numbered turns (1, 3) marked as "llm"
+        - Empty turns are skipped
+    """
     # Input and output file paths
     csv_file = os.getenv("TEST_CSV_FILE", "data/test_input_cleaned.csv")
     json_file = os.getenv("TEST_JSON_FILE", "data/test_output.json")
@@ -50,7 +61,9 @@ def main():
         # Only add the task if there are non-empty messages in the conversation
         if len(conversation) > 0:  # Additional check to ensure we have messages
             tasks.append({
-                "conversation": conversation
+                "data": {  # Add data wrapper for Label Studio format
+                    "conversation": conversation
+                }
             })
 
     print(f"✅ Processed {len(tasks)} tasks.")
