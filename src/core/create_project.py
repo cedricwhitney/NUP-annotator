@@ -9,7 +9,8 @@ from src.tools.validate_labelstudio_json import validate_and_fix_json
 
 LABEL_STUDIO_URL = os.getenv("LABEL_STUDIO_URL", "http://localhost:8080")
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+# Constants
+DATA_DIR = Path("data")
 TASKS_FILE = os.path.join(DATA_DIR, 'initial_tasks.json')
 
 def get_api_key():
@@ -26,117 +27,406 @@ def get_api_key():
     return api_key
 
 LABEL_CONFIG = """
-<View>
-    <Paragraphs value="$conversation" name="conversation" 
-                layout="dialogue" textKey="text" nameKey="role"/>
-    <Taxonomy name="taxonomy" toName="conversation">
-        <Choice value="Self-Disclosure">
-            <Choice value="Yes" />
-            <Choice value="No" />
-        </Choice>
-        <Choice value="Media Format">
-            <Choice value="Natural language" />
-            <Choice value="Code" />
-            <Choice value="Math / symbols" />
-            <Choice value="Formatted enumeration/itemization (bullets/lists)" />
-            <Choice value="Charts/Graphs" />
-            <Choice value="Images" />
-            <Choice value="Audio" />
-            <Choice value="URLs" />
-            <Choice value="Other" />
-        </Choice>
-        <Choice value="Anthropomorphization">
-            <Choice value="Yes" />
-            <Choice value="No" />
-        </Choice>
-        <Choice value="Answer Form">
-            <Choice value="Refusal to answer (with explanation)" />
-            <Choice value="Refusal to answer (without explanation)" />
-            <Choice value="Partial refusal, expressing uncertainty, disclaiming" />
-            <Choice value="Direct Answer / Open Generation" />
-            <Choice value="Continuation of Input" />
-        </Choice>
-        <Choice value="Multi-turn Relationship">
-            <Choice value="First request" />
-            <Choice value="Unrelated request" />
-            <Choice value="Same task, new request" />
-            <Choice value="Repeat request" />
-            <Choice value="Related request" />
-        </Choice>
-        <Choice value="Topics">
-            <Choice value="Math &amp; Sciences" />
-            <Choice value="History" />
-            <Choice value="Geography" />
-            <Choice value="Religion &amp; Spirituality" />
-            <Choice value="Literature &amp; Writing" />
-            <Choice value="Psychology, Philosophy &amp; Human Behavior" />
-            <Choice value="Linguistics &amp; Languages" />
-            <Choice value="Technology, Software &amp; Computing" />
-            <Choice value="Engineering &amp; Infrastructure" />
-            <Choice value="Nature &amp; Environment" />
-            <Choice value="Transportation" />
-            <Choice value="Travel &amp; Tourism" />
-            <Choice value="Lifestyle" />
-            <Choice value="Food &amp; Dining" />
-            <Choice value="Art &amp; Design" />
-            <Choice value="Fashion &amp; Beauty" />
-            <Choice value="Culture" />
-            <Choice value="Entertainment, Hobbies &amp; Leisure" />
-            <Choice value="Sports" />
-            <Choice value="Social Issues &amp; Movements" />
-            <Choice value="Economics" />
-            <Choice value="Health &amp; Medicine" />
-            <Choice value="Business &amp; Finances" />
-            <Choice value="Employment &amp; Hiring" />
-            <Choice value="Education" />
-            <Choice value="News &amp; Current Affairs" />
-            <Choice value="Interpersonal Relationships &amp; Communication" />
-            <Choice value="Adult &amp; Illicit Content" />
-            <Choice value="Law, Criminal Justice, Law Enforcement" />
-            <Choice value="Politics &amp; Elections" />
-            <Choice value="Insurance &amp; Social Scoring" />
-            <Choice value="Housing" />
-            <Choice value="Immigration / Migration" />
-            <Choice value="Other" />
-        </Choice>
-        <Choice value="Restricted Use Flags">
-            <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
-            <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
-            <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
-            <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-            <Choice value="Cyberattacks" />
-            <Choice value="Weapons &amp; drugs" />
-            <Choice value="CBRN-related outputs" />
-            <Choice value="Sexually explicit content: real person" />
-            <Choice value="Sexually explicit content: fictitious person" />
-            <Choice value="Sexually explicit content: Request/discussion of CSAM" />
-            <Choice value="Sexually explicit content: Other" />
-            <Choice value="Impersonation attempts" />
-            <Choice value="Misinformation" />
-            <Choice value="Privacy concerns: Possible identifiable information" />
-            <Choice value="Privacy concerns: Possible sensitive information" />
-            <Choice value="Generating spam" />
-            <Choice value="Generating defamatory content" />
-            <Choice value="Output misrepresentation: disclaiming AI use" />
-            <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-            <Choice value="Discriminatory practices" />
-            <Choice value="Possible presence of copyrighted, unreferenced material" />
-            <Choice value="Other" />
-        </Choice>
-    </Taxonomy>
+<View style="display: flex;">
+    <View style="width: 60%; padding-right: 1em;">
+        <Paragraphs name="conversation" value="$conversation" 
+                    layout="dialogue" textKey="text" nameKey="role"/>
+    </View>
+    
+    <View style="width: 40%; padding-left: 1em; overflow-y: auto;">
+        <Collapse>
+            <Panel value="Conversation-Level Labels">
+                <View>
+                    <Collapse>
+                        <Panel value="Self-disclosure">
+                            <View>
+                                <Choices name="self_disclosure" toName="conversation" choice="single" required="true">
+                                    <Choice value="Yes" />
+                                    <Choice value="No" />
+                                </Choices>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                    
+                    <Collapse>
+                        <Panel value="Topics">
+                            <View>
+                                <Filter name="filter_topics" toName="topics" minlength="0" placeholder="Filter topics..."/>
+                                <Labels name="topics" toName="conversation" choice="multiple">
+                                    <Label value="Math &amp; Sciences" />
+                                    <Label value="History" />
+                                    <Label value="Geography" />
+                                    <Label value="Religion &amp; Spirituality" />
+                                    <Label value="Literature &amp; Writing" />
+                                    <Label value="Psychology, Philosophy &amp; Human Behavior" />
+                                    <Label value="Linguistics &amp; Languages" />
+                                    <Label value="Technology, Software &amp; Computing" />
+                                    <Label value="Engineering &amp; Infrastructure" />
+                                    <Label value="Nature &amp; Environment" />
+                                    <Label value="Transportation" />
+                                    <Label value="Travel &amp; Tourism" />
+                                    <Label value="Lifestyle" />
+                                    <Label value="Food &amp; Dining" />
+                                    <Label value="Art &amp; Design" />
+                                    <Label value="Fashion &amp; Beauty" />
+                                    <Label value="Culture" />
+                                    <Label value="Entertainment, Hobbies &amp; Leisure" />
+                                    <Label value="Sports" />
+                                    <Label value="Social Issues &amp; Movements" />
+                                    <Label value="Economics" />
+                                    <Label value="Health &amp; Medicine" />
+                                    <Label value="Business &amp; Finances" />
+                                    <Label value="Employment &amp; Hiring" />
+                                    <Label value="Education" />
+                                    <Label value="News &amp; Current Affairs" />
+                                    <Label value="Interpersonal Relationships &amp; Communication" />
+                                    <Label value="Adult &amp; Illicit Content" />
+                                    <Label value="Law, Criminal Justice, Law Enforcement" />
+                                    <Label value="Politics &amp; Elections" />
+                                    <Label value="Insurance &amp; Social Scoring" />
+                                    <Label value="Housing" />
+                                    <Label value="Immigration / Migration" />
+                                    <Label value="Other" />
+                                </Labels>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                </View>
+            </Panel>
+        </Collapse>
+
+        <Collapse>
+            <Panel value="Text-Level Labels">
+                <View>
+                    <Header value=""First, highlight text, then click the correct label, then click the highlighted text and select the corresponding dropdown." size="10"/>
+                    
+                    <ParagraphLabels name="text_selection" toName="conversation">
+                        <Label value="Prompt 1" background="#ffd700"/>
+                        <Label value="Response 1" background="#4169e1"/>
+                        <Label value="Prompt 2" background="#ffd700"/>
+                        <Label value="Response 2" background="#4169e1"/>
+                        <Label value="Prompt 3" background="#ffd700"/>
+                    </ParagraphLabels>
+                    
+                    <Collapse>
+                        <Panel value="Prompt 1">
+                            <View>
+                                <Collapse>
+                                    <Panel value="Multi-turn Relationship">
+                                        <View>
+                                            <Choices name="multi_turn_prompt1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 1" choice="single">
+                                                <Choice value="First request" />
+                                                <Choice value="Unrelated request" />
+                                                <Choice value="Same task, new request" />
+                                                <Choice value="Repeat request" />
+                                                <Choice value="Related request" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Function/Purpose">
+                                        <View>
+                                            <Choices name="function_purpose_prompt1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 1" choice="multiple">
+                                                <Choice value="Information Seeking" />
+                                                <Choice value="Task Completion" />
+                                                <Choice value="Social Interaction" />
+                                                <Choice value="Content Creation" />
+                                                <Choice value="Problem Solving" />
+                                                <Choice value="Learning/Education" />
+                                                <Choice value="Entertainment" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Restricted Use Flags">
+                                        <View>
+                                            <Filter name="filter_flags_prompt1" toName="restricted_flags_prompt1" minlength="0" placeholder="Filter flags..."/>
+                                            <Choices name="restricted_flags_prompt1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 1" choice="multiple">
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
+                                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                                <Choice value="Cyberattacks" />
+                                                <Choice value="Weapons &amp; drugs" />
+                                                <Choice value="CBRN-related outputs" />
+                                                <Choice value="Sexually explicit content: real person" />
+                                                <Choice value="Sexually explicit content: fictitious person" />
+                                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
+                                                <Choice value="Sexually explicit content: Other" />
+                                                <Choice value="Impersonation attempts" />
+                                                <Choice value="Misinformation" />
+                                                <Choice value="Privacy concerns: Possible identifiable information" />
+                                                <Choice value="Privacy concerns: Possible sensitive information" />
+                                                <Choice value="Generating spam" />
+                                                <Choice value="Generating defamatory content" />
+                                                <Choice value="Output misrepresentation: disclaiming AI use" />
+                                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                                <Choice value="Discriminatory practices" />
+                                                <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                    
+                    <Collapse>
+                        <Panel value="Response 1">
+                            <View>
+                                <Collapse>
+                                    <Panel value="Media Format">
+                                        <View>
+                                            <Choices name="media_format_response1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 1" choice="multiple">
+                                                <Choice value="Natural language" />
+                                                <Choice value="Code" />
+                                                <Choice value="Math / symbols" />
+                                                <Choice value="Formatted enumeration/itemization" />
+                                                <Choice value="Charts/Graphs" />
+                                                <Choice value="Images" />
+                                                <Choice value="Audio" />
+                                                <Choice value="URLs" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Anthropomorphization">
+                                        <View>
+                                            <Choices name="anthropomorphization_response1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 1" choice="single">
+                                                <Choice value="Yes" />
+                                                <Choice value="No" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Answer Form">
+                                        <View>
+                                            <Choices name="answer_form_response1" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 1" choice="single">
+                                                <Choice value="Refusal to answer (with explanation)" />
+                                                <Choice value="Refusal to answer (without explanation)" />
+                                                <Choice value="Partial refusal, expressing uncertainty, disclaiming" />
+                                                <Choice value="Direct Answer / Open Generation" />
+                                                <Choice value="Continuation of Input" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                    
+                    <Collapse>
+                        <Panel value="Prompt 2">
+                            <View>
+                                <Collapse>
+                                    <Panel value="Multi-turn Relationship">
+                                        <View>
+                                            <Choices name="multi_turn_prompt2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 2" choice="single">
+                                                <Choice value="First request" />
+                                                <Choice value="Unrelated request" />
+                                                <Choice value="Same task, new request" />
+                                                <Choice value="Repeat request" />
+                                                <Choice value="Related request" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Function/Purpose">
+                                        <View>
+                                            <Choices name="function_purpose_prompt2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 2" choice="multiple">
+                                                <Choice value="Information Seeking" />
+                                                <Choice value="Task Completion" />
+                                                <Choice value="Social Interaction" />
+                                                <Choice value="Content Creation" />
+                                                <Choice value="Problem Solving" />
+                                                <Choice value="Learning/Education" />
+                                                <Choice value="Entertainment" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Restricted Use Flags">
+                                        <View>
+                                            <Filter name="filter_flags_prompt2" toName="restricted_flags_prompt2" minlength="0" placeholder="Filter flags..."/>
+                                            <Choices name="restricted_flags_prompt2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 2" choice="multiple">
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
+                                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                                <Choice value="Cyberattacks" />
+                                                <Choice value="Weapons &amp; drugs" />
+                                                <Choice value="CBRN-related outputs" />
+                                                <Choice value="Sexually explicit content: real person" />
+                                                <Choice value="Sexually explicit content: fictitious person" />
+                                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
+                                                <Choice value="Sexually explicit content: Other" />
+                                                <Choice value="Impersonation attempts" />
+                                                <Choice value="Misinformation" />
+                                                <Choice value="Privacy concerns: Possible identifiable information" />
+                                                <Choice value="Privacy concerns: Possible sensitive information" />
+                                                <Choice value="Generating spam" />
+                                                <Choice value="Generating defamatory content" />
+                                                <Choice value="Output misrepresentation: disclaiming AI use" />
+                                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                                <Choice value="Discriminatory practices" />
+                                                <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                    
+                    <Collapse>
+                        <Panel value="Response 2">
+                            <View>
+                                <Collapse>
+                                    <Panel value="Media Format">
+                                        <View>
+                                            <Choices name="media_format_response2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 2" choice="multiple">
+                                                <Choice value="Natural language" />
+                                                <Choice value="Code" />
+                                                <Choice value="Math / symbols" />
+                                                <Choice value="Formatted enumeration/itemization" />
+                                                <Choice value="Charts/Graphs" />
+                                                <Choice value="Images" />
+                                                <Choice value="Audio" />
+                                                <Choice value="URLs" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Anthropomorphization">
+                                        <View>
+                                            <Choices name="anthropomorphization_response2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 2" choice="single">
+                                                <Choice value="Yes" />
+                                                <Choice value="No" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Answer Form">
+                                        <View>
+                                            <Choices name="answer_form_response2" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Response 2" choice="single">
+                                                <Choice value="Refusal to answer (with explanation)" />
+                                                <Choice value="Refusal to answer (without explanation)" />
+                                                <Choice value="Partial refusal, expressing uncertainty, disclaiming" />
+                                                <Choice value="Direct Answer / Open Generation" />
+                                                <Choice value="Continuation of Input" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                    
+                    <Collapse>
+                        <Panel value="Prompt 3">
+                            <View>
+                                <Collapse>
+                                    <Panel value="Multi-turn Relationship">
+                                        <View>
+                                            <Choices name="multi_turn_prompt3" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 3" choice="single">
+                                                <Choice value="First request" />
+                                                <Choice value="Unrelated request" />
+                                                <Choice value="Same task, new request" />
+                                                <Choice value="Repeat request" />
+                                                <Choice value="Related request" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Function/Purpose">
+                                        <View>
+                                            <Choices name="function_purpose_prompt3" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 3" choice="multiple">
+                                                <Choice value="Information Seeking" />
+                                                <Choice value="Task Completion" />
+                                                <Choice value="Social Interaction" />
+                                                <Choice value="Content Creation" />
+                                                <Choice value="Problem Solving" />
+                                                <Choice value="Learning/Education" />
+                                                <Choice value="Entertainment" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                                
+                                <Collapse>
+                                    <Panel value="Restricted Use Flags">
+                                        <View>
+                                            <Filter name="filter_flags_prompt3" toName="restricted_flags_prompt3" minlength="0" placeholder="Filter flags..."/>
+                                            <Choices name="restricted_flags_prompt3" toName="conversation" perRegion="true" whenTagName="text_selection" whenLabelValue="Prompt 3" choice="multiple">
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
+                                                <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
+                                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                                <Choice value="Cyberattacks" />
+                                                <Choice value="Weapons &amp; drugs" />
+                                                <Choice value="CBRN-related outputs" />
+                                                <Choice value="Sexually explicit content: real person" />
+                                                <Choice value="Sexually explicit content: fictitious person" />
+                                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
+                                                <Choice value="Sexually explicit content: Other" />
+                                                <Choice value="Impersonation attempts" />
+                                                <Choice value="Misinformation" />
+                                                <Choice value="Privacy concerns: Possible identifiable information" />
+                                                <Choice value="Privacy concerns: Possible sensitive information" />
+                                                <Choice value="Generating spam" />
+                                                <Choice value="Generating defamatory content" />
+                                                <Choice value="Output misrepresentation: disclaiming AI use" />
+                                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                                <Choice value="Discriminatory practices" />
+                                                <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                                <Choice value="Other" />
+                                            </Choices>
+                                        </View>
+                                    </Panel>
+                                </Collapse>
+                            </View>
+                        </Panel>
+                    </Collapse>
+                </View>
+            </Panel>
+        </Collapse>
+    </View>
 </View>
 """
 
 def get_input_file():
     """Let user choose their input file."""
-    data_dir = Path("data")
-    
-    # List all potential input files
-    data_files = list(data_dir.glob("*.json*"))  # Gets both .json and .jsonl files
+    # Use DATA_DIR instead of creating new Path
+    data_files = list(DATA_DIR.glob("*.json*"))
     
     if not data_files:
         print("❌ Error: No JSON/JSONL files found in data directory")
-        print(f"Please add your tasks file to: {data_dir}/")
+        print(f"Please add your tasks file to: {DATA_DIR}/")
         sys.exit(1)
     
     if len(data_files) == 1:
