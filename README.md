@@ -15,6 +15,7 @@ The setup ensures everyone has identical project configuration while maintaining
 ## Prerequisites
 
 - Python 3.x
+- Git (pre-installed on macOS, check version with `git --version`)
 - `make` command-line tool
   - **Linux/Mac**: Usually pre-installed
   - **Windows**: Install via [chocolatey](https://chocolatey.org/): `choco install make`
@@ -32,32 +33,33 @@ The setup ensures everyone has identical project configuration while maintaining
    make setup
    ```
 
-3. Add your data file:
+3. Start Label Studio and create your account:
+   ```bash
+   make ensure-label-studio
+   ```
+   - Visit http://localhost:8080
+   - Create an account
+   - Get your API key from Account & Settings > Access Token
+
+4. Add your data file:
    - Place your annotation tasks file in the `data/` directory
    - Supports both JSON and JSONL formats
    - File will be automatically converted and validated
 
-4. Create a new project:
+5. Create a new project:
    ```bash
    make create-project
    ```
    This will:
-   - Start Label Studio (if not running)
-   - Guide you through getting your API key (first time only)
    - List available data files for you to choose from
    - Validate your chosen file's format
    - Convert JSONL to JSON if needed
    - Create a new project with your data and the correct taxonomy structure
-   
-   Note: If your file format is invalid, the script will exit with an error message. See "Required JSON Format" below.
 
-5. Start Label Studio for regular use:
+6. For subsequent usage, just start Label Studio:
    ```bash
-   make run
+   make label-studio
    ```
-   - Visit http://localhost:8080
-   - Log in to your account
-   - Your projects will be available in your workspace
 
 ## Project Structure
 
@@ -83,12 +85,37 @@ The repository is organized as follows:
 
 ## Testing
 
-The project includes tests to ensure data format compatibility with Label Studio.
+### Setting Up a Test Environment
+To test with a fresh Label Studio installation:
+
+1. Stop Label Studio if running:
+   ```bash
+   make stop-label-studio
+   ```
+
+2. Backup existing database:
+   ```bash
+   mv label-studio.sqlite3 label-studio.sqlite3.backup
+   ```
+
+3. Start fresh and create new account:
+   ```bash
+   make ensure-label-studio
+   ```
+
+To restore previous account:
+```bash
+make stop-label-studio
+mv label-studio.sqlite3 label-studio.sqlite3.new
+mv label-studio.sqlite3.backup label-studio.sqlite3
+```
 
 ### Running Tests
-
 ```bash
-make test
+make test           # Run all tests
+make test-csv      # Run CSV tests only
+make test-json     # Run JSON tests only
+make test-jsonl    # Run JSONL tests only
 ```
 
 ### What's Tested
@@ -254,4 +281,27 @@ If you encounter issues:
 ## Acknowledgments
 
 This project uses [Label Studio](https://github.com/heartexlabs/label-studio), an open source data labeling tool. We're grateful to the Label Studio team for providing this excellent platform for annotation projects.
+
+## Contributing
+
+1. Make your changes to the relevant files
+2. Check status of changes:
+   ```bash
+   git status
+   ```
+
+3. Stage your changes:
+   ```bash
+   git add .
+   ```
+
+4. Commit your changes:
+   ```bash
+   git commit -m "your descriptive message"
+   ```
+
+5. Push your changes:
+   ```bash
+   git push origin main
+   ```
 
