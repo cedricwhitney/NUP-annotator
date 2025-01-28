@@ -24,6 +24,7 @@ wheels/
 
 # Data
 data/*
+!data/.gitkeep    # Keep the data directory itself
 
 # IDE files
 .idea/
