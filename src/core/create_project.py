@@ -98,7 +98,7 @@ LABEL_CONFIG = """
         <Collapse>
             <Panel value="Text-Level Labels">
                 <View>
-                    <Header value=""First, highlight text, then click the correct label, then click the highlighted text and select the corresponding dropdown." size="10"/>
+                    <Header value="First, highlight text, then click the correct label, then click the highlighted text and select the corresponding dropdown." size="10"/>
                     
                     <ParagraphLabels name="text_selection" toName="conversation">
                         <Label value="Prompt 1" background="#ffd700"/>
