@@ -2,7 +2,7 @@
 export VIRTUAL_ENV=$(shell pwd)/venv
 export PATH := $(VIRTUAL_ENV)/bin:$(PATH)
 
-.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl
+.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl refresh-data
 
 # Check Python installation
 check-python:
@@ -107,3 +107,12 @@ test-json:
 test-jsonl:
 	@echo "Running JSONL conversion tests..."
 	pytest tests/tools/test_jsonl_converter.py
+
+# List available data files
+refresh-data:
+	@echo "\n📁 Available files in data directory:"
+	@ls -1 data/*.json* 2>/dev/null || echo "No JSON/JSONL files found in data directory"
+	@echo "\nTo use a new file:"
+	@echo "1. Copy your file to the data/ directory"
+	@echo "2. Run 'make refresh-data' to verify it's detected"
+	@echo "3. Run 'make create-project' to create a new project with the file"
