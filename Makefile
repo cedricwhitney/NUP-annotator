@@ -41,8 +41,14 @@ ensure-label-studio:
 	@echo "Waiting for Label Studio to start up..."
 	@sleep 10
 	@echo "\n✅ Label Studio should now be running at http://localhost:8080"
-	@echo "If this is your first time, please create an account."
-	@echo "Then get your API key from Account & Settings > Access Token"
+	@echo "\nIf this is your first time:"
+	@echo "1. Create an account at http://localhost:8080"
+	@echo "2. Get your API key from Account & Settings > Access Token"
+	@echo "\nIf you're already logged in:"
+	@echo "1. Get your API key from Account & Settings > Access Token"
+	@echo "2. Run 'make create-project' to set up your labeling project"
+	@echo "\nTip: Set LABEL_STUDIO_API_KEY environment variable to skip the API key prompt:"
+	@echo "export LABEL_STUDIO_API_KEY=your_key_here"
 
 # Step 3: Create project (only needed once)
 create-project:
