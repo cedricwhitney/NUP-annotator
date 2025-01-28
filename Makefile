@@ -11,11 +11,16 @@ setup: check-python
 	python3 -m venv venv
 	. venv/bin/activate && pip install -U pip && pip install -r requirements.txt
 	@echo "✅ Setup complete!"
-	@echo "Available commands:"
-	@echo "  make create-project  - Create new Label Studio project (one-time setup)"
-	@echo "  make run            - Start Label Studio and access existing project"
-	@echo "  make convert        - Convert CSV files to JSON format"
-	@echo "  make test-converter - Run tests for the CSV to JSON converter"
+	@echo "\nFirst time setup:"
+	@echo "1. Run 'make ensure-label-studio' to start the server"
+	@echo "2. Create an account at http://localhost:8080"
+	@echo "3. Get your API key from Account & Settings > Access Token"
+	@echo "4. Run 'make create-project' to set up your labeling project"
+	@echo "\nSubsequent usage:"
+	@echo "- 'make label-studio'    - Quick start the server"
+	@echo "- 'make convert'         - Convert CSV files to JSON format"
+	@echo "- 'make test-converter'  - Run tests for the CSV to JSON converter"
+	@echo "- 'make stop-label-studio' - Stop the server"
 
 # Step 2: Start Label Studio
 label-studio:
