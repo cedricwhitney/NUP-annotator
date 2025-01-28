@@ -1,7 +1,7 @@
 import os
 import json
 import sys
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 def validate_and_fix_json(input_file: str, output_file: str = None) -> bool:
     """Validate and optionally fix JSON format for Label Studio.
@@ -47,11 +47,11 @@ def validate_and_fix_json(input_file: str, output_file: str = None) -> bool:
         print(f"❌ Error validating JSON: {e}")
         return False
 
-def fix_task(task: Dict[str, Any], index: int) -> tuple[Dict[str, Any], bool]:
+def fix_task(task: Dict[str, Any], index: int) -> Tuple[Dict[str, Any], bool]:
     """Fix a single task's format if possible.
     
     Returns:
-        tuple: (fixed_task, was_fixed) or (None, False) if unfixable
+        Tuple: (fixed_task, was_fixed) or (None, False) if unfixable
     """
     fixed = False
     
