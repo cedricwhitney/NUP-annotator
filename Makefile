@@ -17,7 +17,7 @@ setup: check-python
 	@echo "🚀 Setting up project..."
 	python3 -m venv venv
 	$(VIRTUAL_ENV)/bin/pip install -U pip wheel setuptools
-	$(VIRTUAL_ENV)/bin/pip install "psycopg[binary]"
+	$(VIRTUAL_ENV)/bin/pip install --only-binary psycopg2-binary psycopg2-binary==2.9.10
 	$(VIRTUAL_ENV)/bin/pip install label-studio
 	$(VIRTUAL_ENV)/bin/pip install label-studio-sdk
 	$(VIRTUAL_ENV)/bin/pip install pandas pytest pytest-mock black flake8
