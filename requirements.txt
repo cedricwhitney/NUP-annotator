@@ -9,4 +9,4 @@ pytest-mock>=3.10.0  # For mocking in tests
 
 # Development
 black>=22.0.0  # code formatting
-flake8>=4.0.0  # linting
+flake8>=4.0.0  # lintingpsycopg2-binary>=2.9.9
