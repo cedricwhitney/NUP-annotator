@@ -160,7 +160,7 @@ JSON Output:
 ```
 
 ## Core Features
-- Project creation and setup
+- Project setup and configuration
 - JSON validation
 - Label Studio integration
 
