@@ -13,9 +13,10 @@ check-python:
 setup: check-python
 	@echo "🚀 Setting up project..."
 	python3 -m venv venv
-	$(VIRTUAL_ENV)/bin/pip install -U pip
-	$(VIRTUAL_ENV)/bin/pip install --only-binary :all: psycopg2-binary
-	$(VIRTUAL_ENV)/bin/pip install -r requirements.txt
+	$(VIRTUAL_ENV)/bin/pip install -U pip wheel setuptools
+	$(VIRTUAL_ENV)/bin/pip install label-studio
+	$(VIRTUAL_ENV)/bin/pip install label-studio-sdk
+	$(VIRTUAL_ENV)/bin/pip install pandas pytest pytest-mock black flake8
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
 	@echo "1. Run 'make ensure-label-studio' to start the server"
