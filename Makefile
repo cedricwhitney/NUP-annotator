@@ -60,13 +60,14 @@ first-time-setup:
 # Step 3: Create project (only needed once)
 start-project:
 	@echo "Starting pre-configured Label Studio project..."
-	@echo "This will:"
-	@echo "1. List available data files"
-	@echo "2. Convert and validate your chosen file"
+	@echo "\n📁 Available annotation batches:"
+	@echo "You should have been assigned one of these batch numbers:"
+	@ls -1 data/batch_*.json | sed 's/.*batch_\([0-9]*\).json/Batch \1/' || echo "No batch files found"
+	@echo "\nThis will:"
+	@echo "1. Use your assigned batch file"
+	@echo "2. Convert and validate the file format"
 	@echo "3. Set up the project in Label Studio"
-	@echo "\n📁 Available files in data directory:"
-	@ls -1 data/*.json* 2>/dev/null || echo "No JSON/JSONL files found in data directory"
-	@echo "\nTip: You can add files during the process and use 'r' to refresh the list\n"
+	@echo "\nTip: Make sure to select batch_<YOUR_NUMBER>.json when prompted\n"
 	PYTHONPATH=. python src/core/start_project.py
 
 # Step 4: CSV Converter Tools
@@ -125,4 +126,4 @@ refresh-data:
 	@echo "\nTo use a new file:"
 	@echo "1. Copy your file to the data/ directory"
 	@echo "2. Run 'make refresh-data' to verify it's detected"
-	@echo "3. Run 'make create-project' to create a new project with the file"
+	@echo "3. Run 'make start-project' to create a new project with the file"
