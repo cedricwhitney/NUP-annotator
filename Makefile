@@ -17,6 +17,7 @@ setup: check-python
 	@echo "🚀 Setting up project..."
 	python3 -m venv venv
 	$(VIRTUAL_ENV)/bin/pip install -U pip wheel setuptools
+	$(VIRTUAL_ENV)/bin/pip install --only-binary :all: psycopg2-binary
 	$(VIRTUAL_ENV)/bin/pip install -r requirements.txt
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
