@@ -41,20 +41,16 @@ The setup ensures everyone has identical project configuration while maintaining
    - Create an account
    - Get your API key from Account & Settings > Access Token
 
-4. Add your data file:
-   - Place your annotation tasks file in the `data/` directory
-   - Supports both JSON and JSONL formats
-   - File will be automatically converted and validated
-
-5. Select your batch file:
+4. Select your batch file:
    - You will be assigned a batch number (1-12)
    - Each batch contains 20 unique conversations
    - The batch files are already in the `data/` directory
    - Run `make start-project` and select your assigned batch file
 
    Note: You can also add your own JSON/JSONL files to the `data/` directory if needed.
+   The system supports both formats and will automatically convert and validate them.
 
-6. Set up the pre-configured project:
+5. Set up the pre-configured project:
    ```bash
    make start-project
    ```
