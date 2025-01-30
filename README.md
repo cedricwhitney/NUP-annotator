@@ -46,20 +46,23 @@ The setup ensures everyone has identical project configuration while maintaining
    - Supports both JSON and JSONL formats
    - File will be automatically converted and validated
 
-5. Set up the pre-configured project:
+5. Select your batch file:
+   - You will be assigned a batch number (1-12)
+   - Each batch contains 20 unique conversations
+   - The batch files are already in the `data/` directory
+   - Run `make start-project` and select your assigned batch file
+
+   Note: You can also add your own JSON/JSONL files to the `data/` directory if needed.
+
+6. Set up the pre-configured project:
    ```bash
    make start-project
    ```
    This will:
-   - List available data files for you to choose from
-   - Validate your chosen file's format
-   - Convert JSONL to JSON if needed
-   - Set up a new project with your data and the correct taxonomy structure
-
-6. For subsequent usage, just start Label Studio:
-   ```bash
-   make label-studio
-   ```
+   - Show available batch files (batch_1.json through batch_12.json)
+   - Guide you to select your assigned batch
+   - Set up a new project with your batch's conversations
+   - Configure the correct taxonomy structure
 
 ## Project Structure
 
