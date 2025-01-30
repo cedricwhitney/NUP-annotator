@@ -1,6 +1,9 @@
 # Export venv activation to all commands
 export VIRTUAL_ENV=$(shell pwd)/venv
 export PATH := $(VIRTUAL_ENV)/bin:$(PATH)
+export LABEL_STUDIO_DATABASE_ENGINE=sqlite
+export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
+export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
 .PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl refresh-data
 
