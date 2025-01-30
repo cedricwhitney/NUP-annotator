@@ -20,7 +20,9 @@ def get_api_key():
         print("Please get your API key from Label Studio:")
         print("1. Visit http://localhost:8080")
         print("2. Go to Account & Settings > Access Token")
-        api_key = input("\nEnter your API key: ").strip()
+        print("\nNote: The terminal will keep scrolling with Label Studio logs.")
+        print("Don't worry - just paste your API key and press Enter!\n")
+        api_key = input("Enter your API key: ").strip()
         if not api_key:
             print("❌ Error: API key is required")
             sys.exit(1)
