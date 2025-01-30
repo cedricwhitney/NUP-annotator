@@ -22,9 +22,9 @@ wheels/
 .installed.cfg
 *.egg
 
-# Data
+# Data - ignore data files except batches
 data/*
-!data/.gitkeep    # Keep the data directory itself
+!data/batch_*.json
 
 # IDE files
 .idea/
