@@ -35,7 +35,7 @@ The setup ensures everyone has identical project configuration while maintaining
 
 3. Start Label Studio and create your account:
    ```bash
-   make ensure-label-studio
+   make first-time-setup
    ```
    - Visit http://localhost:8080
    - Create an account
@@ -46,15 +46,15 @@ The setup ensures everyone has identical project configuration while maintaining
    - Supports both JSON and JSONL formats
    - File will be automatically converted and validated
 
-5. Create a new project:
+5. Set up the pre-configured project:
    ```bash
-   make create-project
+   make start-project
    ```
    This will:
    - List available data files for you to choose from
    - Validate your chosen file's format
    - Convert JSONL to JSON if needed
-   - Create a new project with your data and the correct taxonomy structure
+   - Set up a new project with your data and the correct taxonomy structure
 
 6. For subsequent usage, just start Label Studio:
    ```bash
@@ -68,7 +68,7 @@ The repository is organized as follows:
     conversation_project/          # This is a directory structure diagram
     ├── src/
     │   ├── core/                 # Core functionality
-    │   │   ├── create_project.py     # Label Studio project setup
+    │   │   ├── start_project.py      # Label Studio project setup
     │   │   └── label_studio_integration.py
     │   └── tools/                # Utility tools
     │       ├── csv_to_labelstudio.py     # Convert CSV to Label Studio format
@@ -176,7 +176,7 @@ The project supports both JSON and JSONL formats:
 - JSON: Array of tasks in Label Studio format
 - JSONL: One task per line in Label Studio format
 
-When running `make create-project`:
+When running `make start-project`:
 1. All JSON/JSONL files in your data directory will be listed
 2. You'll be prompted to choose which file to use
 3. JSONL files are automatically converted to JSON
@@ -271,7 +271,7 @@ If you encounter issues:
 1. Ensure Python 3.x is installed: `python3 --version`
 2. Check if Label Studio is running: http://localhost:8080
 3. Try stopping and restarting Label Studio: `make stop-label-studio && make run`
-4. If project is missing: Run `make create-project` to set up the project structure
+4. If project is missing: Run `make start-project` to set up the project structure
 5. If JSON import fails: Run `make validate-json` to check your data format
 6. API key issues:
    - Your API key is specific to your Label Studio installation

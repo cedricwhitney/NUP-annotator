@@ -21,10 +21,10 @@ setup: check-python
 	$(VIRTUAL_ENV)/bin/pip install -r requirements.txt
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
-	@echo "1. Run 'make ensure-label-studio' to start the server"
+	@echo "1. Run 'make first-time-setup' to start the server"
 	@echo "2. Create an account at http://localhost:8080"
 	@echo "3. Get your API key from Account & Settings > Access Token"
-	@echo "4. Run 'make create-project' to set up your labeling project"
+	@echo "4. Run 'make start-project' to set up your labeling project"
 	@echo "\nSubsequent usage:"
 	@echo "- 'make label-studio'    - Quick start the server"
 	@echo "- 'make convert'         - Convert CSV files to JSON format"
@@ -38,8 +38,8 @@ label-studio:
 	@echo "Waiting for Label Studio to start up..."
 	@sleep 10  # Give Label Studio time to start
 
-# Ensure Label Studio is running and get API key if needed
-ensure-label-studio:
+# First time setup and configuration
+first-time-setup:
 	@echo "Starting Label Studio..."
 	label-studio start &
 	@echo "Waiting for Label Studio to start up..."
@@ -48,20 +48,26 @@ ensure-label-studio:
 	@echo "\nIf this is your first time:"
 	@echo "1. Create an account at http://localhost:8080"
 	@echo "2. Get your API key from Account & Settings > Access Token"
+	@echo "3. Copy your API key - you'll need it in the next step!"
+	@echo "4. Run 'make start-project' to set up the pre-configured labeling project"
 	@echo "\nIf you're already logged in:"
 	@echo "1. Get your API key from Account & Settings > Access Token"
-	@echo "2. Run 'make create-project' to set up your labeling project"
+	@echo "2. Copy your API key - you'll need it in the next step!"
+	@echo "3. Run 'make start-project' to set up the pre-configured labeling project"
 	@echo "\nTip: Set LABEL_STUDIO_API_KEY environment variable to skip the API key prompt:"
 	@echo "export LABEL_STUDIO_API_KEY=your_key_here"
 
 # Step 3: Create project (only needed once)
-create-project:
-	@echo "Creating Label Studio project..."
+start-project:
+	@echo "Starting pre-configured Label Studio project..."
 	@echo "This will:"
 	@echo "1. List available data files"
 	@echo "2. Convert and validate your chosen file"
 	@echo "3. Set up the project in Label Studio"
-	PYTHONPATH=. python src/core/create_project.py
+	@echo "\n📁 Available files in data directory:"
+	@ls -1 data/*.json* 2>/dev/null || echo "No JSON/JSONL files found in data directory"
+	@echo "\nTip: You can add files during the process and use 'r' to refresh the list\n"
+	PYTHONPATH=. python src/core/start_project.py
 
 # Step 4: CSV Converter Tools
 convert:

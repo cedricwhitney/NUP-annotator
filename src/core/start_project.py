@@ -615,35 +615,53 @@ LABEL_CONFIG = """
 
 def get_input_file():
     """Let user choose their input file."""
-    # Use DATA_DIR instead of creating new Path
-    data_files = list(DATA_DIR.glob("*.json*"))
-    
-    if not data_files:
-        print("❌ Error: No JSON/JSONL files found in data directory")
-        print(f"Please add your tasks file to: {DATA_DIR}/")
-        sys.exit(1)
-    
-    if len(data_files) == 1:
-        chosen_file = data_files[0]
-        print(f"📁 Found file: {chosen_file}")
-    else:
-        print("\n📁 Multiple files found. Please choose one:")
-        for i, file in enumerate(data_files, 1):
-            print(f"{i}. {file}")
+    while True:
+        # Use DATA_DIR instead of creating new Path
+        data_files = list(DATA_DIR.glob("*.json*"))
         
-        while True:
+        if not data_files:
+            print("\n❌ No JSON/JSONL files found in data directory")
+            print(f"Please add your tasks file to: {DATA_DIR}/")
+            choice = input("\nPress 'r' to refresh after adding your file, or 'q' to quit: ").strip().lower()
+            if choice == 'q':
+                sys.exit(1)
+            elif choice == 'r':
+                continue
+            else:
+                print("Invalid choice. Please press 'r' to refresh or 'q' to quit.")
+                continue
+        
+        if len(data_files) == 1:
+            chosen_file = data_files[0]
+            print(f"📁 Found file: {chosen_file}")
+        else:
+            print("\n📁 Available files:")
+            for i, file in enumerate(data_files, 1):
+                print(f"{i}. {file}")
+            print("\nOptions:")
+            print("- Enter a number to select a file")
+            print("- Press 'r' to refresh the list")
+            print("- Press 'q' to quit")
+            
+            choice = input("\nYour choice: ").strip().lower()
+            if choice == 'q':
+                sys.exit(1)
+            elif choice == 'r':
+                continue
+            
             try:
-                choice = input("\nEnter the number of the file to use: ").strip()
                 file_index = int(choice) - 1
                 if 0 <= file_index < len(data_files):
                     chosen_file = data_files[file_index]
                     break
                 else:
                     print("❌ Invalid choice. Please enter a number from the list.")
+                    continue
             except ValueError:
-                print("❌ Please enter a valid number.")
-    
-    return chosen_file
+                print("❌ Invalid input. Please enter a number, 'r' to refresh, or 'q' to quit.")
+                continue
+        
+        return chosen_file
 
 def prepare_tasks_file():
     """Prepare the tasks file for Label Studio."""
@@ -665,7 +683,8 @@ def prepare_tasks_file():
     
     return str(input_file)
 
-def main():
+def start_project():
+    """Start a new Label Studio project with pre-configured settings."""
     api_key = get_api_key()
     
     # Initialize Label Studio client
@@ -699,4 +718,4 @@ def main():
         raise
 
 if __name__ == "__main__":
-    main()
+    start_project()
