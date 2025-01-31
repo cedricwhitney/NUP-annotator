@@ -42,7 +42,7 @@ The setup ensures everyone has identical project configuration while maintaining
    - Get your API key from Account & Settings > Access Token
 
 4. Select your batch file:
-   - You will be assigned a batch number (1-12)
+   - Your name is next to the batch file you will be working on
    - Each batch contains 20 unique conversations
    - The batch files are already in the `data/` directory
    - Run `make start-project` and select your assigned batch file
