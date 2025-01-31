@@ -617,8 +617,23 @@ LABEL_CONFIG = """
 
 def get_input_file():
     """Let user choose their input file."""
+    # Define batch assignments
+    BATCH_ASSIGNMENTS = {
+        'batch_1.json': 'Ahmet',
+        'batch_2.json': 'Anka',
+        'batch_3.json': 'Cedric',
+        'batch_4.json': 'Dayeon',
+        'batch_5.json': 'Megan',
+        'batch_6.json': 'Niloofar',
+        'batch_7.json': 'Shayne',
+        'batch_8.json': 'Victor',
+        'batch_9.json': 'Wenting',
+        'batch_10.json': 'Yuntian',
+        'batch_11.json': 'Zhiping',
+        'batch_12.json': 'Advisor'
+    }
+
     while True:
-        # Use DATA_DIR instead of creating new Path
         data_files = list(DATA_DIR.glob("*.json*"))
         
         if not data_files:
@@ -633,37 +648,38 @@ def get_input_file():
                 print("Invalid choice. Please press 'r' to refresh or 'q' to quit.")
                 continue
         
-        if len(data_files) == 1:
-            chosen_file = data_files[0]
-            print(f"📁 Found file: {chosen_file}")
-        else:
-            print("\n📁 Available files:")
-            for i, file in enumerate(data_files, 1):
-                print(f"{i}. {file}")
-            print("\nOptions:")
-            print("- Enter a number to select a file")
-            print("- Press 'r' to refresh the list")
-            print("- Press 'q' to quit")
-            
-            choice = input("\nYour choice: ").strip().lower()
-            if choice == 'q':
-                sys.exit(1)
-            elif choice == 'r':
-                continue
-            
-            try:
-                file_index = int(choice) - 1
-                if 0 <= file_index < len(data_files):
-                    chosen_file = data_files[file_index]
-                    break
-                else:
-                    print("❌ Invalid choice. Please enter a number from the list.")
-                    continue
-            except ValueError:
-                print("❌ Invalid input. Please enter a number, 'r' to refresh, or 'q' to quit.")
-                continue
+        print("\n📁 Available files:")
+        for i, file in enumerate(data_files, 1):
+            filename = file.name
+            assignee = BATCH_ASSIGNMENTS.get(filename, '')
+            # Add the assignee in parentheses if it exists
+            display_name = f"{filename} ({assignee})" if assignee else filename
+            print(f"{i}. {display_name}")
         
-        return chosen_file
+        print("\nOptions:")
+        print("- Enter a number to select a file")
+        print("- Press 'r' to refresh the list")
+        print("- Press 'q' to quit")
+        
+        choice = input("\nYour choice: ").strip().lower()
+        if choice == 'q':
+            sys.exit(1)
+        elif choice == 'r':
+            continue
+        
+        try:
+            file_index = int(choice) - 1
+            if 0 <= file_index < len(data_files):
+                chosen_file = data_files[file_index]
+                break
+            else:
+                print("❌ Invalid choice. Please enter a number from the list.")
+                continue
+        except ValueError:
+            print("❌ Invalid input. Please enter a number, 'r' to refresh, or 'q' to quit.")
+            continue
+    
+    return chosen_file
 
 def prepare_tasks_file():
     """Prepare the tasks file for Label Studio."""

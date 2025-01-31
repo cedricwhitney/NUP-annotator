@@ -61,13 +61,23 @@ first-time-setup:
 start-project:
 	@echo "Starting pre-configured Label Studio project..."
 	@echo "\n📁 Available annotation batches:"
-	@echo "You should have been assigned one of these batch numbers:"
-	@ls -1 data/batch_*.json | sed 's/.*batch_\([0-9]*\).json/Batch \1/' || echo "No batch files found"
+	@echo "Batch 1 (Ahmet)"
+	@echo "Batch 2 (Anka)"
+	@echo "Batch 3 (Cedric)"
+	@echo "Batch 4 (Dayeon)"
+	@echo "Batch 5 (Megan)"
+	@echo "Batch 6 (Niloofar)"
+	@echo "Batch 7 (Shayne)"
+	@echo "Batch 8 (Victor)"
+	@echo "Batch 9 (Wenting)"
+	@echo "Batch 10 (Yuntian)"
+	@echo "Batch 11 (Zhiping)"
+	@echo "Batch 12 (Advisor)"
 	@echo "\nThis will:"
 	@echo "1. Use your assigned batch file"
 	@echo "2. Convert and validate the file format"
 	@echo "3. Set up the project in Label Studio"
-	@echo "\nTip: Make sure to select batch_<YOUR_NUMBER>.json when prompted\n"
+	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
 	PYTHONPATH=. python src/core/start_project.py
 
 # Step 4: CSV Converter Tools
