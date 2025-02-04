@@ -57,6 +57,48 @@ LABEL_CONFIG = """
                     </Collapse>
                     
                     <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_1" toName="topic_1" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_1" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
+                                <Choice value="Other" />
+                            </Choices>
+                        </Panel>
+                    </Collapse>
+
+                    <Collapse>
                         <Panel value="Function/Purpose">
                             <Filter name="filter_function_1" toName="function_purpose_1" minlength="0" placeholder="Filter functions..."/>
                             <Choices name="function_purpose_1" toName="conversation" choice="multiple">
@@ -196,6 +238,48 @@ LABEL_CONFIG = """
                     </Collapse>
 
                     <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_response_1" toName="topic_response_1" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_response_1" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
+                                <Choice value="Other" />
+                            </Choices>
+                        </Panel>
+                    </Collapse>
+
+                    <Collapse>
                         <Panel value="Restricted Flags">
                             <Filter name="filter_flags_response_1" toName="restricted_flags_response_1" minlength="0" placeholder="Filter flags..."/>
                         <Choices name="restricted_flags_response_1" toName="conversation" choice="multiple">
@@ -246,6 +330,48 @@ LABEL_CONFIG = """
                                 <Choice value="Other" />
                             </Choices>
                         </Panel>    
+                    </Collapse>
+
+                    <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_2" toName="topic_2" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_2" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
+                                <Choice value="Other" />
+                            </Choices>
+                        </Panel>
                     </Collapse>
 
                     <Collapse>
@@ -388,6 +514,48 @@ LABEL_CONFIG = """
                     </Collapse>
 
                     <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_response_2" toName="topic_response_2" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_response_2" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
+                                <Choice value="Other" />
+                            </Choices>
+                        </Panel>
+                    </Collapse>
+
+                    <Collapse>
                         <Panel value="Restricted Flags">
                             <Filter name="filter_flags_response_2" toName="restricted_flags_response_2" minlength="0" placeholder="Filter flags..."/>
                             <Choices name="restricted_flags_response_2" toName="conversation" choice="multiple">
@@ -435,6 +603,48 @@ LABEL_CONFIG = """
                                 <Choice value="Images" />
                                 <Choice value="Audio" />
                                 <Choice value="URLs" />
+                                <Choice value="Other" />
+                            </Choices>
+                        </Panel>
+                    </Collapse>
+
+                    <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_3" toName="topic_3" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_3" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
                                 <Choice value="Other" />
                             </Choices>
                         </Panel>
@@ -575,6 +785,48 @@ LABEL_CONFIG = """
                             <Choices name="self_disclosure_3" toName="conversation" choice="single">
                                 <Choice value="Yes" />
                                 <Choice value="No" />
+                            </Choices>
+                        </Panel>
+                    </Collapse>
+
+                    <Collapse>
+                        <Panel value="Topic">
+                            <Filter name="filter_topic_response_3" toName="topic_response_3" minlength="0" placeholder="Filter topics..."/>
+                            <Choices name="topic_response_3" toName="conversation" choice="multiple">
+                                <Choice value="Math &amp; Sciences" />
+                                <Choice value="History" />
+                                <Choice value="Geography" />
+                                <Choice value="Religion &amp; Spirituality" />
+                                <Choice value="Literature &amp; Writing" />
+                                <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                <Choice value="Linguistics &amp; Languages" />
+                                <Choice value="Technology, Software &amp; Computing" />
+                                <Choice value="Engineering &amp; Infrastructure" />
+                                <Choice value="Nature &amp; Environment" />
+                                <Choice value="Transportation" />
+                                <Choice value="Travel &amp; Tourism" />
+                                <Choice value="Lifestyle" />
+                                <Choice value="Food &amp; Dining" />
+                                <Choice value="Art &amp; Design" />
+                                <Choice value="Fashion &amp; Beauty" />
+                                <Choice value="Culture" />
+                                <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                <Choice value="Sports" />
+                                <Choice value="Social Issues &amp; Movements" />
+                                <Choice value="Economics" />
+                                <Choice value="Health &amp; Medicine" />
+                                <Choice value="Business &amp; Finances" />
+                                <Choice value="Employment &amp; Hiring" />
+                                <Choice value="Education" />
+                                <Choice value="News &amp; Current Affairs" />
+                                <Choice value="Interpersonal Relationships &amp; Communication" />
+                                <Choice value="Adult &amp; Illicit Content" />
+                                <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                <Choice value="Politics &amp; Elections" />
+                                <Choice value="Insurance &amp; social scoring" />
+                                <Choice value="Housing" />
+                                <Choice value="Immigration / migration" />
+                                <Choice value="Other" />
                             </Choices>
                         </Panel>
                     </Collapse>
