@@ -60,6 +60,39 @@ The setup ensures everyone has identical project configuration while maintaining
    - Set up a new project with your batch's conversations
    - Configure the correct taxonomy structure
 
+## Annotation Export & Sharing
+
+To save and share your annotations with other annotators:
+
+1. Make sure you've submitted your annotations in Label Studio
+   - Click the "Submit" button after each annotation, and "Update" if you've made changes
+
+2. Export your annotations:
+   ```bash
+   make export-data
+   ```
+
+   The first time you run this, you'll need your Label Studio API key:
+   - Visit http://localhost:8080
+   - Go to Account & Settings > Access Token
+   - Copy your API key
+   - Optional: Set it as an environment variable to skip the prompt next time:
+     ```bash
+     export LABEL_STUDIO_API_KEY=your_key_here
+     ```
+
+3. When prompted, type 'y' to share your annotations with other annotators
+
+Your annotations will be:
+- Saved in `annotator_exports/[your_git_username]_annotations.json`
+- Automatically shared with other annotators via GitHub
+- Preserved with full history of all your exports
+
+To get updates from other annotators:
+```bash
+git pull origin main
+```
+
 ## Project Structure
 
 The repository is organized as follows:

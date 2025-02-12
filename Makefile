@@ -1,11 +1,15 @@
+# Define base paths without spaces
+VENV_DIR := $(shell pwd)/venv
+BIN_DIR := $(VENV_DIR)/bin
+
 # Export venv activation to all commands
-export VIRTUAL_ENV=$(shell pwd)/venv
-export PATH := $(VIRTUAL_ENV)/bin:$(PATH)
+export VIRTUAL_ENV=$(VENV_DIR)
+export PATH := $(BIN_DIR):$(PATH)
 export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
-.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl refresh-data
+.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl refresh-data export-data
 
 # Check Python installation
 check-python:
@@ -16,9 +20,9 @@ check-python:
 setup: check-python
 	@echo "🚀 Setting up project..."
 	python3 -m venv venv
-	$(VIRTUAL_ENV)/bin/pip install -U pip wheel setuptools
-	$(VIRTUAL_ENV)/bin/pip install --only-binary :all: psycopg2-binary
-	$(VIRTUAL_ENV)/bin/pip install -r requirements.txt
+	$(BIN_DIR)/pip install -U pip wheel setuptools
+	$(BIN_DIR)/pip install --only-binary :all: psycopg2-binary
+	$(BIN_DIR)/pip install -r requirements.txt
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
 	@echo "1. Run 'make first-time-setup' to start the server"
@@ -137,3 +141,44 @@ refresh-data:
 	@echo "1. Copy your file to the data/ directory"
 	@echo "2. Run 'make refresh-data' to verify it's detected"
 	@echo "3. Run 'make start-project' to create a new project with the file"
+
+# Export Label Studio data
+export-data:
+	@if [ -z "$$LABEL_STUDIO_API_KEY" ]; then \
+		echo "\n🔑 No API key found in environment."; \
+		echo "Please get your API key from Label Studio:"; \
+		echo "1. Visit http://localhost:8080"; \
+		echo "2. Go to Account & Settings > Access Token"; \
+		echo "\nTip: Set LABEL_STUDIO_API_KEY environment variable to skip this prompt:"; \
+		echo "export LABEL_STUDIO_API_KEY=your_key_here\n"; \
+		read -p "Enter your API key: " api_key; \
+		LABEL_STUDIO_API_KEY=$$api_key PYTHONPATH=. python src/tools/export_labelstudio.py; \
+	else \
+		PYTHONPATH=. python src/tools/export_labelstudio.py; \
+	fi
+	@echo "\n📁 Checking for changes in your annotations..."
+	@if git diff --quiet annotator_exports/; then \
+		echo "✨ No new changes found since your last export"; \
+		echo "💡 Tip: If you've made new annotations, make sure you've submitted them in Label Studio!"; \
+		exit 0; \
+	fi
+	@echo "✨ New changes detected in your annotations"
+	@echo "\n💭 Would you like to share these updates with other annotators?"
+	@echo "   • Your new annotations will be saved to GitHub"
+	@echo "   • Your previous annotations will be preserved"
+	@echo "   • Other annotators will be able to see your work\n"
+	@read -p "Share your annotations? [y/N] " answer; \
+	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
+		echo "\n🔄 Saving your annotations..."; \
+		git add annotator_exports/; \
+		git commit -m "Update annotations"; \
+		echo "\n🔄 Getting latest updates from other annotators..."; \
+		git pull origin main; \
+		echo "\n🚀 Sharing your work..."; \
+		git push origin main; \
+		echo "\n✅ Success! Your annotations have been shared."; \
+	else \
+		echo "\n💡 Your annotations were exported but not shared."; \
+		echo "   To share them later, run:"; \
+		echo "   make export-data"; \
+	fi
