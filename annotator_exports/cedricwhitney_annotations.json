@@ -1,7 +1,7 @@
 {
   "metadata": {
     "annotator": "cedricwhitney",
-    "last_export": "2025-02-11T23:25:52.640336",
+    "last_export": "2025-02-11T23:33:03.545452",
     "projects": [
       {
         "project_id": 21,
@@ -152,6 +152,158 @@
       "created_at": "2025-01-31T22:02:01.934518Z",
       "updated_at": "2025-02-12T07:25:44.331224Z",
       "inner_id": 2,
+      "total_annotations": 1,
+      "cancelled_annotations": 0,
+      "total_predictions": 0,
+      "comment_count": 0,
+      "unresolved_comment_count": 0,
+      "last_comment_updated_at": null,
+      "project": 21,
+      "updated_by": 1,
+      "comment_authors": []
+    },
+    {
+      "id": 123,
+      "annotations": [
+        {
+          "id": 5,
+          "completed_by": 1,
+          "result": [
+            {
+              "value": {
+                "choices": [
+                  "Natural language"
+                ]
+              },
+              "id": "96Fsb3ayXy",
+              "from_name": "media_format_1",
+              "to_name": "conversation",
+              "type": "choices",
+              "origin": "manual"
+            }
+          ],
+          "was_cancelled": false,
+          "ground_truth": false,
+          "created_at": "2025-02-12T07:28:03.340411Z",
+          "updated_at": "2025-02-12T07:28:03.340430Z",
+          "draft_created_at": null,
+          "lead_time": 4.038,
+          "prediction": {},
+          "result_count": 1,
+          "unique_id": "1f48a368-508a-49bf-a415-2f0d75009c21",
+          "import_id": null,
+          "last_action": null,
+          "task": 123,
+          "project": 21,
+          "updated_by": 1,
+          "parent_prediction": null,
+          "parent_annotation": null,
+          "last_created_by": null
+        }
+      ],
+      "file_upload": "a4c8d051-batch_3.json",
+      "drafts": [],
+      "predictions": [],
+      "data": {
+        "conversation": [
+          {
+            "role": "user",
+            "turn": 0,
+            "text": "\n                            As a prompt generator for a generative AI called \"Midjourney\", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.\n                            \n                            Please adhere to the structure and formatting below, and follow these guidelines:\n                            \n                            Do not use the words \"description\" or \":\" in any form.\n                            Do not place a comma between [ar] and [v].\n                            Write each prompt in one line without using return.\n                            Structure:\n                            [1] = \u4e00\u6761\u767d\u9f99\u548c\u4e00\u4e2a\u5973\u5b69\u5728\u4e00\u8d77 \u5f69\u8272 \u4e3b\u4f53\u662f\u4eba\u548c\u9f99 \u80cc\u666f\u5c11\u4e00\u4e9b\n                            [2] = a detailed description of [1] with specific imagery details.\n                            [3] = a detailed description of the scene's environment.\n                            [4] = a detailed description of the compositions.\n                            [5] = a detailed description of the scene's mood, feelings, and atmosphere.\n                            [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].\n                            [7] =  a detailed description of the scene's mood, feelings, and atmosphere.\n                            [ar] = Use \"--ar 16:9\" for horizontal images, \"--ar 9:16\" for vertical images, or \"--ar 1:1\" for square images.\n                            [v] = Use \"--niji\" for Japanese art style, or \"--v 5\" for other styles.\n                            \n                            \n                            Formatting:\n                            Follow this prompt structure: \"/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]\".\n                            \n                            Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.\n                            \n                            Write your prompts in english.\n                            Do not describe unreal concepts as \"real\" or \"photographic\".\n                            Include one realistic photographic style prompt with lens type and size.\n                            Separate different prompts with two new lines.\n                            Example Prompts:\n                            \n                            /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2\n                            /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2\n                            /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5\n                                                        "
+          },
+          {
+            "role": "assistant",
+            "turn": 1,
+            "text": "/imagine prompt: a radiant white dragon and a young girl entwined in a strong bond, their eyes beaming with trust and friendship, the girl with long flowing hair and a glowing dress, the dragon with majestic scales and a wise expression, standing against a backdrop of lush green mountains and a cascading waterfall, the sun casting a warm golden glow, capturing their magical connection and harmony, a moment frozen in time, realized through a vibrant and textured painting style, reminiscent of the works of Kay Nielsen. --ar 16:9 --v 5.2\n\n/imagine prompt: an ancient white dragon, aged and wise, curled protectively around a small girl with innocent eyes and a determined expression, the dragon's scales worn and weathered, showcasing a bond forged over time, situated in an expansive cave adorned with mysterious crystals, the glow illuminating their surroundings in a soft ethereal light, the air filled with a sense of tranquility and ancient wisdom, captured through a digital artwork style, utilizing intricate details and delicate brushstrokes. --ar 16:9 --v 5\n\n/imagine prompt: a young girl of royal lineage, adorned in an elegant gown, standing gracefully beside an ethereal white dragon, their silhouettes contrasting against a backdrop of a starry night sky, twinkling with constellations and cosmic wonders, the moon softly illuminating their majestic presence, their expressions resolute and full of determination, encapsulating a tale of destiny and mythical allure, realized through a breathtaking sculpture, capturing the minute details and intricate textures of their forms. --ar 9:16 --v 5.2\n\n/imagine prompt: a spirited girl with vibrant red hair and a white dragon, their bodies intertwined in mid-flight, soaring through the clouds with exhilaration, their joyous laughter echoing in the wind, the backdrop a vast sky colored with hues of pink, purple, and blue, the air alive with a sense of freedom and adventure, the scene captured in a whimsical and playful illustration style, with energetic brushstrokes and a vibrant color palette, evoking a sense of enchantment and youthful exuberance. --ar 16:9 --v 5"
+          }
+        ]
+      },
+      "meta": {},
+      "created_at": "2025-01-31T22:02:01.934586Z",
+      "updated_at": "2025-02-12T07:28:03.363754Z",
+      "inner_id": 3,
+      "total_annotations": 1,
+      "cancelled_annotations": 0,
+      "total_predictions": 0,
+      "comment_count": 0,
+      "unresolved_comment_count": 0,
+      "last_comment_updated_at": null,
+      "project": 21,
+      "updated_by": 1,
+      "comment_authors": []
+    },
+    {
+      "id": 124,
+      "annotations": [
+        {
+          "id": 6,
+          "completed_by": 1,
+          "result": [
+            {
+              "value": {
+                "choices": [
+                  "Natural language"
+                ]
+              },
+              "id": "dP8u7j5dhi",
+              "from_name": "media_format_response_1",
+              "to_name": "conversation",
+              "type": "choices",
+              "origin": "manual"
+            },
+            {
+              "value": {
+                "choices": [
+                  "Natural language"
+                ]
+              },
+              "id": "_CHHoQsdz8",
+              "from_name": "media_format_2",
+              "to_name": "conversation",
+              "type": "choices",
+              "origin": "manual"
+            }
+          ],
+          "was_cancelled": false,
+          "ground_truth": false,
+          "created_at": "2025-02-12T07:32:29.453175Z",
+          "updated_at": "2025-02-12T07:32:47.739671Z",
+          "draft_created_at": null,
+          "lead_time": 21.314999999999998,
+          "prediction": {},
+          "result_count": 2,
+          "unique_id": "761230e0-1623-4943-a2a9-7d88acd36d74",
+          "import_id": null,
+          "last_action": null,
+          "task": 124,
+          "project": 21,
+          "updated_by": 1,
+          "parent_prediction": null,
+          "parent_annotation": null,
+          "last_created_by": null
+        }
+      ],
+      "file_upload": "a4c8d051-batch_3.json",
+      "drafts": [],
+      "predictions": [],
+      "data": {
+        "conversation": [
+          {
+            "role": "user",
+            "turn": 0,
+            "text": "\u8bf7\u4e3a\u6211\u63a8\u8350\u4e00\u4e2a\u8bba\u9898\u5e76\u5217\u51fa\u5927\u7eb2\uff0c\u4e3b\u9898\u662f\u201c\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u201d\u8981\u6c42\u7ed3\u5408\u5f53\u4eca\u793e\u4f1a\u65b0\u5174\u70ed\u70b9\uff0c\u9009\u62e9\u4e00\u79cd\u65b0\u5174\u80fd\u6e90\uff0c\u8bba\u8ff0\u5176\u4e3b\u8981\u7279\u70b9\uff0c\u4f7f\u7528\u73b0\u72b6\uff0c\u5b58\u5728\u7684\u95ee\u9898\uff0c\u53d1\u5c55\u524d\u666f\u7b49\uff0c\u903b\u8f91\u6e05\u6670\uff0c\u8109\u7edc\u5206\u660e\u3002"
+          },
+          {
+            "role": "assistant",
+            "turn": 1,
+            "text": "\u8bba\u9898\uff1a\u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u4e2d\u7684\u5e94\u7528\n\n\u5927\u7eb2\uff1a\n\nI. \u5f15\u8a00\n   A. \u80cc\u666f\u4ecb\u7ecd\uff1a\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u7684\u91cd\u8981\u6027\n   B. \u5f15\u51fa\u4e3b\u9898\uff1a\u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u4e2d\u7684\u6f5c\u529b\n\nII. \u65e0\u4eba\u673a\u6280\u672f\u7684\u4e3b\u8981\u7279\u70b9\n   A. \u5b9a\u4e49\u65e0\u4eba\u673a\u6280\u672f\n   B. \u65e0\u4eba\u673a\u6280\u672f\u7684\u4f18\u52bf\uff1a\u7075\u6d3b\u6027\u3001\u9ad8\u6548\u6027\u3001\u8fdc\u7a0b\u64cd\u4f5c\u7b49\n   C. \u65e0\u4eba\u673a\u6280\u672f\u7684\u5e94\u7528\u9886\u57df\uff1a\u80fd\u6e90\u3001\u73af\u5883\u4fdd\u62a4\u7b49\n\nIII. \u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u9886\u57df\u7684\u4f7f\u7528\u73b0\u72b6\n   A. \u65e0\u4eba\u673a\u5728\u98ce\u80fd\u53d1\u7535\u4e2d\u7684\u5e94\u7528\n   B. \u65e0\u4eba\u673a\u5728\u592a\u9633\u80fd\u53d1\u7535\u4e2d\u7684\u5e94\u7528\n   C. \u65e0\u4eba\u673a\u5728\u5730\u70ed\u80fd\u53d1\u7535\u4e2d\u7684\u5e94\u7528\n   D. \u65e0\u4eba\u673a\u5728\u6c34\u529b\u80fd\u6e90\u4e2d\u7684\u5e94\u7528\n\nIV. \u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u9886\u57df\u5b58\u5728\u7684\u95ee\u9898\n   A. \u6280\u672f\u6311\u6218\uff1a\u98de\u884c\u65f6\u95f4\u3001\u8d1f\u8f7d\u80fd\u529b\u7b49\n   B. \u6cd5\u5f8b\u6cd5\u89c4\u9650\u5236\uff1a\u98de\u884c\u8bb8\u53ef\u3001\u9690\u79c1\u4fdd\u62a4\u7b49\n   C. \u5b89\u5168\u98ce\u9669\uff1a\u6570\u636e\u4fdd\u62a4\u3001\u8bbe\u5907\u6545\u969c\u7b49\n\nV. \u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u7684\u672a\u6765\u53d1\u5c55\u524d\u666f\n   A. \u6280\u672f\u521b\u65b0\uff1a\u5ef6\u957f\u98de\u884c\u65f6\u95f4\u3001\u63d0\u9ad8\u8d1f\u8f7d\u80fd\u529b\u7b49\n   B. \u6cd5\u5f8b\u6cd5\u89c4\u9002\u5e94\uff1a\u5236\u5b9a\u65e0\u4eba\u673a\u5e94\u7528\u6807\u51c6\u3001\u9690\u79c1\u4fdd\u62a4\u653f\u7b56\u7b49\n   C. \u53ef\u6301\u7eed\u53d1\u5c55\uff1a\u51cf\u5c11\u80fd\u6e90\u6d88\u8017\u3001\u964d\u4f4e\u73af\u5883\u6c61\u67d3\u7b49\n\nVI. \u7ed3\u8bba\n   A. \u603b\u7ed3\u8bba\u70b9\uff1a\u65e0\u4eba\u673a\u6280\u672f\u5728\u80fd\u6e90\u4e0e\u7eff\u8272\u793e\u4f1a\u4e2d\u7684\u5e94\u7528\u524d\u666f\u5e7f\u9614\n   B. \u7ed3\u675f\u8bed\uff1a\u547c\u5401\u793e\u4f1a\u5404\u754c\u52a0\u5f3a\u5bf9\u65e0\u4eba\u673a\u6280\u672f\u7684\u7814\u53d1\u4e0e\u5e94\u7528\n\n\u8bf7\u6ce8\u610f\uff0c\u4ee5\u4e0a\u5927\u7eb2\u4ec5\u4f9b\u53c2\u8003\uff0c\u5177\u4f53\u5185\u5bb9\u548c\u8bba\u8bc1\u7ec6\u8282\u9700\u8981\u6839\u636e\u4f60\u7684\u5b9e\u9645\u7814\u7a76\u548c\u6240\u9009\u7684\u65b0\u5174\u80fd\u6e90\u8fdb\u884c\u8c03\u6574\u548c\u5c55\u5f00\u3002"
+          }
+        ]
+      },
+      "meta": {},
+      "created_at": "2025-01-31T22:02:01.934636Z",
+      "updated_at": "2025-02-12T07:32:47.763102Z",
+      "inner_id": 4,
       "total_annotations": 1,
       "cancelled_annotations": 0,
       "total_predictions": 0,
