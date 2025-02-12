@@ -1,7 +1,7 @@
 {
   "metadata": {
     "annotator": "cedricwhitney",
-    "last_export": "2025-02-11T23:24:55.054636",
+    "last_export": "2025-02-11T23:25:52.640336",
     "projects": [
       {
         "project_id": 21,
@@ -82,6 +82,76 @@
       "created_at": "2025-01-31T22:02:01.934452Z",
       "updated_at": "2025-02-04T03:58:46.076831Z",
       "inner_id": 1,
+      "total_annotations": 1,
+      "cancelled_annotations": 0,
+      "total_predictions": 0,
+      "comment_count": 0,
+      "unresolved_comment_count": 0,
+      "last_comment_updated_at": null,
+      "project": 21,
+      "updated_by": 1,
+      "comment_authors": []
+    },
+    {
+      "id": 122,
+      "annotations": [
+        {
+          "id": 4,
+          "completed_by": 1,
+          "result": [
+            {
+              "value": {
+                "choices": [
+                  "Natural language"
+                ]
+              },
+              "id": "YFgBTTT1uP",
+              "from_name": "media_format_1",
+              "to_name": "conversation",
+              "type": "choices",
+              "origin": "manual"
+            }
+          ],
+          "was_cancelled": false,
+          "ground_truth": false,
+          "created_at": "2025-02-12T07:25:44.306124Z",
+          "updated_at": "2025-02-12T07:25:44.306141Z",
+          "draft_created_at": null,
+          "lead_time": 10.287,
+          "prediction": {},
+          "result_count": 1,
+          "unique_id": "af18a794-134c-4ce0-ac4c-c01605682529",
+          "import_id": null,
+          "last_action": null,
+          "task": 122,
+          "project": 21,
+          "updated_by": 1,
+          "parent_prediction": null,
+          "parent_annotation": null,
+          "last_created_by": null
+        }
+      ],
+      "file_upload": "a4c8d051-batch_3.json",
+      "drafts": [],
+      "predictions": [],
+      "data": {
+        "conversation": [
+          {
+            "role": "user",
+            "turn": 0,
+            "text": "typedef struct coordenadas_ponto ponto;\n// subprograma escreve_ponto\n// escreve um ponto com as coordenadas x e y na forma (x,y)\n/*...*/"
+          },
+          {
+            "role": "assistant",
+            "turn": 1,
+            "text": "void escreve_ponto(ponto p) {\n    printf(\"(%d,%d)\", p.x, p.y);\n}"
+          }
+        ]
+      },
+      "meta": {},
+      "created_at": "2025-01-31T22:02:01.934518Z",
+      "updated_at": "2025-02-12T07:25:44.331224Z",
+      "inner_id": 2,
       "total_annotations": 1,
       "cancelled_annotations": 0,
       "total_predictions": 0,
