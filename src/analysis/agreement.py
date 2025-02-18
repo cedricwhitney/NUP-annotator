@@ -75,7 +75,7 @@ def get_applicable_categories(is_response: bool) -> List[AnnotationCategory]:
 
 def get_turn_text(task: Task, turn_idx: int) -> str:
     """Extract the conversation text for a specific turn."""
-    conversation = task.original_data.get('conversation', [])
+    conversation = task.original_data.get("data", {}).get("conversation", task.original_data.get("conversation", []))
     if not conversation or turn_idx >= len(conversation):
         return "Text not available"
     return conversation[turn_idx].get('text', "Text not available")
@@ -94,8 +94,8 @@ def calculate_agreement_scores(
     overall_scores: Dict[AnnotationCategory, List[AgreementScore]] = defaultdict(list)
     disagreement_examples: List[DisagreementExample] = []
     
-    # Track cumulative values for overall scores
-    cumulative_values: Dict[str, Dict[AnnotationCategory, Set[str]]] = {}
+    # Track cumulative values for overall scores, separate for each annotator
+    cumulative_values: Dict[str, Dict[str, Dict[AnnotationCategory, Set[str]]]] = {}
     
     for task in tasks:
         if len(task.annotations) != 2:
@@ -106,7 +106,10 @@ def calculate_agreement_scores(
         pair_key = f"{ann1.annotator_id}_{ann2.annotator_id}"
         
         if pair_key not in cumulative_values:
-            cumulative_values[pair_key] = defaultdict(set)
+            cumulative_values[pair_key] = {
+                ann1.annotator_id: defaultdict(set),
+                ann2.annotator_id: defaultdict(set)
+            }
         
         # Get all unique turn indices
         all_turns = set(ann1.turns.keys()).union(set(ann2.turns.keys()))
@@ -160,20 +163,26 @@ def calculate_agreement_scores(
                     )
                     disagreement_examples.append(example)
                 
-                # Accumulate values for overall agreement
-                cumulative_values[pair_key][category].update(values1)
+                # Accumulate values for overall agreement, separate for each annotator
+                cumulative_values[pair_key][ann1.annotator_id][category].update(values1)
+                cumulative_values[pair_key][ann2.annotator_id][category].update(values2)
                 
     # Calculate overall agreement scores
-    for pair_key, categories in cumulative_values.items():
+    for pair_key, annotator_values in cumulative_values.items():
         annotator1, annotator2 = pair_key.split('_')
         annotator_pair = (annotator1, annotator2)
         
-        for category, values in categories.items():
-            # Find the corresponding values from the other annotator
-            other_values = cumulative_values[pair_key][category]
+        # Get the cumulative sets for each annotator
+        values1_by_category = annotator_values[annotator1]
+        values2_by_category = annotator_values[annotator2]
+        
+        # Calculate agreement for each category
+        for category in set(values1_by_category.keys()).union(values2_by_category.keys()):
+            values1 = values1_by_category[category]
+            values2 = values2_by_category[category]
             
-            f1 = calculate_f1_score(values, other_values)
-            disagreements = find_disagreement_examples(values, other_values) if f1 < 1.0 else None
+            f1 = calculate_f1_score(values1, values2)
+            disagreements = find_disagreement_examples(values1, values2) if f1 < 1.0 else None
             
             score = AgreementScore(
                 category=category,
