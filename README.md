@@ -12,6 +12,22 @@ This project facilitates consistent annotation across multiple annotators:
 
 The setup ensures everyone has identical project configuration while maintaining independent workspaces.
 
+## Analysis Tools
+
+The project includes a comprehensive suite of tools for analyzing inter-rater agreement between annotators. See the [Analysis Documentation](src/analysis/README.md) for details on:
+
+- Agreement calculation methodology
+- Generated reports and visualizations
+- Implementation details
+- Usage instructions
+
+To run the analysis:
+```bash
+python src/tools/analyze_agreement.py
+```
+
+This will generate detailed agreement reports in the `reports/` directory.
+
 ## Prerequisites
 
 - Python 3.x
