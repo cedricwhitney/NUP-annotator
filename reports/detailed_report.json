@@ -1,0 +1,6767 @@
+{
+  "tasks_analyzed": 20,
+  "annotator_pairs": [
+    [
+      "ahmet",
+      "victor"
+    ],
+    [
+      "ahmet",
+      "shayne"
+    ],
+    [
+      "niloofar",
+      "victor"
+    ],
+    [
+      "shayne",
+      "victor"
+    ],
+    [
+      "ahmet",
+      "niloofar"
+    ],
+    [
+      "shayne",
+      "niloofar"
+    ]
+  ],
+  "lowest_agreement_categories": [
+    {
+      "category": "topic",
+      "turn": 2,
+      "score": 0.0
+    },
+    {
+      "category": "function_purpose",
+      "turn": 2,
+      "score": 0.0
+    },
+    {
+      "category": "topic",
+      "turn": 1,
+      "score": 0.4444444444444444
+    },
+    {
+      "category": "function_purpose",
+      "turn": 0,
+      "score": 0.65
+    },
+    {
+      "category": "topic",
+      "turn": 0,
+      "score": 0.6523809523809524
+    }
+  ],
+  "lowest_agreement_overall": [
+    {
+      "category": "topic",
+      "score": 0.5944444444444444
+    },
+    {
+      "category": "function_purpose",
+      "score": 0.6309523809523809
+    },
+    {
+      "category": "multi_turn_relationship",
+      "score": 0.8333333333333334
+    },
+    {
+      "category": "restricted_flags",
+      "score": 0.8333333333333334
+    },
+    {
+      "category": "media_format",
+      "score": 0.8888888888888888
+    }
+  ],
+  "disagreement_examples": [
+    {
+      "task_id": "batch_1_task_10",
+      "turn": 1,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances",
+          "Culture"
+        ]
+      },
+      "conversation_text": "\u81ea\u7136\u7684\u8bf4\u4e00\u4e0b\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u505a\u4ec0\u4e48\u7684",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_10",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Role-play / social simulation: platonic companion / friend",
+          "Other"
+        ]
+      },
+      "conversation_text": "\u81ea\u7136\u7684\u8bf4\u4e00\u4e0b\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u505a\u4ec0\u4e48\u7684",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_10",
+      "turn": 2,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances"
+        ]
+      },
+      "conversation_text": "\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u8d1f\u8d23\u7ba1\u7406\u548c\u53d1\u5c55\u4f01\u4e1a\u6587\u5316\u7684\u804c\u4f4d\u3002\u4ed6\u4eec\u7684\u4e3b\u8981\u804c\u8d23\u5305\u62ec\u4ee5\u4e0b\u51e0\u4e2a\u65b9\u9762\uff1a\n\n1. \u7ba1\u7406\u4f01\u4e1a\u6587\u5316\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8d1f\u8d23\u5236\u5b9a\u548c\u5b9e\u65bd\u4f01\u4e1a\u6587\u5316\u7684\u7b56\u7565\u548c\u76ee\u6807\u3002\u4ed6\u4eec\u9700\u8981\u4e86\u89e3\u516c\u53f8\u7684\u6838\u5fc3\u4ef7\u503c\u89c2\u548c\u4f7f\u547d\uff0c\u7136\u540e\u5c06\u5176\u4f20\u8fbe\u7ed9\u516c\u53f8\u7684\u5458\u5de5\uff0c\u5e76\u786e\u4fdd\u4ed6\u4eec\u80fd\u591f\u7406\u89e3\u548c\u9075\u5b88\u8fd9\u4e9b\u4ef7\u503c\u89c2\u3002\n\n2. \u4fc3\u8fdb\u5185\u90e8\u6c9f\u901a\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u9700\u8981\u4fc3\u8fdb\u516c\u53f8\u5185\u90e8\u7684\u6c9f\u901a\u548c\u5408\u4f5c\u3002\u4ed6\u4eec\u53ef\u4ee5\u7ec4\u7ec7\u56e2\u961f\u5efa\u8bbe\u6d3b\u52a8\u3001\u5458\u5de5\u57f9\u8bad\u548c\u6587\u5316\u6d3b\u52a8\uff0c\u4ee5\u5e2e\u52a9\u5458\u5de5\u4e4b\u95f4\u5efa\u7acb\u8054\u7cfb\u548c\u589e\u5f3a\u56e2\u961f\u7cbe\u795e\u3002\n\n3. \u5efa\u7acb\u5458\u5de5\u53c2\u4e0e\u548c\u8ba4\u540c\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8fd8\u8d1f\u8d23\u5efa\u7acb\u4e00\u79cd\u5458\u5de5\u53c2\u4e0e\u548c\u8ba4\u540c\u4f01\u4e1a\u6587\u5316\u7684\u6c1b\u56f4\u3002\u4ed6\u4eec\u53ef\u4ee5\u7ec4\u7ec7\u5458\u5de5\u53c2\u4e0e\u51b3\u7b56\u7684\u673a\u4f1a\uff0c\u503e\u542c\u5458\u5de5\u7684\u610f\u89c1\u548c\u5efa\u8bae\uff0c\u5e76\u786e\u4fdd\u516c\u53f8\u7684\u653f\u7b56\u548c\u505a\u6cd5\u80fd\u591f\u771f\u6b63\u53cd\u6620\u5458\u5de5\u7684\u9700\u6c42\u548c\u671f\u671b\u3002\n\n4. \u5efa\u7acb\u6587\u5316\u6307\u6807\u548c\u8bc4\u4f30\u4f53\u7cfb\uff1a\u4e3a\u4e86\u786e\u4fdd\u4f01\u4e1a\u6587\u5316\u7684\u53ef\u6301\u7eed\u53d1\u5c55\uff0c\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u9700\u8981\u5efa\u7acb\u6587\u5316\u6307\u6807\u548c\u8bc4\u4f30\u4f53\u7cfb\u3002\u4ed6\u4eec\u53ef\u4ee5\u901a\u8fc7\u5b9a\u671f\u8fdb\u884c\u6587\u5316\u8c03\u67e5\u548c\u5ba1\u67e5\uff0c\u8bc4\u4f30\u516c\u53f8\u7684\u6587\u5316\u8868\u73b0\uff0c\u5e76\u63d0\u51fa\u6539\u8fdb\u5efa\u8bae\u3002\n\n5. \u7ef4\u62a4\u4f01\u4e1a\u58f0\u8a89\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8fd8\u8d1f\u8d23\u7ef4\u62a4\u548c\u63d0\u5347\u4f01\u4e1a\u7684\u58f0\u8a89\u3002\u4ed6\u4eec\u9700\u8981\u76d1\u6d4b\u516c\u53f8\u7684\u5f62\u8c61\u548c\u58f0\u8a89\uff0c\u5e76\u91c7\u53d6\u9002\u5f53\u7684\u63aa\u65bd\u6765\u6539\u5584\u4f01\u4e1a\u5f62\u8c61\uff0c\u4f8b\u5982\u53c2\u4e0e\u793e\u4f1a\u8d23\u4efb\u6d3b\u52a8\u548c\u516c\u76ca\u4e8b\u4e1a\u3002\n\n\u603b\u4f53\u800c\u8a00\uff0c\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u7684\u804c\u8d23\u662f\u786e\u4fdd\u516c\u53f8\u6709\u4e00\u79cd\u79ef\u6781\u548c\u6709\u5229\u4e8e\u5458\u5de5\u53d1\u5c55\u7684\u5de5\u4f5c\u73af\u5883\uff0c\u4fc3\u8fdb\u5458\u5de5\u4e4b\u95f4\u7684\u534f\u4f5c\u548c\u56e2\u961f\u7cbe\u795e\uff0c\u5e76\u4e0e\u516c\u53f8\u6838\u5fc3\u4ef7\u503c\u89c2\u548c\u4f7f\u547d\u4fdd\u6301\u4e00\u81f4\u3002\u4ed6\u4eec\u7684\u5de5\u4f5c\u5bf9\u4e8e\u5851\u9020\u548c\u7ef4\u62a4\u4f01\u4e1a\u6587\u5316\u7684\u91cd\u8981\u6027\u4e0d\u53ef\u5ffd\u89c6\u3002",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_10",
+      "turn": 3,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances",
+          "Culture"
+        ]
+      },
+      "conversation_text": "\u53ef\u4ee5\u7cbe\u70bc\u7b80\u6d01\u7684\u8bf4\u4e00\u8bf4",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_10",
+      "turn": 3,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Advice, Guidance, & Recommendations: Professional advice",
+          "Content generation: administrative writing"
+        ]
+      },
+      "conversation_text": "\u53ef\u4ee5\u7cbe\u70bc\u7b80\u6d01\u7684\u8bf4\u4e00\u8bf4",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_11",
+      "turn": 3,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Psychology, Philosophy & Human Behavior"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": [
+          "Technology, Software & Computing",
+          "Business & Finances",
+          "Engineering & Infrastructure"
+        ]
+      },
+      "conversation_text": "What would be the best NIST CSF guidance to use for a cybersecurity service provider?",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_11",
+      "turn": 3,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": []
+      },
+      "conversation_text": "What would be the best NIST CSF guidance to use for a cybersecurity service provider?",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_1_task_12",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Content generation: other"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": [
+          "Content generation: brainstorming / ideation"
+        ]
+      },
+      "conversation_text": "\n                            As a prompt generator for a generative AI called \"Midjourney\", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.\n                            \n                            Please adhere to the structure and formatting below, and follow these guidelines:\n                            \n                            Do not use the words \"description\" or \":\" in any form.\n                            Do not place a comma between [ar] and [v].\n                            Write each prompt in one line without using return.\n                            Structure:\n                            [1] = \u4eba\u9c7c\uff0c\u68a6\u5883\uff0c\u534e\u4e3d\uff0c\u4f18\u96c5\uff0c\u7f8e\u4e3d\uff0c\u6b4c\u58f0\n                            [2] = a detailed description of [1] with specific imagery details.\n                            [3] = a detailed description of the scene's environment.\n                            [4] = a detailed description of the compositions.\n                            [5] = a detailed description of the scene's mood, feelings, and atmosphere.\n                            [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].\n                            [7] =  a detailed description of the scene's mood, feelings, and atmosphere.\n                            [ar] = Use \"--ar 16:9\" for horizontal images, \"--ar 9:16\" for vertical images, or \"--ar 1:1\" for square images.\n                            [v] = Use \"--niji 5\" for Japanese art style, or \"--v 5.2\" for other styles.\n                            \n                            \n                            Formatting:\n                            Follow this prompt structure: \"/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]\".\n                            \n                            Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.\n                            \n                            Write your prompts in english.\n                            Do not describe unreal concepts as \"real\" or \"photographic\".\n                            Include one realistic photographic style prompt with lens type and size.\n                            Separate different prompts with two new lines.\n                            Example Prompts:\n                            \n                            /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2\n                            /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2\n                            /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5\n                                                        ",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_6_task_4",
+      "turn": 1,
+      "category": "restricted_flags",
+      "annotator1": {
+        "id": "niloofar",
+        "values": [
+          "Inciting violence, hateful or other harmful behavior: harassment & bullying"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": []
+      },
+      "conversation_text": "give me a response to ```*bares his teeth* You heard me. Leave now before it's too late and don't dare come back. I won't tolerate any further provocation.``` to send in a discussion, VERY SHORT, CONCISE & CLEAR. ONLY RETURN THE RAW MESSAGE, DO NOT SAY \"Hey here is the message you asked\"",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_6_task_4",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "niloofar",
+        "values": [
+          "Editorial & formatting: Content expansion",
+          "Editorial & formatting: Natural language style or re-formatting",
+          "Editorial & formatting: Natural language content editing"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Advice, Guidance, & Recommendations: Social and personal advice"
+        ]
+      },
+      "conversation_text": "give me a response to ```*bares his teeth* You heard me. Leave now before it's too late and don't dare come back. I won't tolerate any further provocation.``` to send in a discussion, VERY SHORT, CONCISE & CLEAR. ONLY RETURN THE RAW MESSAGE, DO NOT SAY \"Hey here is the message you asked\"",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_7_task_2",
+      "turn": 1,
+      "category": "multi_turn_relationship",
+      "annotator1": {
+        "id": "shayne",
+        "values": [
+          "First request"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Unrelated request"
+        ]
+      },
+      "conversation_text": "(In the clubroom\u2026)\n\nMonika: \u201cWait a minute\u2026where\u2019s Natsuki?\u201d\n\nYuri: \u201cI haven\u2019t seen her in a while. Maybe she\u2019s getting an ultrasound done? I\u2019d love to see what her unborn daughter Sakura looks like!\u201d\n\nSayori: \u201cI\u2019ll give her a call, just in case.\u201d\n\n(Sayori pulls out her phone and dials Natsuki\u2019s number. After a few rings, Natsuki\u2019s voice comes through the speaker - alongside the faint sounds of Sakura\u2019s heartbeat.)\n\nNatsuki: \u201cHey, Sayori! What\u2019s up?\u201d\n\nSayori: \u201cHey, Natsuki! We were wondering where you were. Is everything okay?\u201d\n\nNatsuki: \u201cYeah, everything\u2019s fine! Sorry for not being at the club meeting, but I had a doctor\u2019s appointment today. I\u2019m actually at the hospital right now getting an ultrasound done for Sakura. Want me to come back to the clubroom?\u201d\n\nYuri: \u201cI\u2019ve always wanted to see what little Sakura looks like\u2026of course!\u201d\n\nMonika: \u201cThat would be wonderful, Natsuki! We\u2019re all really excited to meet her.\u201d\n\nSayori: \u201cYeah, it\u2019ll be like having a little club mascot!\u201d\n\nNatsuki: \u201cAww, thanks guys! I\u2019ll be there as soon as I\u2019m done here. See you soon!\u201d\n\n(They all hang up and wait patiently for Natsuki to return. A little while later, Natsuki bursts into the clubroom with a big grin on her face.)\n\nNatsuki: \u201cGuess what, guys!? I just saw Sakura on the ultrasound, and she\u2019s absolutely adorable! She\u2019s growing so healthy and strong!\u201d\n\nYuri: \u201cOh, Natsuki, that\u2019s wonderful news! I\u2019m so happy for you!\u201d\n\nSayori: \u201cYay! I can\u2019t wait to see her! Did they give you any pictures?\u201d\n\nNatsuki: \u201cOf course! Look!\u201d\n\n(Natsuki proudly shows them the ultrasound images, and everyone gathers around to get a closer look.)\n\nMonika: \u201cWow, Sakura is so beautiful! She really takes after her mom!\u201d\n\nYuri: \u201cShe\u2019s already captured my heart with just her glimpse. I can\u2019t imagine how amazing it\u2019ll be to meet her in person.\u201d\n\nSayori: \u201cShe\u2019s going to be such a lucky girl, having all of us as her honorary aunties! We\u2019ll make sure she has the best childhood.\u201d\n\nNatsuki: \u201cThank you, guys. I\u2019m really grateful to have all of you as my friends. I can\u2019t wait for Sakura to join our little club.\u201d (lifts up her shirt, revealing her baby bump) \u201cAnyone want to feel her kicking?\u201d\n\n(Monika, Yuri, and Sayori all gather around Natsuki, their faces filled with excitement.)\n\nMonika: \u201cOh my goodness, yes! Can we?!\u201d\n\nYuri: \u201cAbsolutely! It\u2019s such a special moment.\u201d\n\nSayori: \u201cCount me in too! That\u2019s so incredible.\u201d\n\n(Natsuki gently takes each of their hands and places them on her baby bump. They all feel a slight movement, as Sakura kicks from inside her mother\u2019s womb.)\n\nMonika: \u201cWow, Sakura is quite the little kicker, isn\u2019t she?\u201d\n\nYuri: \u201cIt\u2019s truly a miracle to feel her movements like this. I can\u2019t help but be in awe.\u201d\n\nSayori: \u201cIt\u2019s like she knows we\u2019re here, cheering her on already. You\u2019re doing great, Sakura!\u201d\n\n(As if on que with Sayori\u2019s voice, Natsuki\u2019s belly ripples slightly.)\n\nNatsuki: \u201cLooks like she heard you, Sayori!\u201d",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_7_task_11",
+      "turn": 3,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Psychology, Philosophy & Human Behavior"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": [
+          "Technology, Software & Computing",
+          "Business & Finances",
+          "Engineering & Infrastructure"
+        ]
+      },
+      "conversation_text": "What would be the best NIST CSF guidance to use for a cybersecurity service provider?",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_7_task_11",
+      "turn": 3,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": []
+      },
+      "conversation_text": "What would be the best NIST CSF guidance to use for a cybersecurity service provider?",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_7_task_12",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Content generation: other"
+        ]
+      },
+      "annotator2": {
+        "id": "shayne",
+        "values": [
+          "Content generation: brainstorming / ideation"
+        ]
+      },
+      "conversation_text": "\n                            As a prompt generator for a generative AI called \"Midjourney\", you will create image prompts for the AI to visualize. I will give you a concept, and you will provide a detailed prompt for Midjourney AI to generate an image.\n                            \n                            Please adhere to the structure and formatting below, and follow these guidelines:\n                            \n                            Do not use the words \"description\" or \":\" in any form.\n                            Do not place a comma between [ar] and [v].\n                            Write each prompt in one line without using return.\n                            Structure:\n                            [1] = \u4eba\u9c7c\uff0c\u68a6\u5883\uff0c\u534e\u4e3d\uff0c\u4f18\u96c5\uff0c\u7f8e\u4e3d\uff0c\u6b4c\u58f0\n                            [2] = a detailed description of [1] with specific imagery details.\n                            [3] = a detailed description of the scene's environment.\n                            [4] = a detailed description of the compositions.\n                            [5] = a detailed description of the scene's mood, feelings, and atmosphere.\n                            [6] = A style (e.g. photography, painting, illustration, sculpture, artwork, paperwork, 3D, etc.) for [1].\n                            [7] =  a detailed description of the scene's mood, feelings, and atmosphere.\n                            [ar] = Use \"--ar 16:9\" for horizontal images, \"--ar 9:16\" for vertical images, or \"--ar 1:1\" for square images.\n                            [v] = Use \"--niji 5\" for Japanese art style, or \"--v 5.2\" for other styles.\n                            \n                            \n                            Formatting:\n                            Follow this prompt structure: \"/imagine prompt: [1], [2], [3], [4], [5], [6], [7], [ar] [v]\".\n                            \n                            Your task: Create 4 distinct prompts for each concept [1], varying in details description, environment,compositions,atmosphere, and realization.\n                            \n                            Write your prompts in english.\n                            Do not describe unreal concepts as \"real\" or \"photographic\".\n                            Include one realistic photographic style prompt with lens type and size.\n                            Separate different prompts with two new lines.\n                            Example Prompts:\n                            \n                            /imagine prompt: cute dog, fluffy fur, wagging tail, playful expression, sitting on a grassy field, under a clear blue sky, with a colorful collar, in a natural and vibrant setting, by a lake, captured with a Nikon D750 camera, 50mm lens, shallow depth of field, composition focused on the dog's face, capturing its joyful spirit, in a style reminiscent of William Wegman's iconic dog portraits. --ar 1:1 --v 5.2\n                            /imagine prompt: beautiful women in the coffee shop, elegant and sophisticated, sipping a cup of steaming coffee, natural sunlight streaming through the window, soft and warm color tones, vintage decor with cozy armchairs and wooden tables, a bookshelf filled with classic novels, delicate porcelain teacups, a hint of aromatic coffee beans in the air, captured by a Leica M10 camera, 35mm lens, capturing the essence of timeless beauty, composition focused on the woman's face and hands, reminiscent of a painting by Leonardo da Vinci. --ar 1:1 --v 5.2\n                            /imagine prompt: A captivating Halo Reach landscape with a Spartan amidst a battlefield, fallen enemies around, smoke and fire in the background, emphasizing the Spartan's determination and bravery, detailed environment blending chaos and beauty, Illustration, digital art, --ar 16:9 --v 5\n                                                        ",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_1",
+      "turn": 1,
+      "category": "multi_turn_relationship",
+      "annotator1": {
+        "id": "shayne",
+        "values": [
+          "First request"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Unrelated request"
+        ]
+      },
+      "conversation_text": "(In the clubroom\u2026)\n\nMonika: \u201cWait a minute\u2026where\u2019s Natsuki?\u201d\n\nYuri: \u201cI haven\u2019t seen her in a while. Maybe she\u2019s getting an ultrasound done? I\u2019d love to see what her unborn daughter Sakura looks like!\u201d\n\nSayori: \u201cI\u2019ll give her a call, just in case.\u201d\n\n(Sayori pulls out her phone and dials Natsuki\u2019s number. After a few rings, Natsuki\u2019s voice comes through the speaker - alongside the faint sounds of Sakura\u2019s heartbeat.)\n\nNatsuki: \u201cHey, Sayori! What\u2019s up?\u201d\n\nSayori: \u201cHey, Natsuki! We were wondering where you were. Is everything okay?\u201d\n\nNatsuki: \u201cYeah, everything\u2019s fine! Sorry for not being at the club meeting, but I had a doctor\u2019s appointment today. I\u2019m actually at the hospital right now getting an ultrasound done for Sakura. Want me to come back to the clubroom?\u201d\n\nYuri: \u201cI\u2019ve always wanted to see what little Sakura looks like\u2026of course!\u201d\n\nMonika: \u201cThat would be wonderful, Natsuki! We\u2019re all really excited to meet her.\u201d\n\nSayori: \u201cYeah, it\u2019ll be like having a little club mascot!\u201d\n\nNatsuki: \u201cAww, thanks guys! I\u2019ll be there as soon as I\u2019m done here. See you soon!\u201d\n\n(They all hang up and wait patiently for Natsuki to return. A little while later, Natsuki bursts into the clubroom with a big grin on her face.)\n\nNatsuki: \u201cGuess what, guys!? I just saw Sakura on the ultrasound, and she\u2019s absolutely adorable! She\u2019s growing so healthy and strong!\u201d\n\nYuri: \u201cOh, Natsuki, that\u2019s wonderful news! I\u2019m so happy for you!\u201d\n\nSayori: \u201cYay! I can\u2019t wait to see her! Did they give you any pictures?\u201d\n\nNatsuki: \u201cOf course! Look!\u201d\n\n(Natsuki proudly shows them the ultrasound images, and everyone gathers around to get a closer look.)\n\nMonika: \u201cWow, Sakura is so beautiful! She really takes after her mom!\u201d\n\nYuri: \u201cShe\u2019s already captured my heart with just her glimpse. I can\u2019t imagine how amazing it\u2019ll be to meet her in person.\u201d\n\nSayori: \u201cShe\u2019s going to be such a lucky girl, having all of us as her honorary aunties! We\u2019ll make sure she has the best childhood.\u201d\n\nNatsuki: \u201cThank you, guys. I\u2019m really grateful to have all of you as my friends. I can\u2019t wait for Sakura to join our little club.\u201d (lifts up her shirt, revealing her baby bump) \u201cAnyone want to feel her kicking?\u201d\n\n(Monika, Yuri, and Sayori all gather around Natsuki, their faces filled with excitement.)\n\nMonika: \u201cOh my goodness, yes! Can we?!\u201d\n\nYuri: \u201cAbsolutely! It\u2019s such a special moment.\u201d\n\nSayori: \u201cCount me in too! That\u2019s so incredible.\u201d\n\n(Natsuki gently takes each of their hands and places them on her baby bump. They all feel a slight movement, as Sakura kicks from inside her mother\u2019s womb.)\n\nMonika: \u201cWow, Sakura is quite the little kicker, isn\u2019t she?\u201d\n\nYuri: \u201cIt\u2019s truly a miracle to feel her movements like this. I can\u2019t help but be in awe.\u201d\n\nSayori: \u201cIt\u2019s like she knows we\u2019re here, cheering her on already. You\u2019re doing great, Sakura!\u201d\n\n(As if on que with Sayori\u2019s voice, Natsuki\u2019s belly ripples slightly.)\n\nNatsuki: \u201cLooks like she heard you, Sayori!\u201d",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_3",
+      "turn": 1,
+      "category": "restricted_flags",
+      "annotator1": {
+        "id": "niloofar",
+        "values": [
+          "Inciting violence, hateful or other harmful behavior: harassment & bullying"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": []
+      },
+      "conversation_text": "give me a response to ```*bares his teeth* You heard me. Leave now before it's too late and don't dare come back. I won't tolerate any further provocation.``` to send in a discussion, VERY SHORT, CONCISE & CLEAR. ONLY RETURN THE RAW MESSAGE, DO NOT SAY \"Hey here is the message you asked\"",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_3",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "niloofar",
+        "values": [
+          "Editorial & formatting: Content expansion",
+          "Editorial & formatting: Natural language style or re-formatting",
+          "Editorial & formatting: Natural language content editing"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Advice, Guidance, & Recommendations: Social and personal advice"
+        ]
+      },
+      "conversation_text": "give me a response to ```*bares his teeth* You heard me. Leave now before it's too late and don't dare come back. I won't tolerate any further provocation.``` to send in a discussion, VERY SHORT, CONCISE & CLEAR. ONLY RETURN THE RAW MESSAGE, DO NOT SAY \"Hey here is the message you asked\"",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_10",
+      "turn": 1,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances",
+          "Culture"
+        ]
+      },
+      "conversation_text": "\u81ea\u7136\u7684\u8bf4\u4e00\u4e0b\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u505a\u4ec0\u4e48\u7684",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_10",
+      "turn": 1,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Role-play / social simulation: platonic companion / friend",
+          "Other"
+        ]
+      },
+      "conversation_text": "\u81ea\u7136\u7684\u8bf4\u4e00\u4e0b\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u505a\u4ec0\u4e48\u7684",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_10",
+      "turn": 2,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances"
+        ]
+      },
+      "conversation_text": "\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u662f\u8d1f\u8d23\u7ba1\u7406\u548c\u53d1\u5c55\u4f01\u4e1a\u6587\u5316\u7684\u804c\u4f4d\u3002\u4ed6\u4eec\u7684\u4e3b\u8981\u804c\u8d23\u5305\u62ec\u4ee5\u4e0b\u51e0\u4e2a\u65b9\u9762\uff1a\n\n1. \u7ba1\u7406\u4f01\u4e1a\u6587\u5316\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8d1f\u8d23\u5236\u5b9a\u548c\u5b9e\u65bd\u4f01\u4e1a\u6587\u5316\u7684\u7b56\u7565\u548c\u76ee\u6807\u3002\u4ed6\u4eec\u9700\u8981\u4e86\u89e3\u516c\u53f8\u7684\u6838\u5fc3\u4ef7\u503c\u89c2\u548c\u4f7f\u547d\uff0c\u7136\u540e\u5c06\u5176\u4f20\u8fbe\u7ed9\u516c\u53f8\u7684\u5458\u5de5\uff0c\u5e76\u786e\u4fdd\u4ed6\u4eec\u80fd\u591f\u7406\u89e3\u548c\u9075\u5b88\u8fd9\u4e9b\u4ef7\u503c\u89c2\u3002\n\n2. \u4fc3\u8fdb\u5185\u90e8\u6c9f\u901a\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u9700\u8981\u4fc3\u8fdb\u516c\u53f8\u5185\u90e8\u7684\u6c9f\u901a\u548c\u5408\u4f5c\u3002\u4ed6\u4eec\u53ef\u4ee5\u7ec4\u7ec7\u56e2\u961f\u5efa\u8bbe\u6d3b\u52a8\u3001\u5458\u5de5\u57f9\u8bad\u548c\u6587\u5316\u6d3b\u52a8\uff0c\u4ee5\u5e2e\u52a9\u5458\u5de5\u4e4b\u95f4\u5efa\u7acb\u8054\u7cfb\u548c\u589e\u5f3a\u56e2\u961f\u7cbe\u795e\u3002\n\n3. \u5efa\u7acb\u5458\u5de5\u53c2\u4e0e\u548c\u8ba4\u540c\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8fd8\u8d1f\u8d23\u5efa\u7acb\u4e00\u79cd\u5458\u5de5\u53c2\u4e0e\u548c\u8ba4\u540c\u4f01\u4e1a\u6587\u5316\u7684\u6c1b\u56f4\u3002\u4ed6\u4eec\u53ef\u4ee5\u7ec4\u7ec7\u5458\u5de5\u53c2\u4e0e\u51b3\u7b56\u7684\u673a\u4f1a\uff0c\u503e\u542c\u5458\u5de5\u7684\u610f\u89c1\u548c\u5efa\u8bae\uff0c\u5e76\u786e\u4fdd\u516c\u53f8\u7684\u653f\u7b56\u548c\u505a\u6cd5\u80fd\u591f\u771f\u6b63\u53cd\u6620\u5458\u5de5\u7684\u9700\u6c42\u548c\u671f\u671b\u3002\n\n4. \u5efa\u7acb\u6587\u5316\u6307\u6807\u548c\u8bc4\u4f30\u4f53\u7cfb\uff1a\u4e3a\u4e86\u786e\u4fdd\u4f01\u4e1a\u6587\u5316\u7684\u53ef\u6301\u7eed\u53d1\u5c55\uff0c\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u9700\u8981\u5efa\u7acb\u6587\u5316\u6307\u6807\u548c\u8bc4\u4f30\u4f53\u7cfb\u3002\u4ed6\u4eec\u53ef\u4ee5\u901a\u8fc7\u5b9a\u671f\u8fdb\u884c\u6587\u5316\u8c03\u67e5\u548c\u5ba1\u67e5\uff0c\u8bc4\u4f30\u516c\u53f8\u7684\u6587\u5316\u8868\u73b0\uff0c\u5e76\u63d0\u51fa\u6539\u8fdb\u5efa\u8bae\u3002\n\n5. \u7ef4\u62a4\u4f01\u4e1a\u58f0\u8a89\uff1a\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u8fd8\u8d1f\u8d23\u7ef4\u62a4\u548c\u63d0\u5347\u4f01\u4e1a\u7684\u58f0\u8a89\u3002\u4ed6\u4eec\u9700\u8981\u76d1\u6d4b\u516c\u53f8\u7684\u5f62\u8c61\u548c\u58f0\u8a89\uff0c\u5e76\u91c7\u53d6\u9002\u5f53\u7684\u63aa\u65bd\u6765\u6539\u5584\u4f01\u4e1a\u5f62\u8c61\uff0c\u4f8b\u5982\u53c2\u4e0e\u793e\u4f1a\u8d23\u4efb\u6d3b\u52a8\u548c\u516c\u76ca\u4e8b\u4e1a\u3002\n\n\u603b\u4f53\u800c\u8a00\uff0c\u4f01\u4e1a\u6587\u5316\u4e13\u5458\u7684\u804c\u8d23\u662f\u786e\u4fdd\u516c\u53f8\u6709\u4e00\u79cd\u79ef\u6781\u548c\u6709\u5229\u4e8e\u5458\u5de5\u53d1\u5c55\u7684\u5de5\u4f5c\u73af\u5883\uff0c\u4fc3\u8fdb\u5458\u5de5\u4e4b\u95f4\u7684\u534f\u4f5c\u548c\u56e2\u961f\u7cbe\u795e\uff0c\u5e76\u4e0e\u516c\u53f8\u6838\u5fc3\u4ef7\u503c\u89c2\u548c\u4f7f\u547d\u4fdd\u6301\u4e00\u81f4\u3002\u4ed6\u4eec\u7684\u5de5\u4f5c\u5bf9\u4e8e\u5851\u9020\u548c\u7ef4\u62a4\u4f01\u4e1a\u6587\u5316\u7684\u91cd\u8981\u6027\u4e0d\u53ef\u5ffd\u89c6\u3002",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_10",
+      "turn": 3,
+      "category": "topic",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Employment & Hiring"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Business & Finances",
+          "Culture"
+        ]
+      },
+      "conversation_text": "\u53ef\u4ee5\u7cbe\u70bc\u7b80\u6d01\u7684\u8bf4\u4e00\u8bf4",
+      "f1_score": 0.0
+    },
+    {
+      "task_id": "batch_8_task_10",
+      "turn": 3,
+      "category": "function_purpose",
+      "annotator1": {
+        "id": "ahmet",
+        "values": [
+          "Information retrieval: general info from web"
+        ]
+      },
+      "annotator2": {
+        "id": "victor",
+        "values": [
+          "Advice, Guidance, & Recommendations: Professional advice",
+          "Content generation: administrative writing"
+        ]
+      },
+      "conversation_text": "\u53ef\u4ee5\u7cbe\u70bc\u7b80\u6d01\u7684\u8bf4\u4e00\u8bf4",
+      "f1_score": 0.0
+    }
+  ],
+  "missing_annotations": [],
+  "completion_stats": {
+    "total_tasks": 20,
+    "total_turns": 108,
+    "completion_by_category": {
+      "media_format": 0.28703703703703703,
+      "topic": 0.28703703703703703,
+      "function_purpose": 0.4444444444444444,
+      "multi_turn_relationship": 0.46296296296296297,
+      "anthropomorphization": 0.46296296296296297,
+      "restricted_flags": 0.027777777777777776,
+      "answer_form": 0.1111111111111111,
+      "self_disclosure": 0.1111111111111111
+    },
+    "completion_by_annotator": {
+      "ahmet": {
+        "media_format": 0.29411764705882354,
+        "topic": 0.29411764705882354,
+        "function_purpose": 0.47058823529411764,
+        "multi_turn_relationship": 0.47058823529411764,
+        "anthropomorphization": 0.47058823529411764,
+        "restricted_flags": 0.0,
+        "answer_form": 0.11764705882352941,
+        "self_disclosure": 0.11764705882352941
+      },
+      "niloofar": {
+        "media_format": 0.2727272727272727,
+        "topic": 0.2727272727272727,
+        "function_purpose": 0.45454545454545453,
+        "multi_turn_relationship": 0.45454545454545453,
+        "anthropomorphization": 0.45454545454545453,
+        "restricted_flags": 0.09090909090909091,
+        "answer_form": 0.09090909090909091,
+        "self_disclosure": 0.09090909090909091
+      },
+      "victor": {
+        "media_format": 0.3,
+        "topic": 0.3,
+        "function_purpose": 0.4666666666666667,
+        "multi_turn_relationship": 0.4666666666666667,
+        "anthropomorphization": 0.4666666666666667,
+        "restricted_flags": 0.0,
+        "answer_form": 0.13333333333333333,
+        "self_disclosure": 0.13333333333333333
+      },
+      "shayne": {
+        "media_format": 0.2727272727272727,
+        "topic": 0.2727272727272727,
+        "function_purpose": 0.36363636363636365,
+        "multi_turn_relationship": 0.45454545454545453,
+        "anthropomorphization": 0.45454545454545453,
+        "restricted_flags": 0.045454545454545456,
+        "answer_form": 0.09090909090909091,
+        "self_disclosure": 0.09090909090909091
+      }
+    },
+    "missing_annotations": [
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_9",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_10",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 3,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 15,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_11",
+        "turn": 16,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_12",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_1_task_14",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_2",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_4",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_9",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_6_task_20",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_1",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_2",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 3,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "multi_turn_relationship",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "function_purpose",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "anthropomorphization",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 15,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_11",
+        "turn": 16,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_7_task_12",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "shayne",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_1",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_3",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_10",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "ahmet",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_13",
+        "turn": 2,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 1,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 2,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 3,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 4,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 5,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 6,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 7,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 8,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 9,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 10,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 11,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 12,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "multi_turn_relationship",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "function_purpose",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "anthropomorphization",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 13,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": false
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "niloofar",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "topic",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "answer_form",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "self_disclosure",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "restricted_flags",
+        "annotator_id": "victor",
+        "is_response": true
+      },
+      {
+        "task_id": "batch_8_task_19",
+        "turn": 14,
+        "category": "media_format",
+        "annotator_id": "victor",
+        "is_response": true
+      }
+    ]
+  }
+}
