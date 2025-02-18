@@ -7,7 +7,7 @@ import seaborn as sns
 
 from .types import Task, AnnotationCategory, AgreementScore, AgreementReport
 from .agreement import calculate_agreement_scores, find_lowest_agreement_categories
-from .load import validate_annotations
+from .load import validate_annotations, analyze_completion_rates
 
 def generate_agreement_matrix(scores_by_category: Dict[AnnotationCategory, Dict[int, List[AgreementScore]]]) -> pd.DataFrame:
     """Generate a matrix of agreement scores by category and turn."""
@@ -23,14 +23,23 @@ def generate_agreement_matrix(scores_by_category: Dict[AnnotationCategory, Dict[
                     'Agreement Score': avg_score
                 })
     
+    # If no data, return empty DataFrame with correct columns
+    if not data:
+        return pd.DataFrame(columns=['Category', 'Turn', 'Agreement Score'])
+    
     df = pd.DataFrame(data)
-    return pd.pivot_table(
-        df,
-        values='Agreement Score',
-        index='Category',
-        columns='Turn',
-        fill_value=0
-    )
+    
+    # Create pivot table only if we have data
+    if not df.empty:
+        return pd.pivot_table(
+            df,
+            values='Agreement Score',
+            index='Category',
+            columns='Turn',
+            fill_value=0
+        )
+    else:
+        return df
 
 def generate_overall_agreement_table(overall_scores: Dict[AnnotationCategory, List[AgreementScore]]) -> pd.DataFrame:
     """Generate a table of overall agreement scores by category."""
@@ -45,21 +54,34 @@ def generate_overall_agreement_table(overall_scores: Dict[AnnotationCategory, Li
                 'Overall Agreement Score': avg_score
             })
     
+    # Return empty DataFrame with correct columns if no data
+    if not data:
+        return pd.DataFrame(columns=['Category', 'Overall Agreement Score'])
+        
     return pd.DataFrame(data).sort_values('Overall Agreement Score', ascending=False)
 
 def plot_agreement_heatmap(matrix: pd.DataFrame, output_path: str = "agreement_heatmap.png"):
     """Generate a heatmap visualization of agreement scores."""
     plt.figure(figsize=(12, 8))
-    sns.heatmap(
-        matrix,
-        annot=True,
-        cmap='RdYlGn',
-        vmin=0,
-        vmax=1,
-        center=0.5,
-        fmt='.2f'
-    )
-    plt.title('Inter-rater Agreement Scores by Category and Turn')
+    
+    # Only create heatmap if we have data
+    if not matrix.empty and not matrix.columns.empty:
+        sns.heatmap(
+            matrix,
+            annot=True,
+            cmap='RdYlGn',
+            vmin=0,
+            vmax=1,
+            center=0.5,
+            fmt='.2f'
+        )
+        plt.title('Inter-rater Agreement Scores by Category and Turn')
+    else:
+        plt.text(0.5, 0.5, 'No agreement data available',
+                horizontalalignment='center',
+                verticalalignment='center')
+        plt.title('No Agreement Data')
+    
     plt.tight_layout()
     plt.savefig(output_path)
     plt.close()
@@ -109,6 +131,9 @@ def generate_report(tasks: List[Task], output_dir: str = "reports") -> Agreement
     overall_table = generate_overall_agreement_table(overall_scores)
     plot_overall_agreement_bars(overall_table, f"{output_dir}/overall_agreement.png")
     
+    # Calculate completion stats
+    completion_stats = analyze_completion_rates(tasks)
+    
     # Create report object
     report = AgreementReport(
         tasks_analyzed=len(tasks),
@@ -118,7 +143,8 @@ def generate_report(tasks: List[Task], output_dir: str = "reports") -> Agreement
         missing_annotations=missing_annotations,
         lowest_agreement_categories=lowest_by_turn,
         lowest_agreement_overall=[(cat, score) for cat, score in lowest_overall],
-        disagreement_examples=disagreement_examples
+        disagreement_examples=disagreement_examples,
+        completion_stats=completion_stats
     )
     
     # Save detailed report as JSON
@@ -159,7 +185,32 @@ def generate_report(tasks: List[Task], output_dir: str = "reports") -> Agreement
                 }
                 for ex in disagreement_examples
             ],
-            'missing_annotations': report.missing_annotations
+            'missing_annotations': report.missing_annotations,
+            'completion_stats': {
+                'total_tasks': completion_stats.total_tasks,
+                'total_turns': completion_stats.total_turns,
+                'completion_by_category': {
+                    cat.value: rate
+                    for cat, rate in completion_stats.completion_by_category.items()
+                },
+                'completion_by_annotator': {
+                    annotator_id: {
+                        cat.value: rate
+                        for cat, rate in rates.items()
+                    }
+                    for annotator_id, rates in completion_stats.completion_by_annotator.items()
+                },
+                'missing_annotations': [
+                    {
+                        'task_id': missing.task_id,
+                        'turn': missing.turn_idx + 1,
+                        'category': missing.category.value,
+                        'annotator_id': missing.annotator_id,
+                        'is_response': missing.is_response
+                    }
+                    for missing in completion_stats.missing_annotations
+                ]
+            }
         }, f, indent=2)
     
     # Save agreement matrices as CSV

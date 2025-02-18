@@ -33,7 +33,15 @@ def load_annotator_exports(exports_dir: str = "annotator_exports") -> List[dict]
         with open(json_file, 'r') as f:
             data = json.load(f)
             if 'annotations' in data:  # Handle the new format with metadata
-                all_annotations.extend(data['annotations'])
+                annotator = data.get('metadata', {}).get('annotator', '')
+                for task in data['annotations']:
+                    if task.get('annotations'):  # Check if task has annotations
+                        for annotation in task['annotations']:
+                            # Add task data and annotator to the annotation
+                            annotation['task'] = task['id']
+                            annotation['data'] = task['data']
+                            annotation['_annotator'] = annotator
+                            all_annotations.append(annotation)
             else:  # Handle direct list of annotations
                 all_annotations.extend(data)
     
@@ -44,8 +52,9 @@ def parse_annotation(raw_annotation: dict) -> Tuple[Annotation, Dict[int, Set[st
     Convert raw annotation JSON to Annotation object and return completed categories per turn.
     Returns (Annotation, Dict[turn_idx, Set[completed_categories]])
     """
-    task_id = str(raw_annotation['task'])
-    annotator_id = raw_annotation['completed_by']
+    task_id = str(raw_annotation.get('task', ''))
+    # Use annotator name from metadata if available, otherwise use completed_by
+    annotator_id = raw_annotation.get('_annotator', str(raw_annotation.get('completed_by', '')))
     timestamp = raw_annotation['created_at']
     
     # Initialize turn annotations
@@ -62,8 +71,9 @@ def parse_annotation(raw_annotation: dict) -> Tuple[Annotation, Dict[int, Set[st
         if turn_idx is None:
             continue
             
+        # Extract base category name without turn number
         category = extract_category(from_name)
-        if category is None:
+        if not category:
             continue
             
         if turn_idx not in turns:
@@ -79,10 +89,24 @@ def parse_annotation(raw_annotation: dict) -> Tuple[Annotation, Dict[int, Set[st
             }
             completed_categories[turn_idx] = set()
             
-        # Only count category as completed if it has choices
-        if result['value']['choices']:
-            turns[turn_idx][category].update(result['value']['choices'])
-            completed_categories[turn_idx].add(category)
+        # Map the category to our internal names
+        category_map = {
+            'media_format': 'media_format',
+            'topic': 'topic',
+            'function_purpose': 'function_purpose',
+            'multi_turn_relationship': 'multi_turn_relationship',
+            'anthropomorphization': 'anthropomorphization',
+            'restricted_flags': 'restricted_flags',
+            'answer_form': 'answer_form',
+            'self_disclosure': 'self_disclosure'
+        }
+        
+        internal_category = category_map.get(category)
+        if internal_category:
+            # Only count category as completed if it has choices
+            if result['value']['choices']:
+                turns[turn_idx][internal_category].update(result['value']['choices'])
+                completed_categories[turn_idx].add(internal_category)
     
     # Second pass: convert to TurnAnnotation objects
     turn_annotations = {}
@@ -103,111 +127,192 @@ def parse_annotation(raw_annotation: dict) -> Tuple[Annotation, Dict[int, Set[st
                 self_disclosure=data['self_disclosure'] if is_response else None
             )
     
-    return Annotation(
+    annotation = Annotation(
         task_id=task_id,
         annotator_id=annotator_id,
         timestamp=timestamp,
-        turns=turn_annotations
-    ), completed_categories
-
-def load_original_tasks(sample_path: str) -> List[dict]:
-    """Load original tasks from sample JSON file."""
-    with open(sample_path, 'r') as f:
-        tasks = json.load(f)
+        turns=turn_annotations,
+        completed_categories=completed_categories
+    )
     
-    # Add a hash of the conversation text to help with matching
-    for task in tasks:
-        conv_text = "\n".join(
-            turn["text"] for turn in task["conversation"]
-        )
-        task["_conv_hash"] = hash(conv_text)
+    return annotation, completed_categories
+
+def load_original_tasks(batch_dir: str = "data") -> List[dict]:
+    """Load original tasks from batch JSON files."""
+    tasks = []
+    batch_files = sorted(glob.glob(f"{batch_dir}/batch_*.json"))
+    
+    for batch_file in batch_files:
+        with open(batch_file, 'r') as f:
+            try:
+                batch_data = json.load(f)
+                # Extract batch number from filename
+                batch_num = int(batch_file.split('_')[-1].split('.')[0])
+                
+                # Add batch info to each task
+                for task in batch_data:
+                    task['_batch_num'] = batch_num
+                    # Add a hash of the conversation text to help with matching
+                    conversation = task.get("data", {}).get("conversation", task.get("conversation", []))
+                    conv_text = "\n".join(
+                        turn["text"] for turn in conversation
+                    )
+                    task["_conv_hash"] = hash(conv_text)
+                    tasks.append(task)
+            except json.JSONDecodeError:
+                print(f"Warning: Failed to parse {batch_file}")
+                continue
     
     return tasks
 
-def match_annotations(raw_annotations: List[dict], original_tasks: List[dict]) -> List[Task]:
-    """Match annotations from Label Studio exports with original tasks."""
-    # First, build a map of conversation hash -> original task
-    task_map = {
-        task["_conv_hash"]: task 
-        for task in original_tasks
+def map_annotators_to_batches() -> Dict[str, List[dict]]:
+    """Create a mapping of annotator -> list of their assigned tasks from batch files."""
+    # Map of annotator name -> batch number based on filename convention
+    annotator_batches = {
+        'ahmet': 1,
+        'anka': 2,
+        'cedricwhitney': 3,
+        'dayeon': 4,
+        'megan': 5,
+        'niloofar': 6,
+        'shayne': 7,
+        'victor': 8,
+        'wenting': 9,
+        'yuntian': 10,
+        'zhiping': 11,
+        'advisor': 12
     }
     
-    # Group annotations by conversation text and annotator
-    annotation_groups: Dict[int, Dict[str, List[Tuple[Annotation, Dict[int, Set[str]], datetime]]]] = {}
-    
-    for raw_task in raw_annotations:
-        # Skip if no annotations
-        if not raw_task["annotations"]:
+    # Load each batch and map to annotator
+    annotator_tasks = {}
+    for annotator, batch_num in annotator_batches.items():
+        batch_file = f"data/batch_{batch_num}.json"
+        try:
+            with open(batch_file, 'r') as f:
+                batch_data = json.load(f)
+                # Add batch info to each task
+                for task in batch_data:
+                    task['_batch_num'] = batch_num
+                    # Add a hash of the conversation text to help with matching
+                    conversation = task.get("data", {}).get("conversation", task.get("conversation", []))
+                    conv_text = "\n".join(
+                        turn["text"] for turn in conversation
+                    )
+                    task["_conv_hash"] = hash(conv_text)
+                annotator_tasks[annotator] = batch_data
+        except (json.JSONDecodeError, FileNotFoundError) as e:
+            print(f"Warning: Failed to load batch {batch_num} for {annotator}: {e}")
             continue
-            
-        # Get conversation text
-        conv_text = "\n".join(
-            turn["text"] for turn in raw_task["data"]["conversation"]
-        )
-        conv_hash = hash(conv_text)
-        
-        # Skip if we can't find matching original task
-        if conv_hash not in task_map:
-            continue
-            
-        # Parse annotations
-        for raw_annotation in raw_task["annotations"]:
-            annotation, completed_categories = parse_annotation(raw_annotation)
-            timestamp = datetime.fromisoformat(annotation.timestamp.rstrip('Z'))
-            
-            if conv_hash not in annotation_groups:
-                annotation_groups[conv_hash] = {}
-                
-            if annotation.annotator_id not in annotation_groups[conv_hash]:
-                annotation_groups[conv_hash][annotation.annotator_id] = []
-                
-            annotation_groups[conv_hash][annotation.annotator_id].append(
-                (annotation, completed_categories, timestamp)
-            )
     
-    # Create Task objects
-    tasks = []
-    for conv_hash, annotator_groups in annotation_groups.items():
-        original_task = task_map[conv_hash]
-        final_annotations = []
-        
-        # For each annotator, merge their annotations
-        for annotator_id, annotations in annotator_groups.items():
-            # Sort annotations by timestamp
-            annotations.sort(key=lambda x: x[2])
-            
-            # Track the most recent annotation for each turn and category
-            final_turns = {}
-            final_categories: Dict[int, Set[str]] = {}
-            
-            for annotation, completed_cats, _ in annotations:
-                for turn_idx, categories in completed_cats.items():
-                    if turn_idx not in final_categories:
-                        final_categories[turn_idx] = set()
+    return annotator_tasks
+
+def get_latest_annotations(exports_dir: str = "annotator_exports") -> Dict[str, Dict[str, Tuple[dict, datetime]]]:
+    """
+    Get the most recent annotation for each task by each annotator.
+    Returns: Dict[annotator_name, Dict[task_hash, (annotation, timestamp)]]
+    """
+    latest_annotations = {}
+    
+    json_files = glob.glob(f"{exports_dir}/*.json")
+    for json_file in json_files:
+        try:
+            with open(json_file, 'r') as f:
+                data = json.load(f)
+                if 'metadata' not in data or 'annotations' not in data:
+                    continue
                     
-                    # For each newly completed category in this turn
-                    for category in categories:
-                        if category not in final_categories[turn_idx]:
-                            final_categories[turn_idx].add(category)
-                            if turn_idx in annotation.turns:
-                                if turn_idx not in final_turns:
-                                    final_turns[turn_idx] = annotation.turns[turn_idx]
+                annotator = data['metadata']['annotator']
+                if annotator not in latest_annotations:
+                    latest_annotations[annotator] = {}
+                
+                # Process each task's annotations
+                for task in data['annotations']:
+                    if not task.get('annotations'):
+                        continue
+                        
+                    # Get conversation hash for matching
+                    conversation = task.get("data", {}).get("conversation", [])
+                    conv_text = "\n".join(
+                        turn["text"] for turn in conversation
+                    )
+                    conv_hash = hash(conv_text)
+                    
+                    # Find the latest annotation for this task
+                    latest_timestamp = None
+                    latest_annotation = None
+                    
+                    for annotation in task['annotations']:
+                        timestamp = datetime.fromisoformat(annotation['created_at'].rstrip('Z'))
+                        if latest_timestamp is None or timestamp > latest_timestamp:
+                            latest_timestamp = timestamp
+                            latest_annotation = annotation
+                            # Add task data and annotator to the annotation
+                            latest_annotation['task'] = task['id']
+                            latest_annotation['data'] = task['data']
+                            latest_annotation['_annotator'] = annotator
+                    
+                    if latest_annotation and latest_timestamp:
+                        latest_annotations[annotator][conv_hash] = (latest_annotation, latest_timestamp)
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"Warning: Failed to process {json_file}: {e}")
+            continue
+    
+    return latest_annotations
+
+def match_annotations(annotator_tasks: Dict[str, List[dict]], latest_annotations: Dict[str, Dict[str, Tuple[dict, datetime]]]) -> List[Task]:
+    """Match annotations with their original tasks and create Task objects."""
+    tasks = []
+    
+    # For each annotator's assigned tasks
+    for annotator, assigned_tasks in annotator_tasks.items():
+        # Skip if we don't have any annotations from this annotator
+        if annotator not in latest_annotations:
+            continue
             
-            if final_turns:  # Only include if there are any valid turns
-                final_annotations.append(Annotation(
-                    task_id=original_task.get("id", ""),
-                    annotator_id=annotator_id,
-                    timestamp=annotations[-1][0].timestamp,  # Use latest timestamp
-                    turns=final_turns,
-                    completed_categories=final_categories  # Add completed categories to annotation
+        # Process each assigned task
+        for task_idx, task in enumerate(assigned_tasks):
+            conv_hash = task['_conv_hash']
+            batch_num = task['_batch_num']
+            
+            # Find all annotators who have annotated this task
+            task_annotations = []
+            for ann_name, ann_tasks in latest_annotations.items():
+                if conv_hash in ann_tasks:
+                    raw_annotation, _ = ann_tasks[conv_hash]
+                    # Skip empty annotations
+                    if not raw_annotation.get('result'):
+                        continue
+                    annotation, completed_categories = parse_annotation(raw_annotation)
+                    # Skip annotations with no completed categories
+                    if not any(completed_categories.values()):
+                        continue
+                    task_annotations.append(annotation)
+            
+            # Only include tasks with at least 2 annotators
+            if len(task_annotations) >= 2:
+                # Create a task ID that reflects its position in the batch
+                task_id = f"batch_{batch_num}_task_{task_idx + 1}"  # 1-based indexing for display
+                tasks.append(Task(
+                    task_id=task_id,
+                    original_data=task,
+                    annotations=task_annotations
                 ))
-        
-        if len(final_annotations) >= 2:  # Only include if we have at least 2 annotators
-            tasks.append(Task(
-                task_id=str(original_task.get("id", "")),
-                original_data=original_task,
-                annotations=final_annotations
-            ))
+    
+    return tasks
+
+def analyze_agreement(exports_dir: str = "annotator_exports") -> List[Task]:
+    """Main function to analyze agreement between annotators."""
+    # Step 1: Map annotators to their batch tasks
+    print("Mapping annotators to batch tasks...")
+    annotator_tasks = map_annotators_to_batches()
+    
+    # Step 2: Get latest annotations for each task
+    print("Getting latest annotations...")
+    latest_annotations = get_latest_annotations(exports_dir)
+    
+    # Step 3: Match annotations with tasks
+    print("Matching annotations with tasks...")
+    tasks = match_annotations(annotator_tasks, latest_annotations)
     
     return tasks
 
@@ -251,7 +356,8 @@ def analyze_completion_rates(tasks: List[Task]) -> CompletionStats:
     
     for task in tasks:
         # Count total turns
-        total_turns += len(task.original_data["conversation"])
+        conversation = task.original_data.get("data", {}).get("conversation", task.original_data.get("conversation", []))
+        total_turns += len(conversation)
         
         # Get all annotators
         for annotation in task.annotations:
@@ -260,7 +366,7 @@ def analyze_completion_rates(tasks: List[Task]) -> CompletionStats:
                 annotator_expected[annotation.annotator_id] = {cat: 0 for cat in AnnotationCategory}
         
         # For each turn, check what categories should be present
-        for turn_idx in range(len(task.original_data["conversation"])):
+        for turn_idx in range(len(conversation)):
             is_response = turn_idx % 2 == 1
             
             # Determine required categories for this turn

@@ -19,7 +19,16 @@ def import_annotations(input_file: str, annotator_name: str):
     # Load the input JSON
     try:
         with open(input_path) as f:
-            new_data = json.load(f)
+            raw_data = json.load(f)
+            
+        # Handle both raw export format (list) and metadata format (dict)
+        if isinstance(raw_data, list):
+            new_data = {
+                "projects": [],
+                "annotations": raw_data
+            }
+        else:
+            new_data = raw_data
     except json.JSONDecodeError:
         print(f"❌ Invalid JSON file: {input_file}")
         return False
@@ -27,33 +36,22 @@ def import_annotations(input_file: str, annotator_name: str):
     # Prepare the export file path
     export_filename = EXPORT_DIR / f"{annotator_name}_annotations.json"
     
-    # Load existing exports or create new structure
-    if export_filename.exists():
-        with open(export_filename) as f:
-            all_exports = json.load(f)
-    else:
-        all_exports = {
+    # Create new export structure
+    all_exports = {
+        "metadata": {
             "annotator": annotator_name,
-            "exports": []
-        }
-    
-    # Create new export entry
-    current_export = {
-        "timestamp": datetime.now().isoformat(),
-        "projects": new_data.get("projects", []),
-        "annotations": new_data.get("annotations", []),
-        "import_note": f"Imported from {input_path.name}"
+            "last_export": datetime.now().isoformat(),
+            "projects": new_data.get("projects", [])
+        },
+        "annotations": new_data.get("annotations", [])
     }
-    
-    # Add to history
-    all_exports["exports"].append(current_export)
     
     # Save updated file
     with open(export_filename, 'w') as f:
         json.dump(all_exports, f, indent=2)
     
     print(f"✅ Successfully imported annotations for {annotator_name}")
-    print(f"📊 Total exports: {len(all_exports['exports'])}")
+    print(f"📊 Total annotations: {len(all_exports['annotations'])}")
     return True
 
 if __name__ == "__main__":
