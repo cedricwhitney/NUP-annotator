@@ -1,5 +1,5 @@
 # Define base paths without spaces
-VENV_DIR := $(CURDIR)/venv
+VENV_DIR := $(shell pwd)/.venv
 BIN_DIR := $(VENV_DIR)/bin
 
 # Export venv activation to all commands
@@ -10,24 +10,19 @@ export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
-.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-python validate-json convert-csv test test-csv test-json test-jsonl refresh-data export-data
+.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-uv validate-json convert-csv test test-csv test-json test-jsonl refresh-data export-data
 
-# Check Python installation
-check-python:
-	@which python3.13 > /dev/null || (echo "❌ Python 3.13 is required. Please install Python 3.13 first." && exit 1)
-	@echo "✅ Python 3.13 found"
+# Check for uv installation
+check-uv:
+	@which uv > /dev/null || (echo "❌ uv is not installed. Please install uv first:\n\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n" && exit 1)
+	@echo "✅ uv found"
 
 # Step 1: Set up the environment
-setup: check-python
+setup: check-uv
 	@echo "🚀 Setting up project..."
-	rm -rf "$(VENV_DIR)"
-	python3.13 -m venv "$(VENV_DIR)"
-	"$(BIN_DIR)/python3.13" -m pip install --upgrade pip wheel setuptools
-	"$(BIN_DIR)/pip" install --only-binary :all: psycopg2-binary
-	# Install core dependencies first
-	"$(BIN_DIR)/pip" install "Django>=5.1.4,<5.2.0" "djangorestframework==3.15.2" "numpy<2.0.0,>=1.26.4" "pandas>=2.2.3" "lxml>=4.9.4"
-	# Then install Label Studio and remaining dependencies
-	"$(BIN_DIR)/pip" install -r requirements.txt
+	@rm -rf "$(VENV_DIR)"
+	uv venv
+	. $(VENV_DIR)/bin/activate && uv pip install -r requirements.txt
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
 	@echo "1. Run 'make first-time-setup' to start the server"
