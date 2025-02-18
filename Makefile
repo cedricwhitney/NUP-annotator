@@ -5,6 +5,7 @@ BIN_DIR := $(VENV_DIR)/bin
 # Export venv activation to all commands
 export VIRTUAL_ENV=$(VENV_DIR)
 export PATH := $(BIN_DIR):$(PATH)
+export PYTHONPATH := .
 export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
@@ -13,16 +14,19 @@ export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
 # Check Python installation
 check-python:
-	@which python3 > /dev/null || (echo "❌ Python 3 is not installed. Please install Python 3.x first." && exit 1)
-	@echo "✅ Python 3 found"
+	@which python3.13 > /dev/null || (echo "❌ Python 3.13 is required. Please install Python 3.13 first." && exit 1)
+	@echo "✅ Python 3.13 found"
 
 # Step 1: Set up the environment
 setup: check-python
 	@echo "🚀 Setting up project..."
-	python3 -m venv venv
-	$(BIN_DIR)/pip install -U pip wheel setuptools
-	$(BIN_DIR)/pip install --only-binary :all: psycopg2-binary
-	$(BIN_DIR)/pip install -r requirements.txt
+	python3.13 -m venv "$(VENV_DIR)"
+	"$(BIN_DIR)/pip" install -U pip wheel setuptools
+	"$(BIN_DIR)/pip" install --only-binary :all: psycopg2-binary
+	# Install core dependencies first
+	"$(BIN_DIR)/pip" install "Django>=5.1.4,<5.2.0" "djangorestframework==3.15.2" "numpy<2.0.0,>=1.26.4" "pandas>=2.2.3" "lxml>=4.9.4"
+	# Then install Label Studio and remaining dependencies
+	"$(BIN_DIR)/pip" install -r requirements.txt
 	@echo "✅ Setup complete!"
 	@echo "\nFirst time setup:"
 	@echo "1. Run 'make first-time-setup' to start the server"
