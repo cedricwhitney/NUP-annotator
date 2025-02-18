@@ -1,5 +1,5 @@
 # Define base paths without spaces
-VENV_DIR := $(shell pwd)/venv
+VENV_DIR := $(CURDIR)/venv
 BIN_DIR := $(VENV_DIR)/bin
 
 # Export venv activation to all commands
@@ -20,8 +20,9 @@ check-python:
 # Step 1: Set up the environment
 setup: check-python
 	@echo "🚀 Setting up project..."
+	rm -rf "$(VENV_DIR)"
 	python3.13 -m venv "$(VENV_DIR)"
-	"$(BIN_DIR)/pip" install -U pip wheel setuptools
+	"$(BIN_DIR)/python3.13" -m pip install --upgrade pip wheel setuptools
 	"$(BIN_DIR)/pip" install --only-binary :all: psycopg2-binary
 	# Install core dependencies first
 	"$(BIN_DIR)/pip" install "Django>=5.1.4,<5.2.0" "djangorestframework==3.15.2" "numpy<2.0.0,>=1.26.4" "pandas>=2.2.3" "lxml>=4.9.4"
