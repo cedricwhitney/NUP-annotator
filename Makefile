@@ -144,6 +144,8 @@ refresh-data:
 
 # Export Label Studio data
 export-data:
+	@echo "\n🔄 Getting latest updates from other annotators..."
+	@git pull origin main
 	@if [ -z "$$LABEL_STUDIO_API_KEY" ]; then \
 		echo "\n🔑 No API key found in environment."; \
 		echo "Please get your API key from Label Studio:"; \
@@ -172,8 +174,6 @@ export-data:
 		echo "\n🔄 Saving your annotations..."; \
 		git add annotator_exports/; \
 		git commit -m "Update annotations"; \
-		echo "\n🔄 Getting latest updates from other annotators..."; \
-		git pull origin main; \
 		echo "\n🚀 Sharing your work..."; \
 		git push origin main; \
 		echo "\n✅ Success! Your annotations have been shared."; \

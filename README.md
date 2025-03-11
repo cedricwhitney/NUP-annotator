@@ -80,10 +80,17 @@ This will generate detailed agreement reports in the `reports/` directory.
 
 To save and share your annotations with other annotators:
 
-1. Make sure you've submitted your annotations in Label Studio
-   - Click the "Submit" button after each annotation, and "Update" if you've made changes
+1. Get the latest updates from other annotators:
+   ```bash
+   git pull origin main
+   ```
+   This step is crucial to avoid conflicts and ensure you have the most recent annotations.
 
-2. Export your annotations:
+2. Make sure you've submitted your annotations in Label Studio
+   - Click the "Submit" button after each annotation
+   - Click "Update" if you've made changes to existing annotations
+
+3. Export your annotations:
    ```bash
    make export-data
    ```
@@ -97,17 +104,19 @@ To save and share your annotations with other annotators:
      export LABEL_STUDIO_API_KEY=your_key_here
      ```
 
-3. When prompted, type 'y' to share your annotations with other annotators
+4. When prompted, type 'y' to share your annotations with other annotators
 
 Your annotations will be:
 - Saved in `annotator_exports/[your_git_username]_annotations.json`
 - Automatically shared with other annotators via GitHub
 - Preserved with full history of all your exports
 
-To get updates from other annotators:
+To get updates from other annotators at any time:
 ```bash
 git pull origin main
 ```
+
+**Note**: Always pull the latest changes before exporting to ensure your local repository is up to date with other annotators' work.
 
 ## Project Structure
 
