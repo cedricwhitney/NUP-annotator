@@ -403,7 +403,7 @@ def get_input_file():
         'batch_9.json': 'Wenting',
         'batch_10.json': 'Yuntian',
         'batch_11.json': 'Zhiping',
-        'batch_12.json': 'Advisor'
+        'batch_12.json': 'Updated'
     }
 
     while True:
