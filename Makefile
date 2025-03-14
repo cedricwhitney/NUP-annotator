@@ -76,7 +76,7 @@ start-project:
 	@echo "Batch 9 (Wenting)"
 	@echo "Batch 10 (Yuntian)"
 	@echo "Batch 11 (Zhiping)"
-	@echo "Batch 12 (Advisor)"
+	@echo "Batch 12 (Updated)"
 	@echo "\nThis will:"
 	@echo "1. Use your assigned batch file"
 	@echo "2. Convert and validate the file format"
@@ -106,7 +106,7 @@ stop-label-studio:
 # Validate JSON format
 validate-json:
 	@echo "Validating JSON format..."
-	python src/tools/validate_labelstudio_json.py data/your_tasks.json
+	python src/tools/validate_labelstudio_json.py data/batch_1.json
 
 # Convert CSV to Label Studio format
 convert-csv:

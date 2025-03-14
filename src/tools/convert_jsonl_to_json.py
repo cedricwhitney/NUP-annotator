@@ -1,4 +1,5 @@
 import json
+import sys
 
 def convert_jsonl_to_json(input_file, output_file):
     """Convert JSONL file to Label Studio JSON format."""
@@ -18,4 +19,10 @@ def convert_jsonl_to_json(input_file, output_file):
         json.dump(tasks, f, indent=2)
 
 if __name__ == "__main__":
-    convert_jsonl_to_json('data/cedric_120_sample.jsonl', 'data/your_tasks.json') 
+    # Example usage
+    if len(sys.argv) == 3:
+        convert_jsonl_to_json(sys.argv[1], sys.argv[2])
+    else:
+        print("Usage: python convert_jsonl_to_json.py input.jsonl output.json")
+        # Example with default paths
+        # convert_jsonl_to_json('data/input.jsonl', 'data/output.json') 

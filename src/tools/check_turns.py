@@ -20,4 +20,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         check_turns(sys.argv[1])
     else:
-        check_turns("data/batch_1_transformed_dynamic.json") 
+        print("Usage: python check_turns.py <transformed_file>")
+        print("Example: python check_turns.py data/batch_1_transformed.json") 
