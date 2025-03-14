@@ -12,6 +12,37 @@ This project facilitates consistent annotation across multiple annotators:
 
 The setup ensures everyone has identical project configuration while maintaining independent workspaces.
 
+## Data Transformation
+
+The project includes tools for transforming conversation data for annotation:
+
+- **Dynamic Turn Support**: Automatically processes conversations with varying numbers of turns
+- **Role Standardization**: Normalizes different role names to "User" and "LLM"
+- **Task Identification**: Preserves original task IDs and creates custom IDs for tracking
+- **Format Preservation**: Maintains whitespace and formatting in the conversation text
+
+To transform data for Label Studio:
+```bash
+python -m src.tools.transform_data_for_dynamic_turns input.json output.json [max_turns]
+```
+
+## Annotation Interface
+
+The Label Studio interface is configured with:
+
+- **Conversation Display**: Shows the full conversation with proper formatting
+- **Turn Selection**: Allows annotators to focus on specific turns
+- **Comprehensive Taxonomy**: Includes categories for:
+  - Media Format
+  - Function/Purpose
+  - Topic Classification
+  - Interaction Features
+  - Restricted Flags
+  - Prompt Quality
+  - Answer Form
+  - Self-Disclosure
+- **Task Identification**: Displays original task IDs for reference
+
 ## Analysis Tools
 
 The project includes a comprehensive suite of tools for analyzing inter-rater agreement between annotators. See the [Analysis Documentation](src/analysis/README.md) for details on:
@@ -27,6 +58,16 @@ python src/tools/analyze_agreement.py
 ```
 
 This will generate detailed agreement reports in the `reports/` directory.
+
+## Utility Tools
+
+The project includes several utility tools:
+
+- **analyze_turns.py**: Analyzes the number of turns in conversations and provides statistics
+- **extract_long_conversation.py**: Extracts and displays the longest conversation in a dataset
+- **check_turns.py**: Checks the turn structure in transformed data
+- **convert_jsonl_to_json.py**: Converts JSONL files to JSON format
+- **validate_labelstudio_json.py**: Validates JSON files for Label Studio compatibility
 
 ## Prerequisites
 
