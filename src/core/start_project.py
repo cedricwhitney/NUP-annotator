@@ -41,7 +41,7 @@ def generate_dynamic_label_config(max_turns=None):
     base_view = """
 <View style="display: flex;">
     <Style>.htx-text{ white-space: pre-wrap; }</Style>
-    <View style="width: 60%; padding-right: 1em;">
+    <View style="width: 60%; padding-right: 1em; white-space: pre-wrap;">
         <Paragraphs name="conversation" value="$conversation" 
         layout="dialogue" textKey="text" nameKey="role"/>
         <Header value="Original ID: $original_task_id" style="margin-top: 1em; font-size: 0.9em; color: #555;"/>
