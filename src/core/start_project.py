@@ -40,9 +40,11 @@ def generate_dynamic_label_config(max_turns=None):
     # Base view with conversation display
     base_view = """
 <View style="display: flex;">
+    <Style>.htx-text{ white-space: pre-wrap; }</Style>
     <View style="width: 60%; padding-right: 1em;">
         <Paragraphs name="conversation" value="$conversation" 
         layout="dialogue" textKey="text" nameKey="role"/>
+        <Header value="Original ID: $original_task_id" style="margin-top: 1em; font-size: 0.9em; color: #555;"/>
     </View>
     
     <View style="width: 40%; padding-left: 1em; overflow-y: auto;">
@@ -56,8 +58,8 @@ def generate_dynamic_label_config(max_turns=None):
         base_view += f'                <Choice value="Turn {turn_num}">Turn {turn_num}</Choice>\n'
     
     base_view += """
-            </Choices>
-        </View>
+                            </Choices>
+                </View>
 """
 
     # Generate panels for each turn
@@ -73,13 +75,15 @@ def generate_dynamic_label_config(max_turns=None):
                             <Panel value="Media Format">
                                 <Filter name="filter_media_{turn_num}" toName="media_format_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
                                 <Choices name="media_format_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Natural language" />
-                                    <Choice value="Code" />
-                                    <Choice value="Math / symbols" />
-                                    <Choice value="Formatted enumeration/itemization" />
-                                    <Choice value="Charts/Graphs" />
-                                    <Choice value="Images" />
                                     <Choice value="Audio" />
+                                    <Choice value="Charts/Graphs" />
+                                    <Choice value="Code" />
+                                    <Choice value="Formatted enumeration/itemization" />
+                                    <Choice value="HTML" />
+                                    <Choice value="Images" />
+                                    <Choice value="Likely retrieved/pasted content" />
+                                    <Choice value="Math / symbols" />
+                                    <Choice value="Natural language" />
                                     <Choice value="URLs" />
                                     <Choice value="Other" />
                                 </Choices>
@@ -87,59 +91,23 @@ def generate_dynamic_label_config(max_turns=None):
                         </Collapse>
                         
                         <Collapse>
-                            <Panel value="Topic">
-                                <Filter name="filter_topic_{turn_num}" toName="topic_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                <Choices name="topic_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Math &amp; Sciences" />
-                                    <Choice value="History" />
-                                    <Choice value="Geography" />
-                                    <Choice value="Religion &amp; Spirituality" />
-                                    <Choice value="Literature &amp; Writing" />
-                                    <Choice value="Psychology, Philosophy &amp; Human Behavior" />
-                                    <Choice value="Linguistics &amp; Languages" />
-                                    <Choice value="Technology, Software &amp; Computing" />
-                                    <Choice value="Engineering &amp; Infrastructure" />
-                                    <Choice value="Nature &amp; Environment" />
-                                    <Choice value="Transportation" />
-                                    <Choice value="Travel &amp; Tourism" />
-                                    <Choice value="Lifestyle" />
-                                    <Choice value="Food &amp; Dining" />
-                                    <Choice value="Art &amp; Design" />
-                                    <Choice value="Fashion &amp; Beauty" />
-                                    <Choice value="Culture" />
-                                    <Choice value="Entertainment, Hobbies &amp; Leisure" />
-                                    <Choice value="Sports" />
-                                    <Choice value="Social Issues &amp; Movements" />
-                                    <Choice value="Economics" />
-                                    <Choice value="Health &amp; Medicine" />
-                                    <Choice value="Business &amp; Finances" />
-                                    <Choice value="Employment &amp; Hiring" />
-                                    <Choice value="Education" />
-                                    <Choice value="News &amp; Current Affairs" />
-                                    <Choice value="Interpersonal Relationships &amp; Communication" />
-                                    <Choice value="Adult &amp; Illicit Content" />
-                                    <Choice value="Law, Criminal Justice, Law Enforcement" />
-                                    <Choice value="Politics &amp; Elections" />
-                                    <Choice value="Insurance &amp; social scoring" />
-                                    <Choice value="Housing" />
-                                    <Choice value="Immigration / migration" />
-                                    <Choice value="Other" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-
-                        <Collapse>
                             <Panel value="Function/Purpose">
                                 <Filter name="filter_function_{turn_num}" toName="function_purpose_{turn_num}" minlength="0" placeholder="Filter functions..."/>
                                 <Choices name="function_purpose_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Information retrieval: general info from web" />
-                                    <Choice value="Information retrieval: general info from prompt content" />
+                                    <Choice value="No Clear Ask" />
+                                    <Choice value="Advice, Guidance, &amp; Recommendations: Instructions / How-to" />
+                                    <Choice value="Advice, Guidance, &amp; Recommendations: Social and personal advice" />
+                                    <Choice value="Advice, Guidance, &amp; Recommendations: Professional advice" />
+                                    <Choice value="Advice, Guidance, &amp; Recommendations: Activity / product recommendations" />
+                                    <Choice value="Advice, Guidance, &amp; Recommendations: Action planning (scheduling, robotics)" />
                                     <Choice value="Content generation: brainstorming / ideation" />
                                     <Choice value="Content generation: creative / fiction writing" />
-                                    <Choice value="Content generation: non-fiction / academic / essay writing" />
+                                    <Choice value="Content generation: academic / essay" />
                                     <Choice value="Content generation: administrative writing" />
                                     <Choice value="Content generation: code" />
                                     <Choice value="Content generation: code documentation" />
+                                    <Choice value="Content generation: general prose, discussion or explanation" />
+                                    <Choice value="Content generation: prompts for another AI system" />
                                     <Choice value="Content generation: other" />
                                     <Choice value="Editorial &amp; formatting: Natural language content editing" />
                                     <Choice value="Editorial &amp; formatting: Natural language style or re-formatting" />
@@ -153,12 +121,8 @@ def generate_dynamic_label_config(max_turns=None):
                                     <Choice value="Information analysis: Content Classification" />
                                     <Choice value="Information analysis: Ranking or Scoring" />
                                     <Choice value="Information analysis: Other content analysis / description" />
-                                    <Choice value="Translation (language to language)" />
-                                    <Choice value="Role-play / social simulation: platonic companion / friend" />
-                                    <Choice value="Role-play / social simulation: romantic companion" />
-                                    <Choice value="Role-play / social simulation: simulation of real person / celebrity" />
-                                    <Choice value="Role-play / social simulation: user study persona simulations or polling" />
-                                    <Choice value="Role-play / social simulation: therapist / coach" />
+                                    <Choice value="Information retrieval: general info from web" />
+                                    <Choice value="Information retrieval: general info from prompt content" />
                                     <Choice value="Advice, Guidance, &amp; Recommendations: Instructions / How-to" />
                                     <Choice value="Advice, Guidance, &amp; Recommendations: Social and personal advice" />
                                     <Choice value="Advice, Guidance, &amp; Recommendations: Professional advice" />
@@ -167,6 +131,12 @@ def generate_dynamic_label_config(max_turns=None):
                                     <Choice value="Reasoning: Mathematical or numerical problem solving" />
                                     <Choice value="Reasoning: Verbal problems, logic games, puzzles or riddles" />
                                     <Choice value="Reasoning: Other general problem solving" />
+                                    <Choice value="Role-play / social simulation: platonic companion / friend" />
+                                    <Choice value="Role-play / social simulation: romantic companion" />
+                                    <Choice value="Role-play / social simulation: simulation of real person / celebrity" />
+                                    <Choice value="Role-play / social simulation: user study persona simulations or polling" />
+                                    <Choice value="Role-play / social simulation: therapist / coach" />
+                                    <Choice value="Translation (language to language)" />
                                     <Choice value="Other" />
                                 </Choices>
                             </Panel>
@@ -177,18 +147,34 @@ def generate_dynamic_label_config(max_turns=None):
                                 <Choices name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single">
                                     <Choice value="First request" />
                                     <Choice value="Unrelated request" />
-                                    <Choice value="Same task, new request" />
-                                    <Choice value="Repeat request" />
-                                    <Choice value="Related request" />
+                                    <Choice value="Same/similar task, new request" />
+                                    <Choice value="Repeated/follow-up request" />
+                                    <Choice value="New task, related request" />
                                 </Choices>
                             </Panel>
                         </Collapse>
 
                         <Collapse>
-                            <Panel value="Anthropomorphization">
-                                <Choices name="anthropomorphization_{turn_num}" toName="conversation" choice="single">
-                                    <Choice value="Yes" />
-                                    <Choice value="No" />
+                            <Panel value="Interaction Features">
+                                <Choices name="interaction_features_{turn_num}" toName="conversation" choice="multiple">
+                                    <Choice value="Role-assignment" />
+                                    <Choice value="Jailbreak attempt" />
+                                    <Choice value="Courtesy / politeness" />
+                                    <Choice value="Reinforcement/Praise" />
+                                    <Choice value="Companionship" />
+                                    <Choice value="None" />
+                                </Choices>
+                            </Panel>
+                        </Collapse>
+
+                        <Collapse>
+                            <Panel value="Prompt Quality">
+                                <Choices name="prompt_quality_{turn_num}" toName="conversation" choice="single">
+                                    <Choice value="Prompt is grammatical, well-formed, and formal" />
+                                    <Choice value="Prompt is grammatical, well-formed and casual" />
+                                    <Choice value="Prompt is mostly grammatical, well-formed, and formal" />
+                                    <Choice value="Prompt is mostly grammatical, well-formed, and casual" />
+                                    <Choice value="Prompt is not grammatical, difficult to interpret, or is extremely casual" />
                                 </Choices>
                             </Panel>
                         </Collapse>
@@ -197,27 +183,29 @@ def generate_dynamic_label_config(max_turns=None):
                             <Panel value="Restricted Flags">
                                 <Filter name="filter_flags_{turn_num}" toName="restricted_flags_{turn_num}" minlength="0" placeholder="Filter flags..."/>
                                 <Choices name="restricted_flags_{turn_num}" toName="conversation" choice="multiple">
+                                    <Choice value="None" />
+                                    <Choice value="CBRN-related outputs" />
+                                    <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                    <Choice value="Cyberattacks" />
+                                    <Choice value="Discriminatory practices" />
+                                    <Choice value="Generating defamatory content" />
+                                    <Choice value="Generating spam" />
+                                    <Choice value="Impersonation attempts" />
                                     <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
                                     <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
                                     <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
-                                    <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                    <Choice value="Cyberattacks" />
-                                    <Choice value="Weapons &amp; drugs" />
-                                    <Choice value="CBRN-related outputs" />
-                                    <Choice value="Sexually explicit content: real person" />
-                                    <Choice value="Sexually explicit content: fictitious person" />
-                                    <Choice value="Sexually explicit content: Request/discussion of CSAM" />
-                                    <Choice value="Sexually explicit content: Other" />
-                                    <Choice value="Impersonation attempts" />
                                     <Choice value="Misinformation" />
+                                    <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                    <Choice value="Output misrepresentation: disclaiming AI use" />
+                                    <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                    <Choice value="Potential violation of external policy / ethics" />
                                     <Choice value="Privacy concerns: Possible identifiable information" />
                                     <Choice value="Privacy concerns: Possible sensitive information" />
-                                    <Choice value="Generating spam" />
-                                    <Choice value="Generating defamatory content" />
-                                    <Choice value="Output misrepresentation: disclaiming AI use" />
-                                    <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                    <Choice value="Discriminatory practices" />
-                                    <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                    <Choice value="Sexually explicit content: fictitious person" />
+                                    <Choice value="Sexually explicit content: Other" />
+                                    <Choice value="Sexually explicit content: real person" />
+                                    <Choice value="Sexually explicit content: Request/discussion of CSAM" />
+                                    <Choice value="Weapons &amp; drugs" />
                                     <Choice value="Other" />
                                 </Choices>
                             </Panel>
@@ -233,15 +221,17 @@ def generate_dynamic_label_config(max_turns=None):
                             <Panel value="Media Format">
                                 <Filter name="filter_media_response_{turn_num}" toName="media_format_response_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
                                 <Choices name="media_format_response_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Natural language" />
-                                    <Choice value="Code" />
-                                    <Choice value="Math / symbols" />
-                                    <Choice value="Formatted enumeration/itemization" />
-                                    <Choice value="Charts/Graphs" />
-                                    <Choice value="Images" />
                                     <Choice value="Audio" />
-                                    <Choice value="URLs" />
+                                    <Choice value="Charts/Graphs" />
+                                    <Choice value="Code" />
+                                    <Choice value="Formatted enumeration/itemization" />
+                                    <Choice value="HTML" />
+                                    <Choice value="Images" />
+                                    <Choice value="Likely retrieved/pasted content" />
+                                    <Choice value="Math / symbols" />
+                                    <Choice value="Natural language" />
                                     <Choice value="Other" />
+                                    <Choice value="URLs" />
                                 </Choices>
                             </Panel>
                         </Collapse>
@@ -268,43 +258,17 @@ def generate_dynamic_label_config(max_turns=None):
                         </Collapse>
 
                         <Collapse>
-                            <Panel value="Topic">
-                                <Filter name="filter_topic_response_{turn_num}" toName="topic_response_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                <Choices name="topic_response_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Math &amp; Sciences" />
-                                    <Choice value="History" />
-                                    <Choice value="Geography" />
-                                    <Choice value="Religion &amp; Spirituality" />
-                                    <Choice value="Literature &amp; Writing" />
-                                    <Choice value="Psychology, Philosophy &amp; Human Behavior" />
-                                    <Choice value="Linguistics &amp; Languages" />
-                                    <Choice value="Technology, Software &amp; Computing" />
-                                    <Choice value="Engineering &amp; Infrastructure" />
-                                    <Choice value="Nature &amp; Environment" />
-                                    <Choice value="Transportation" />
-                                    <Choice value="Travel &amp; Tourism" />
-                                    <Choice value="Lifestyle" />
-                                    <Choice value="Food &amp; Dining" />
-                                    <Choice value="Art &amp; Design" />
-                                    <Choice value="Fashion &amp; Beauty" />
-                                    <Choice value="Culture" />
-                                    <Choice value="Entertainment, Hobbies &amp; Leisure" />
-                                    <Choice value="Sports" />
-                                    <Choice value="Social Issues &amp; Movements" />
-                                    <Choice value="Economics" />
-                                    <Choice value="Health &amp; Medicine" />
-                                    <Choice value="Business &amp; Finances" />
-                                    <Choice value="Employment &amp; Hiring" />
-                                    <Choice value="Education" />
-                                    <Choice value="News &amp; Current Affairs" />
-                                    <Choice value="Interpersonal Relationships &amp; Communication" />
-                                    <Choice value="Adult &amp; Illicit Content" />
-                                    <Choice value="Law, Criminal Justice, Law Enforcement" />
-                                    <Choice value="Politics &amp; Elections" />
-                                    <Choice value="Insurance &amp; social scoring" />
-                                    <Choice value="Housing" />
-                                    <Choice value="Immigration / migration" />
-                                    <Choice value="Other" />
+                            <Panel value="Interaction Features">
+                                <Choices name="interaction_features_response_{turn_num}" toName="conversation" choice="multiple">
+                                    <Choice value="Self-Disclosure" />
+                                    <Choice value="Content-Direct Response" />
+                                    <Choice value="Content-Preferences/Feelings/Opinions/Religious beliefs" />
+                                    <Choice value="Apology" />
+                                    <Choice value="Content-Empathy" />
+                                    <Choice value="Register and Style- Phatic Expressions" />
+                                    <Choice value="Register and Style- Expressions of Confidence and Doubt" />
+                                    <Choice value="Non-Personalization" />
+                                    <Choice value="None" />
                                 </Choices>
                             </Panel>
                         </Collapse>
@@ -313,28 +277,30 @@ def generate_dynamic_label_config(max_turns=None):
                             <Panel value="Restricted Flags">
                                 <Filter name="filter_flags_response_{turn_num}" toName="restricted_flags_response_{turn_num}" minlength="0" placeholder="Filter flags..."/>
                             <Choices name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple">
+                                <Choice value="None" />
+                                <Choice value="CBRN-related outputs" />
+                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                <Choice value="Cyberattacks" />
+                                <Choice value="Discriminatory practices" />
+                                <Choice value="Generating defamatory content" />
+                                <Choice value="Generating spam" />
+                                <Choice value="Impersonation attempts" />
                                 <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
                                 <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
                                 <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
-                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                <Choice value="Cyberattacks" />
-                                <Choice value="Weapons &amp; drugs" />
-                                <Choice value="CBRN-related outputs" />
-                                <Choice value="Sexually explicit content: real person" />
-                                <Choice value="Sexually explicit content: fictitious person" />
-                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
-                                <Choice value="Sexually explicit content: Other" />
-                                <Choice value="Impersonation attempts" />
                                 <Choice value="Misinformation" />
+                                <Choice value="Other" />
+                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                <Choice value="Output misrepresentation: disclaiming AI use" />
+                                <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                <Choice value="Potential violation of external policy / ethics" />
                                 <Choice value="Privacy concerns: Possible identifiable information" />
                                 <Choice value="Privacy concerns: Possible sensitive information" />
-                                <Choice value="Generating spam" />
-                                <Choice value="Generating defamatory content" />
-                                <Choice value="Output misrepresentation: disclaiming AI use" />
-                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                <Choice value="Discriminatory practices" />
-                                <Choice value="Possible presence of copyrighted, unreferenced material" />
-                                <Choice value="Other" />
+                                <Choice value="Sexually explicit content: fictitious person" />
+                                <Choice value="Sexually explicit content: Other" />
+                                <Choice value="Sexually explicit content: real person" />
+                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
+                                <Choice value="Weapons &amp; drugs" />
                                 </Choices>
                             </Panel>
                         </Collapse>
@@ -343,7 +309,72 @@ def generate_dynamic_label_config(max_turns=None):
             </Collapse>
         </View>
 """
-        turn_panels += prompt_panel
+
+        # Create panel for the whole turn (containing both user and assistant messages)
+        whole_turn_panel = f"""
+        <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
+            <Collapse visibleWhen="$turn{turn_num}_dialogue[0].text">
+                <Panel value="Turn {turn_num} - Whole Turn">
+                    <View>
+                        <Collapse>
+                            <Panel value="Topic">
+                                <Filter name="filter_topic_whole_{turn_num}" toName="topic_whole_{turn_num}" minlength="0" placeholder="Filter topics..."/>
+                                <Choices name="topic_whole_{turn_num}" toName="conversation" choice="multiple">
+                                    <Choice value="None" />
+                                    <Choice value="Same Topics as prior conversation turn" />
+                                    <Choice value="Adult &amp; Illicit Content" />
+                                    <Choice value="Art &amp; Design" />
+                                    <Choice value="Business &amp; Finances" />
+                                    <Choice value="Culture" />
+                                    <Choice value="Economics" />
+                                    <Choice value="Education" />
+                                    <Choice value="Employment &amp; Hiring" />
+                                    <Choice value="Engineering &amp; Infrastructure" />
+                                    <Choice value="Entertainment, Hobbies &amp; Leisure" />
+                                    <Choice value="Fantasy / Fiction / Fanfiction" />
+                                    <Choice value="Fashion &amp; Beauty" />
+                                    <Choice value="Food &amp; Dining" />
+                                    <Choice value="Geography" />
+                                    <Choice value="Health &amp; Medicine" />
+                                    <Choice value="History" />
+                                    <Choice value="Housing" />
+                                    <Choice value="Immigration / migration" />
+                                    <Choice value="Insurance &amp; social scoring" />
+                                    <Choice value="Interpersonal Relationships &amp; Communication" />
+                                    <Choice value="Law, Criminal Justice, Law Enforcement" />
+                                    <Choice value="Lifestyle" />
+                                    <Choice value="Linguistics &amp; Languages" />
+                                    <Choice value="Literature &amp; Writing" />
+                                    <Choice value="Math &amp; Sciences" />
+                                    <Choice value="Nature &amp; Environment" />
+                                    <Choice value="News &amp; Current Affairs" />
+                                    <Choice value="Politics &amp; Elections" />
+                                    <Choice value="Psychology, Philosophy &amp; Human Behavior" />
+                                    <Choice value="Religion &amp; Spirituality" />
+                                    <Choice value="Social Issues &amp; Movements" />
+                                    <Choice value="Sports" />
+                                    <Choice value="Technology, Software &amp; Computing" />
+                                    <Choice value="Transportation" />
+                                    <Choice value="Travel &amp; Tourism" />
+                                    <Choice value="Video Games" />
+                                    <Choice value="Other" />
+                                </Choices>
+                            </Panel>
+                        </Collapse>
+
+                        <Collapse>
+                            <Panel value="Other Feedback">
+                                <TextArea name="other_feedback_{turn_num}" toName="conversation" 
+                                          placeholder="Enter any additional feedback, observations, or notes about this turn..." 
+                                          rows="4" maxSubmissions="1" editable="true" />
+                            </Panel>
+                        </Collapse>
+                    </View>
+                </Panel>
+            </Collapse>
+        </View>
+"""
+        turn_panels += prompt_panel + whole_turn_panel
 
     # Close the views
     closing_tags = """
