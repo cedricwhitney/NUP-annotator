@@ -132,6 +132,12 @@ export-data: sync-repo label-studio
 	@echo "   • Other annotators will be able to see your work\n"
 	@read -p "Share your annotations? [y/N] " answer; \
 	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
+		echo "\n🔄 Checking Git permissions..."; \
+		if ! git push --dry-run origin main > /dev/null 2>&1; then \
+			echo "❌ Error: You don't have permission to push to this repository."; \
+			echo "Please contact the repository administrator for access."; \
+			exit 1; \
+		fi; \
 		echo "\n🔄 Saving your annotations..."; \
 		git add annotator_exports/; \
 		git commit -m "Update annotations"; \
