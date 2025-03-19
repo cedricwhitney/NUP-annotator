@@ -3,6 +3,30 @@ import sys
 from pathlib import Path
 from typing import List, Dict, Any
 
+def load_master_conversation_ids(master_file: str = "data/master_sample_file.json") -> Dict[str, str]:
+    """
+    Load conversation IDs from the master file.
+    
+    Returns:
+        Dict mapping conversation text to conversation IDs
+    """
+    try:
+        with open(master_file, 'r', encoding='utf-8', newline='') as f:
+            master_data = json.load(f)
+            
+        # Create a mapping of conversation text to conversation ID
+        conv_map = {}
+        for conv in master_data:
+            if "data" in conv and "conversation" in conv["data"]:
+                # Create a key from the conversation text
+                conv_key = json.dumps([msg.get("text", "") for msg in conv["data"]["conversation"]], sort_keys=True)
+                conv_map[conv_key] = conv["data"].get("conversation_id")
+        
+        return conv_map
+    except Exception as e:
+        print(f"⚠️ Warning: Could not load master conversation IDs: {e}")
+        return {}
+
 def transform_data(input_file: str, output_file: str, max_turns: int = 10):
     """
     Transform conversation data to include turn-specific dialogue fields for Label Studio.
@@ -18,6 +42,9 @@ def transform_data(input_file: str, output_file: str, max_turns: int = 10):
     print(f"🔍 Reading input file: {input_file}")
     
     try:
+        # Load master conversation IDs
+        master_conv_ids = load_master_conversation_ids()
+        
         with open(input_file, 'r', encoding='utf-8', newline='') as f:
             tasks = json.load(f)
         
@@ -48,14 +75,21 @@ def transform_data(input_file: str, output_file: str, max_turns: int = 10):
                 }
             }
             
-            # Preserve original task ID if it exists, or create a new one
-            if "id" in task:
-                new_task["id"] = task["id"]
+            # Try to find the conversation ID from the master file
+            conv_key = json.dumps([msg.get("text", "") for msg in conversation], sort_keys=True)
+            conversation_id = master_conv_ids.get(conv_key)
+            
+            if conversation_id:
+                new_task["id"] = conversation_id
+                new_task["data"]["conversation_id"] = conversation_id
             else:
-                # Create a custom ID using the original filename and task index
-                base_filename = Path(input_file).stem
-                new_task["id"] = f"{base_filename}_{i+1}"
-                
+                # Fallback to the old ID generation if no match found
+                if "id" in task:
+                    new_task["id"] = task["id"]
+                else:
+                    base_filename = Path(input_file).stem
+                    new_task["id"] = f"{base_filename}_{i+1}"
+            
             # Add original_task_id for reference
             new_task["data"]["original_task_id"] = new_task["id"]
             
