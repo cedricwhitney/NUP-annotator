@@ -4,7 +4,6 @@ import requests
 from label_studio_sdk import Client
 import json
 from pathlib import Path
-from src.tools.convert_jsonl_to_json import convert_jsonl_to_json
 from src.tools.validate_labelstudio_json import validate_and_fix_json
 from src.tools.transform_data_for_dynamic_turns import transform_data
 
@@ -450,13 +449,6 @@ def prepare_tasks_file():
     """Prepare the tasks file for Label Studio."""
     input_file = get_input_file()
     print(f"📁 Using file: {input_file}")
-    
-    # If it's JSONL, convert it
-    if input_file.suffix == '.jsonl':
-        print("🔄 Converting JSONL to JSON format...")
-        output_file = input_file.with_suffix('.json')
-        convert_jsonl_to_json(str(input_file), str(output_file))
-        input_file = output_file
     
     # Validate the JSON format
     print("🔍 Validating JSON format...")
