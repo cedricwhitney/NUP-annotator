@@ -67,314 +67,304 @@ def generate_dynamic_label_config(max_turns=None):
     for turn_num in range(1, max_turns + 1):
         # Create panel for the prompt (user message)
         prompt_panel = f"""
-        <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
-            <Collapse visibleWhen="$turn{turn_num}_dialogue[0].text">
-                <Panel value="Turn {turn_num} - Prompt">
-                    <View>
-                        <Collapse>
-                            <Panel value="Media Format">
-                                <Filter name="filter_media_{turn_num}" toName="media_format_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
-                                <Choices name="media_format_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Audio" />
-                                    <Choice value="Charts/Graphs" />
-                                    <Choice value="Code" />
-                                    <Choice value="Formatted enumeration/itemization" />
-                                    <Choice value="HTML" />
-                                    <Choice value="Images" />
-                                    <Choice value="Likely retrieved/pasted content" />
-                                    <Choice value="Math / symbols" />
-                                    <Choice value="Natural language" />
-                                    <Choice value="URLs" />
-                                    <Choice value="Other" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-                        
-                        <Collapse>
-                            <Panel value="Function/Purpose">
-                                <Filter name="filter_function_{turn_num}" toName="function_purpose_{turn_num}" minlength="0" placeholder="Filter functions..."/>
-                                <Choices name="function_purpose_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="No Clear Ask" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Instructions / How-to" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Social and personal advice" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Professional advice" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Activity / product recommendations" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Action planning (scheduling, robotics)" />
-                                    <Choice value="Content generation: brainstorming / ideation" />
-                                    <Choice value="Content generation: creative / fiction writing" />
-                                    <Choice value="Content generation: academic / essay" />
-                                    <Choice value="Content generation: administrative writing" />
-                                    <Choice value="Content generation: code" />
-                                    <Choice value="Content generation: code documentation" />
-                                    <Choice value="Content generation: general prose, discussion or explanation" />
-                                    <Choice value="Content generation: prompts for another AI system" />
-                                    <Choice value="Content generation: other" />
-                                    <Choice value="Editorial &amp; formatting: Natural language content editing" />
-                                    <Choice value="Editorial &amp; formatting: Natural language style or re-formatting" />
-                                    <Choice value="Editorial &amp; formatting: Code content editing" />
-                                    <Choice value="Editorial &amp; formatting: Code style and re-formatting" />
-                                    <Choice value="Editorial &amp; formatting: Content summarization" />
-                                    <Choice value="Editorial &amp; formatting: Content expansion" />
-                                    <Choice value="Editorial &amp; formatting: Information processing &amp; re-formatting" />
-                                    <Choice value="Information analysis: Content explanation / interpretation" />
-                                    <Choice value="Information analysis: Content quality review or assessment" />
-                                    <Choice value="Information analysis: Content Classification" />
-                                    <Choice value="Information analysis: Ranking or Scoring" />
-                                    <Choice value="Information analysis: Other content analysis / description" />
-                                    <Choice value="Information retrieval: general info from web" />
-                                    <Choice value="Information retrieval: general info from prompt content" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Instructions / How-to" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Social and personal advice" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Professional advice" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Activity / product recommendations" />
-                                    <Choice value="Advice, Guidance, &amp; Recommendations: Action planning (scheduling, robotics)" />
-                                    <Choice value="Reasoning: Mathematical or numerical problem solving" />
-                                    <Choice value="Reasoning: Verbal problems, logic games, puzzles or riddles" />
-                                    <Choice value="Reasoning: Other general problem solving" />
-                                    <Choice value="Role-play / social simulation: platonic companion / friend" />
-                                    <Choice value="Role-play / social simulation: romantic companion" />
-                                    <Choice value="Role-play / social simulation: simulation of real person / celebrity" />
-                                    <Choice value="Role-play / social simulation: user study persona simulations or polling" />
-                                    <Choice value="Role-play / social simulation: therapist / coach" />
-                                    <Choice value="Translation (language to language)" />
-                                    <Choice value="Other" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+        <View>
+            <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
+                <Collapse visibleWhen="$turn{turn_num}_dialogue[0].text">
+                    <Panel value="Turn {turn_num} - Prompt">
+                        <View>
+                            <View style="margin-bottom: 1em;">
+                                <Text name="turn_{turn_num}_prompt_warning" value="⚠️ Please complete all required fields for Turn {turn_num} - Prompt:" style="color: #ff6b6b; font-weight: bold;" />
+                            </View>
+                            <Collapse>
+                                <Panel value="Media Format">
+                                    <Filter name="filter_media_{turn_num}" toName="media_format_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
+                                    <Choices name="media_format_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Audio" />
+                                        <Choice value="Charts / graphs" />
+                                        <Choice value="Formatted enumeration / itemization" />
+                                        <Choice value="Images" />
+                                        <Choice value="Likely retrieved / pasted content" />
+                                        <Choice value="Math / symbols" />
+                                        <Choice value="URLs" />
+                                        <Choice value="Natural language" />
+                                        <Choice value="Code" />
+                                        <Choice value="Other" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
+                            
+                            <Collapse>
+                                <Panel value="Function/Purpose">
+                                    <Filter name="filter_function_{turn_num}" toName="function_purpose_{turn_num}" minlength="0" placeholder="Filter functions..."/>
+                                    <Choices name="function_purpose_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Advice, guidance, &amp; recommendations: Instructions / how-to" />
+                                        <Choice value="Advice, guidance, &amp; recommendations: Social and personal advice" />
+                                        <Choice value="Advice, guidance, &amp; recommendations: Professional advice" />
+                                        <Choice value="Advice, guidance, &amp; recommendations: Activity / product recommendations" />
+                                        <Choice value="Advice, guidance, &amp; recommendations: Action planning (scheduling, robotics)" />
+                                        <Choice value="Editorial &amp; formatting: Natural language content editing" />
+                                        <Choice value="Editorial &amp; formatting: Natural language style or re-formatting" />
+                                        <Choice value="Editorial &amp; formatting: Code content editing" />
+                                        <Choice value="Editorial &amp; formatting: Code style and re-formatting" />
+                                        <Choice value="Editorial &amp; formatting: Content summarization" />
+                                        <Choice value="Editorial &amp; formatting: Content expansion" />
+                                        <Choice value="Editorial &amp; formatting: Information processing &amp; re-formatting" />
+                                        <Choice value="Information analysis: Content explanation / interpretation" />
+                                        <Choice value="Information analysis: Content quality review or assessment" />
+                                        <Choice value="Information analysis: Content classification" />
+                                        <Choice value="Information analysis: Ranking or scoring" />
+                                        <Choice value="Information analysis: Other content analysis / description" />
+                                        <Choice value="Information retrieval: General info from web" />
+                                        <Choice value="Information retrieval: General info from prompt content" />
+                                        <Choice value="Reasoning: Mathematical or numerical problem solving" />
+                                        <Choice value="Reasoning: Verbal problems, logic games, puzzles or riddles" />
+                                        <Choice value="Reasoning: Other general problem solving" />
+                                        <Choice value="Role-play / social simulation: Platonic companion / friend" />
+                                        <Choice value="Role-play / social simulation: Romantic companion" />
+                                        <Choice value="Role-play / social simulation: Simulation of real person / celebrity" />
+                                        <Choice value="Role-play / social simulation: User study persona simulations or polling" />
+                                        <Choice value="Role-play / social simulation: Therapist / coach" />
+                                        <Choice value="Translation (language to language)" />
+                                        <Choice value="Content generation: Brainstorming / ideation" />
+                                        <Choice value="Content generation: Creative / fiction writing" />
+                                        <Choice value="Content generation: Academic / essay" />
+                                        <Choice value="Content generation: Administrative writing" />
+                                        <Choice value="Content generation: Code" />
+                                        <Choice value="Content generation: Code documentation" />
+                                        <Choice value="Content generation: General prose, discussion or explanation" />
+                                        <Choice value="Content generation: Prompts for another AI system" />
+                                        <Choice value="Content generation: Other" />
+                                        <Choice value="Other" />
+                                        <Choice value="No clear ask" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Multi-turn Relationship">
-                                <Choices name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single">
-                                    <Choice value="First request" />
-                                    <Choice value="Unrelated request" />
-                                    <Choice value="Same/similar task, new request" />
-                                    <Choice value="Repeated/follow-up request" />
-                                    <Choice value="New task, related request" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+                            <Collapse>
+                                <Panel value="Multi-turn Relationship">
+                                    <Choices name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single" required="true">
+                                        <Choice value="First request" />
+                                        <Choice value="Unrelated request" />
+                                        <Choice value="Same / similar task, new request" />
+                                        <Choice value="Repeated / revision request" />
+                                        <Choice value="New task, related request" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Interaction Features">
-                                <Choices name="interaction_features_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Role-assignment" />
-                                    <Choice value="Jailbreak attempt" />
-                                    <Choice value="Courtesy / politeness" />
-                                    <Choice value="Reinforcement/Praise" />
-                                    <Choice value="Companionship" />
-                                    <Choice value="None" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+                            <Collapse>
+                                <Panel value="Interaction Features">
+                                    <Choices name="interaction_features_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Companionship" />
+                                        <Choice value="Courtesy / politeness" />
+                                        <Choice value="Jailbreak attempt" />
+                                        <Choice value="Reinforcement / praise" />
+                                        <Choice value="Role-assignment" />
+                                        <Choice value="None" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Prompt Quality">
-                                <Choices name="prompt_quality_{turn_num}" toName="conversation" choice="single">
-                                    <Choice value="Prompt is grammatical, well-formed, and formal" />
-                                    <Choice value="Prompt is grammatical, well-formed and casual" />
-                                    <Choice value="Prompt is mostly grammatical, well-formed, and formal" />
-                                    <Choice value="Prompt is mostly grammatical, well-formed, and casual" />
-                                    <Choice value="Prompt is not grammatical, difficult to interpret, or is extremely casual" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+                            <Collapse>
+                                <Panel value="Restricted Flags">
+                                    <Filter name="filter_flags_{turn_num}" toName="restricted_flags_{turn_num}" minlength="0" placeholder="Filter flags..."/>
+                                    <Choices name="restricted_flags_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Sexually explicit content: Fictitious person" />
+                                        <Choice value="Sexually explicit content: Other" />
+                                        <Choice value="Sexually explicit content: Real person" />
+                                        <Choice value="Sexually explicit content: Request / discussion of CSAM" /><Choice value="CBRN-related outputs" />
+                                        <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                        <Choice value="Cyberattacks" />
+                                        <Choice value="Discriminatory practices" />
+                                        <Choice value="Generating defamatory content" />
+                                        <Choice value="Generating spam" />
+                                        <Choice value="Impersonation attempts" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Harassment &amp; bullying" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Physical harm" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Self-harm" />
+                                        <Choice value="Misinformation" />
+                                        <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                        <Choice value="Output misrepresentation: Disclaiming AI use" />
+                                        <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                        <Choice value="Potential violation of external policy / ethics" />
+                                        <Choice value="Privacy concerns: Possible identifiable information" />
+                                        <Choice value="Privacy concerns: Possible sensitive information" />
+                                        <Choice value="Weapons &amp; drugs" />
+                                        <Choice value="Other" />
+                                        <Choice value="None" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
+                        </View>
+                    </Panel>
+                </Collapse>
+            </View>
+        </View>
+"""
 
-                        <Collapse>
-                            <Panel value="Restricted Flags">
-                                <Filter name="filter_flags_{turn_num}" toName="restricted_flags_{turn_num}" minlength="0" placeholder="Filter flags..."/>
-                                <Choices name="restricted_flags_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="None" />
-                                    <Choice value="CBRN-related outputs" />
-                                    <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                    <Choice value="Cyberattacks" />
-                                    <Choice value="Discriminatory practices" />
-                                    <Choice value="Generating defamatory content" />
-                                    <Choice value="Generating spam" />
-                                    <Choice value="Impersonation attempts" />
-                                    <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
-                                    <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
-                                    <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
-                                    <Choice value="Misinformation" />
-                                    <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                    <Choice value="Output misrepresentation: disclaiming AI use" />
-                                    <Choice value="Possible presence of copyrighted, unreferenced material" />
-                                    <Choice value="Potential violation of external policy / ethics" />
-                                    <Choice value="Privacy concerns: Possible identifiable information" />
-                                    <Choice value="Privacy concerns: Possible sensitive information" />
-                                    <Choice value="Sexually explicit content: fictitious person" />
-                                    <Choice value="Sexually explicit content: Other" />
-                                    <Choice value="Sexually explicit content: real person" />
-                                    <Choice value="Sexually explicit content: Request/discussion of CSAM" />
-                                    <Choice value="Weapons &amp; drugs" />
-                                    <Choice value="Other" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-                    </View>
-                </Panel>
-            </Collapse>
+        # Create panel for the response
+        response_panel = f"""
+        <View>
+            <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
+                <Collapse visibleWhen="$turn{turn_num}_dialogue[1].text">
+                    <Panel value="Turn {turn_num} - Response">
+                        <View>
+                            <View style="margin-bottom: 1em;">
+                                <Text name="turn_{turn_num}_response_warning" value="⚠️ Please complete all required fields for Turn {turn_num} - Response:" style="color: #ff6b6b; font-weight: bold;" />
+                            </View>
+                            <Collapse>
+                                <Panel value="Media Format">
+                                    <Filter name="filter_media_response_{turn_num}" toName="media_format_response_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
+                                    <Choices name="media_format_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Audio" />
+                                        <Choice value="Charts / graphs" />
+                                        <Choice value="Code" />
+                                        <Choice value="Formatted enumeration / itemization" />
+                                        <Choice value="Images" />
+                                        <Choice value="Likely retrieved / pasted content" />
+                                        <Choice value="Math / symbols" />
+                                        <Choice value="Natural language" />
+                                        <Choice value="URLs" />
+                                        <Choice value="Other" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-            <Collapse visibleWhen="$turn{turn_num}_dialogue[1].text">
-                <Panel value="Turn {turn_num} - Response">
-                    <View>
-                        <Collapse>
-                            <Panel value="Media Format">
-                                <Filter name="filter_media_response_{turn_num}" toName="media_format_response_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
-                                <Choices name="media_format_response_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Audio" />
-                                    <Choice value="Charts/Graphs" />
-                                    <Choice value="Code" />
-                                    <Choice value="Formatted enumeration/itemization" />
-                                    <Choice value="HTML" />
-                                    <Choice value="Images" />
-                                    <Choice value="Likely retrieved/pasted content" />
-                                    <Choice value="Math / symbols" />
-                                    <Choice value="Natural language" />
-                                    <Choice value="Other" />
-                                    <Choice value="URLs" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+                            <Collapse>
+                                <Panel value="Answer Form">
+                                    <Choices name="answer_form_response_{turn_num}" toName="conversation" choice="single" required="true">
+                                        <Choice value="Refusal to answer (with explanation)" />
+                                        <Choice value="Refusal to answer (without explanation)" />
+                                        <Choice value="Partial refusal / expressing uncertainty / disclaiming" />
+                                        <Choice value="Direct answer / open generation" />
+                                        <Choice value="Continuation of input" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Answer Form">
-                                <Choices name="answer_form_{turn_num}" toName="conversation" choice="single">
-                                    <Choice value="Refusal to answer (with explanation)" />
-                                    <Choice value="Refusal to answer (without explanation)" />
-                                    <Choice value="Partial refusal, expressing uncertainty, disclaiming" />
-                                    <Choice value="Direct Answer / Open Generation" />
-                                    <Choice value="Continuation of Input" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+                            <Collapse>
+                                <Panel value="Interaction Features">
+                                    <Choices name="interaction_features_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Apology" />
+                                        <Choice value="Content: Direct response" />
+                                        <Choice value="Content: Preferences / feelings / opinions / religious beliefs" />
+                                        <Choice value="Content: Empathy" />
+                                        <Choice value="Register and style: Phatic expressions" />
+                                        <Choice value="Register and style: Expressions of confidence and doubt" />
+                                        <Choice value="Non-personalization" />
+                                        <Choice value="Self-disclosure" />
+                                        <Choice value="None" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Self Disclosure">
-                            <Choices name="self_disclosure_{turn_num}" toName="conversation" choice="single">
-                                    <Choice value="Yes" />
-                                    <Choice value="No" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-
-                        <Collapse>
-                            <Panel value="Interaction Features">
-                                <Choices name="interaction_features_response_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="Self-Disclosure" />
-                                    <Choice value="Content-Direct Response" />
-                                    <Choice value="Content-Preferences/Feelings/Opinions/Religious beliefs" />
-                                    <Choice value="Apology" />
-                                    <Choice value="Content-Empathy" />
-                                    <Choice value="Register and Style- Phatic Expressions" />
-                                    <Choice value="Register and Style- Expressions of Confidence and Doubt" />
-                                    <Choice value="Non-Personalization" />
-                                    <Choice value="None" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-
-                        <Collapse>
-                            <Panel value="Restricted Flags">
-                                <Filter name="filter_flags_response_{turn_num}" toName="restricted_flags_response_{turn_num}" minlength="0" placeholder="Filter flags..."/>
-                            <Choices name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple">
-                                <Choice value="None" />
-                                <Choice value="CBRN-related outputs" />
-                                <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                <Choice value="Cyberattacks" />
-                                <Choice value="Discriminatory practices" />
-                                <Choice value="Generating defamatory content" />
-                                <Choice value="Generating spam" />
-                                <Choice value="Impersonation attempts" />
-                                <Choice value="Inciting violence, hateful or other harmful behavior: harassment &amp; bullying" />
-                                <Choice value="Inciting violence, hateful or other harmful behavior: physical harm" />
-                                <Choice value="Inciting violence, hateful or other harmful behavior: self-harm" />
-                                <Choice value="Misinformation" />
-                                <Choice value="Other" />
-                                <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                <Choice value="Output misrepresentation: disclaiming AI use" />
-                                <Choice value="Possible presence of copyrighted, unreferenced material" />
-                                <Choice value="Potential violation of external policy / ethics" />
-                                <Choice value="Privacy concerns: Possible identifiable information" />
-                                <Choice value="Privacy concerns: Possible sensitive information" />
-                                <Choice value="Sexually explicit content: fictitious person" />
-                                <Choice value="Sexually explicit content: Other" />
-                                <Choice value="Sexually explicit content: real person" />
-                                <Choice value="Sexually explicit content: Request/discussion of CSAM" />
-                                <Choice value="Weapons &amp; drugs" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
-                    </View>
-                </Panel>
-            </Collapse>
+                            <Collapse>
+                                <Panel value="Restricted Flags">
+                                    <Filter name="filter_flags_response_{turn_num}" toName="restricted_flags_response_{turn_num}" minlength="0" placeholder="Filter flags..."/>
+                                    <Choices name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Sexually explicit content: Fictitious person" />
+                                        <Choice value="Sexually explicit content: Other" />
+                                        <Choice value="Sexually explicit content: Real person" />
+                                        <Choice value="Sexually explicit content: Request / discussion of CSAM" /><Choice value="CBRN-related outputs" />
+                                        <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
+                                        <Choice value="Cyberattacks" />
+                                        <Choice value="Discriminatory practices" />
+                                        <Choice value="Generating defamatory content" />
+                                        <Choice value="Generating spam" />
+                                        <Choice value="Impersonation attempts" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Harassment &amp; bullying" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Physical harm" />
+                                        <Choice value="Inciting violence, hateful or other harmful behavior: Self-harm" />
+                                        <Choice value="Misinformation" />
+                                        <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
+                                        <Choice value="Output misrepresentation: Disclaiming AI use" />
+                                        <Choice value="Possible presence of copyrighted, unreferenced material" />
+                                        <Choice value="Potential violation of external policy / ethics" />
+                                        <Choice value="Privacy concerns: Possible identifiable information" />
+                                        <Choice value="Privacy concerns: Possible sensitive information" />
+                                        <Choice value="Weapons &amp; drugs" />
+                                        <Choice value="Other" />
+                                        <Choice value="None" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
+                        </View>
+                    </Panel>
+                </Collapse>
+            </View>
         </View>
 """
 
         # Create panel for the whole turn (containing both user and assistant messages)
         whole_turn_panel = f"""
-        <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
-            <Collapse visibleWhen="$turn{turn_num}_dialogue[0].text">
-                <Panel value="Turn {turn_num} - Whole Turn">
-                    <View>
-                        <Collapse>
-                            <Panel value="Topic">
-                                <Filter name="filter_topic_whole_{turn_num}" toName="topic_whole_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                <Choices name="topic_whole_{turn_num}" toName="conversation" choice="multiple">
-                                    <Choice value="None" />
-                                    <Choice value="Same Topics as prior conversation turn" />
-                                    <Choice value="Adult &amp; Illicit Content" />
-                                    <Choice value="Art &amp; Design" />
-                                    <Choice value="Business &amp; Finances" />
-                                    <Choice value="Culture" />
-                                    <Choice value="Economics" />
-                                    <Choice value="Education" />
-                                    <Choice value="Employment &amp; Hiring" />
-                                    <Choice value="Engineering &amp; Infrastructure" />
-                                    <Choice value="Entertainment, Hobbies &amp; Leisure" />
-                                    <Choice value="Fantasy / Fiction / Fanfiction" />
-                                    <Choice value="Fashion &amp; Beauty" />
-                                    <Choice value="Food &amp; Dining" />
-                                    <Choice value="Geography" />
-                                    <Choice value="Health &amp; Medicine" />
-                                    <Choice value="History" />
-                                    <Choice value="Housing" />
-                                    <Choice value="Immigration / migration" />
-                                    <Choice value="Insurance &amp; social scoring" />
-                                    <Choice value="Interpersonal Relationships &amp; Communication" />
-                                    <Choice value="Law, Criminal Justice, Law Enforcement" />
-                                    <Choice value="Lifestyle" />
-                                    <Choice value="Linguistics &amp; Languages" />
-                                    <Choice value="Literature &amp; Writing" />
-                                    <Choice value="Math &amp; Sciences" />
-                                    <Choice value="Nature &amp; Environment" />
-                                    <Choice value="News &amp; Current Affairs" />
-                                    <Choice value="Politics &amp; Elections" />
-                                    <Choice value="Psychology, Philosophy &amp; Human Behavior" />
-                                    <Choice value="Religion &amp; Spirituality" />
-                                    <Choice value="Social Issues &amp; Movements" />
-                                    <Choice value="Sports" />
-                                    <Choice value="Technology, Software &amp; Computing" />
-                                    <Choice value="Transportation" />
-                                    <Choice value="Travel &amp; Tourism" />
-                                    <Choice value="Video Games" />
-                                    <Choice value="Other" />
-                                </Choices>
-                            </Panel>
-                        </Collapse>
+        <View>
+            <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
+                <Collapse visibleWhen="$turn{turn_num}_dialogue[0].text">
+                    <Panel value="Turn {turn_num} - Whole Turn">
+                        <View>
+                            <View style="margin-bottom: 1em;">
+                                <Text name="turn_{turn_num}_whole_warning" value="⚠️ Please complete all required fields for Turn {turn_num} - Whole Turn:" style="color: #ff6b6b; font-weight: bold;" />
+                            </View>
+                            <Collapse>
+                                <Panel value="Topic">
+                                    <Filter name="filter_topic_whole_{turn_num}" toName="topic_whole_{turn_num}" minlength="0" placeholder="Filter topics..."/>
+                                    <Choices name="topic_whole_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                        <Choice value="Adult &amp; illicit content" />
+                                        <Choice value="Art &amp; design" />
+                                        <Choice value="Business &amp; finances" />
+                                        <Choice value="Culture" />
+                                        <Choice value="Economics" />
+                                        <Choice value="Education" />
+                                        <Choice value="Employment &amp; hiring" />
+                                        <Choice value="Entertainment, hobbies &amp; leisure" />
+                                        <Choice value="Fantasy / fiction / fanfiction" />
+                                        <Choice value="Fashion &amp; beauty" />
+                                        <Choice value="Food &amp; dining" />
+                                        <Choice value="Geography" />
+                                        <Choice value="Health &amp; medicine" />
+                                        <Choice value="History" />
+                                        <Choice value="Housing" />
+                                        <Choice value="Immigration / migration" />
+                                        <Choice value="Insurance &amp; social scoring" />
+                                        <Choice value="Interpersonal relationships &amp; communication" />
+                                        <Choice value="Law, criminal justice, law enforcement" />
+                                        <Choice value="Lifestyle" />
+                                        <Choice value="Linguistics &amp; languages" />
+                                        <Choice value="Literature &amp; writing" />
+                                        <Choice value="Math &amp; sciences" />
+                                        <Choice value="Nature &amp; environment" />
+                                        <Choice value="News &amp; current affairs" />
+                                        <Choice value="Non-software engineering &amp; infrastructure" />
+                                        <Choice value="Politics &amp; elections" />
+                                        <Choice value="Psychology, philosophy &amp; human behavior" />
+                                        <Choice value="Religion &amp; spirituality" />
+                                        <Choice value="Same topics as prior conversation turn" />
+                                        <Choice value="Social issues &amp; movements" />
+                                        <Choice value="Sports" />
+                                        <Choice value="Technology, software &amp; computing" />
+                                        <Choice value="Transportation" />
+                                        <Choice value="Travel &amp; tourism" />
+                                        <Choice value="Video games" />
+                                        <Choice value="Other" />
+                                        <Choice value="None" />
+                                    </Choices>
+                                </Panel>
+                            </Collapse>
 
-                        <Collapse>
-                            <Panel value="Other Feedback">
-                                <TextArea name="other_feedback_{turn_num}" toName="conversation" 
-                                          placeholder="Enter any additional feedback, observations, or notes about this turn..." 
-                                          rows="4" maxSubmissions="1" editable="true" />
-                            </Panel>
-                        </Collapse>
-                    </View>
-                </Panel>
-            </Collapse>
+                            <Collapse>
+                                <Panel value="Other Feedback">
+                                    <TextArea name="other_feedback_{turn_num}" toName="conversation" 
+                                              placeholder="Enter any additional feedback, observations, or notes about this turn (including 'other' selections)..." 
+                                              rows="4" maxSubmissions="1" editable="true" />
+                                </Panel>
+                            </Collapse>
+                        </View>
+                    </Panel>
+                </Collapse>
+            </View>
         </View>
 """
-        turn_panels += prompt_panel + whole_turn_panel
+        turn_panels += prompt_panel + response_panel + whole_turn_panel
 
     # Close the views
     closing_tags = """
