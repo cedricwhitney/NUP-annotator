@@ -413,11 +413,19 @@ def get_input_file():
                 continue
         
         print("\n📁 Available files:")
+        # Create a list of tuples (filename, display_name) sorted by assignee name
+        display_files = []
         for i, file in enumerate(data_files, 1):
             filename = file.name
             assignee = BATCH_ASSIGNMENTS.get(filename, '')
             # Add the assignee in parentheses if it exists
             display_name = f"{filename} ({assignee})" if assignee else filename
+            # Sort by assignee name (or filename if no assignee)
+            sort_key = assignee if assignee else filename
+            display_files.append((i, filename, display_name, sort_key))
+        
+        # Sort by assignee name and print
+        for i, filename, display_name, _ in sorted(display_files, key=lambda x: x[3].lower()):
             print(f"{i}. {display_name}")
         
         print("\nOptions:")
