@@ -37,7 +37,6 @@ setup: check-uv
 	@echo "4. Run 'make start-project' to set up your labeling project"
 	@echo "\nSubsequent usage:"
 	@echo "- 'make label-studio'    - Quick start the server"
-	@echo "- 'make transform-batches' - Transform batch files"
 	@echo "- 'make stop-label-studio' - Stop the server"
 
 # Step 2: Start Label Studio (depends on sync-repo to ensure latest code)
@@ -73,8 +72,8 @@ start-project: sync-repo
 	@ls -1 data/batch_*.json | sed 's/.*batch_\([0-9]*\).json/Batch \1/' || true
 	@echo "\nThis will:"
 	@echo "1. Use your assigned batch file"
-	@echo "2. Convert and validate the file format"
-	@echo "3. Set up the project in Label Studio"
+	@echo "2. Set up the project in Label Studio"
+	@echo "3. Configure the correct taxonomy structure"
 	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
 	PYTHONPATH=. python src/core/start_project.py
 
@@ -106,8 +105,8 @@ refresh-data: sync-repo
 	@echo "2. Run 'make refresh-data' to verify it's detected"
 	@echo "3. Run 'make start-project' to create a new project with the file"
 
-# Export Label Studio data (depends on sync-repo to ensure latest code)
-export-data: sync-repo
+# Export Label Studio data (depends on sync-repo and label-studio to ensure server is running)
+export-data: sync-repo label-studio
 	@if [ -z "$$LABEL_STUDIO_API_KEY" ]; then \
 		echo "\n🔑 No API key found in environment."; \
 		echo "Please get your API key from Label Studio:"; \
@@ -145,10 +144,8 @@ export-data: sync-repo
 		echo "   make export-data"; \
 	fi
 
-# Transform all batch files (depends on sync-repo to ensure latest files)
+# Hidden target for admin use: Transform all batch files (depends on sync-repo to ensure latest files)
 transform-batches: sync-repo
 	@echo "🔄 Transforming all batch files..."
 	python src/tools/transform_all_batches.py
 	@echo "\n✅ Transformation complete!"
-	@echo "💡 Transformed files are saved with '_transformed' suffix in the data directory"
-	@echo "   Example: batch_1.json -> batch_1_transformed.json"
