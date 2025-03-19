@@ -10,7 +10,7 @@ export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
-.PHONY: setup run label-studio stop-label-studio create-project sync-repo validate-json transform-batches refresh-data export-data test
+.PHONY: setup run label-studio stop-label-studio create-project sync-repo validate-json refresh-data export-data test
 
 # Check for uv installation
 check-uv:
@@ -68,10 +68,8 @@ first-time-setup: sync-repo
 # Step 3: Create project (depends on sync-repo to ensure latest code)
 start-project: sync-repo
 	@echo "Starting pre-configured Label Studio project..."
-	@echo "\n📁 Available annotation batches:"
-	@ls -1 data/batch_*.json | sed 's/.*batch_\([0-9]*\).json/Batch \1/' || true
 	@echo "\nThis will:"
-	@echo "1. Use your assigned batch file"
+	@echo "1. Show available batch files"
 	@echo "2. Set up the project in Label Studio"
 	@echo "3. Configure the correct taxonomy structure"
 	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
@@ -98,10 +96,10 @@ test:
 
 # List available data files (depends on sync-repo to ensure latest files)
 refresh-data: sync-repo
-	@echo "\n📁 Available files in data directory:"
-	@ls -1 data/*.json* 2>/dev/null || echo "No JSON/JSONL files found in data directory"
+	@echo "\n📁 Available batch files:"
+	@ls -1 data/batch_*.json 2>/dev/null || echo "No batch files found in data directory"
 	@echo "\nTo use a new file:"
-	@echo "1. Copy your file to the data/ directory"
+	@echo "1. Copy your batch file to the data/ directory"
 	@echo "2. Run 'make refresh-data' to verify it's detected"
 	@echo "3. Run 'make start-project' to create a new project with the file"
 
@@ -149,9 +147,3 @@ export-data: sync-repo label-studio
 		echo "   To share them later, run:"; \
 		echo "   make export-data"; \
 	fi
-
-# Hidden target for admin use: Transform all batch files (depends on sync-repo to ensure latest files)
-transform-batches: sync-repo
-	@echo "🔄 Transforming all batch files..."
-	python src/tools/transform_all_batches.py
-	@echo "\n✅ Transformation complete!"

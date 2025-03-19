@@ -22,10 +22,9 @@ wheels/
 .installed.cfg
 *.egg
 
-# Data - ignore data files except batches and master file
+# Data - ignore all data files except batch files
 data/*
 !data/batch_*.json
-!data/master_sample_file.json
 
 # IDE files
 .idea/
