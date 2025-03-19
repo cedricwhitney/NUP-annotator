@@ -510,7 +510,7 @@ def start_project():
             print(f"📊 Using {actual_max_turns} turns for the interface (95th percentile: {percentile_95}, MAX_CHAT_TURNS: {MAX_CHAT_TURNS})")
         
         # Create project with dynamic label config based on actual turns
-        project_name = "DUP Taxonomy Annotation"
+        project_name = "DUP Taxonomy Annotation (Round 2)"
         print(f"🛠 Creating new project: {project_name}")
         label_config = generate_dynamic_label_config(actual_max_turns)
         project = ls.start_project(

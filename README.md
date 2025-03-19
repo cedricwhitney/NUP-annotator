@@ -1,4 +1,4 @@
-# Conversation Project
+# Conversation Project (Round 2)
 
 A tool for annotating conversations using Label Studio. This project uses the open source version of [Label Studio](https://github.com/heartexlabs/label-studio) - many thanks to the Label Studio team for making this possible!
 
@@ -64,13 +64,24 @@ The Label Studio interface is configured with:
    make setup
    ```
 
-3. Start Label Studio and create your account:
+3. Start Label Studio:
+
+   If you're new to Label Studio or can't access your old account:
    ```bash
    make first-time-setup
    ```
    - Visit http://localhost:8080
-   - Create an account
+   - Create a new account
    - Get your API key from Account & Settings > Access Token
+
+   If you already have a Label Studio account:
+   ```bash
+   make label-studio
+   ```
+   - Visit http://localhost:8080 and log in
+   - Your previous API key will still work
+   - If needed, you can get your API key from Account & Settings > Access Token
+   - Note: Your previous annotations are stored separately, so this is a fresh start for Round 2
 
 4. Start your project:
    ```bash
