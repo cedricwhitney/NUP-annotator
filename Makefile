@@ -10,12 +10,18 @@ export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
-.PHONY: setup run label-studio stop-label-studio create-project convert test-converter check-uv validate-json convert-csv test test-csv test-json test-jsonl refresh-data export-data
+.PHONY: setup run label-studio stop-label-studio create-project sync-repo validate-json transform-batches refresh-data export-data test
 
 # Check for uv installation
 check-uv:
 	@which uv > /dev/null || (echo "❌ uv is not installed. Please install uv first:\n\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n" && exit 1)
 	@echo "✅ uv found"
+
+# Sync repository with latest changes
+sync-repo:
+	@echo "🔄 Syncing repository with remote..."
+	@git pull origin main || (echo "❌ Failed to pull latest changes" && exit 1)
+	@echo "✅ Repository synced"
 
 # Step 1: Set up the environment
 setup: check-uv
@@ -31,19 +37,18 @@ setup: check-uv
 	@echo "4. Run 'make start-project' to set up your labeling project"
 	@echo "\nSubsequent usage:"
 	@echo "- 'make label-studio'    - Quick start the server"
-	@echo "- 'make convert'         - Convert CSV files to JSON format"
-	@echo "- 'make test-converter'  - Run tests for the CSV to JSON converter"
+	@echo "- 'make transform-batches' - Transform batch files"
 	@echo "- 'make stop-label-studio' - Stop the server"
 
-# Step 2: Start Label Studio
-label-studio:
+# Step 2: Start Label Studio (depends on sync-repo to ensure latest code)
+label-studio: sync-repo
 	@echo "Starting Label Studio..."
 	label-studio start &
 	@echo "Waiting for Label Studio to start up..."
 	@sleep 10  # Give Label Studio time to start
 
 # First time setup and configuration
-first-time-setup:
+first-time-setup: sync-repo
 	@echo "Starting Label Studio..."
 	label-studio start &
 	@echo "Waiting for Label Studio to start up..."
@@ -61,22 +66,11 @@ first-time-setup:
 	@echo "\nTip: Set LABEL_STUDIO_API_KEY environment variable to skip the API key prompt:"
 	@echo "export LABEL_STUDIO_API_KEY=your_key_here"
 
-# Step 3: Create project (only needed once)
-start-project:
+# Step 3: Create project (depends on sync-repo to ensure latest code)
+start-project: sync-repo
 	@echo "Starting pre-configured Label Studio project..."
 	@echo "\n📁 Available annotation batches:"
-	@echo "Batch 1 (Ahmet)"
-	@echo "Batch 2 (Anka)"
-	@echo "Batch 3 (Cedric)"
-	@echo "Batch 4 (Dayeon)"
-	@echo "Batch 5 (Megan)"
-	@echo "Batch 6 (Niloofar)"
-	@echo "Batch 7 (Shayne)"
-	@echo "Batch 8 (Victor)"
-	@echo "Batch 9 (Wenting)"
-	@echo "Batch 10 (Yuntian)"
-	@echo "Batch 11 (Zhiping)"
-	@echo "Batch 12 (Updated)"
+	@ls -1 data/batch_*.json | sed 's/.*batch_\([0-9]*\).json/Batch \1/' || true
 	@echo "\nThis will:"
 	@echo "1. Use your assigned batch file"
 	@echo "2. Convert and validate the file format"
@@ -84,21 +78,11 @@ start-project:
 	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
 	PYTHONPATH=. python src/core/start_project.py
 
-# Step 4: CSV Converter Tools
-convert:
-	@echo "Converting CSV to JSON format..."
-	python src/converter.py
-
-test-converter:
-	@echo "Running converter tests..."
-	pytest tests/
-	@echo "✅ Converter tests completed"
-
-# Step 5: Run the workflow
-run: label-studio
+# Step 4: Run the workflow (depends on sync-repo and label-studio)
+run: sync-repo label-studio
 	python -m src.label_studio_integration
 
-# Step 6: Stop Label Studio
+# Step 5: Stop Label Studio
 stop-label-studio:
 	@echo "Stopping Label Studio..."
 	@pkill -f "label-studio" || true
@@ -108,33 +92,13 @@ validate-json:
 	@echo "Validating JSON format..."
 	python src/tools/validate_labelstudio_json.py data/batch_1.json
 
-# Convert CSV to Label Studio format
-convert-csv:
-	@echo "Converting CSV to Label Studio format..."
-	python src/tools/csv_to_labelstudio.py
-
-# Run all tests
+# Run tests
 test:
 	@echo "Running all tests..."
-	pytest tests/tools/
+	pytest tests/
 
-# Run CSV conversion tests
-test-csv:
-	@echo "Running CSV conversion tests..."
-	pytest tests/tools/test_csv_converter.py
-
-# Run JSON validation tests
-test-json:
-	@echo "Running JSON validation tests..."
-	pytest tests/tools/test_json_validator.py
-
-# Run JSONL conversion tests
-test-jsonl:
-	@echo "Running JSONL conversion tests..."
-	pytest tests/tools/test_jsonl_converter.py
-
-# List available data files
-refresh-data:
+# List available data files (depends on sync-repo to ensure latest files)
+refresh-data: sync-repo
 	@echo "\n📁 Available files in data directory:"
 	@ls -1 data/*.json* 2>/dev/null || echo "No JSON/JSONL files found in data directory"
 	@echo "\nTo use a new file:"
@@ -142,10 +106,8 @@ refresh-data:
 	@echo "2. Run 'make refresh-data' to verify it's detected"
 	@echo "3. Run 'make start-project' to create a new project with the file"
 
-# Export Label Studio data
-export-data:
-	@echo "\n🔄 Getting latest updates from other annotators..."
-	@git pull origin main
+# Export Label Studio data (depends on sync-repo to ensure latest code)
+export-data: sync-repo
 	@if [ -z "$$LABEL_STUDIO_API_KEY" ]; then \
 		echo "\n🔑 No API key found in environment."; \
 		echo "Please get your API key from Label Studio:"; \
@@ -182,3 +144,11 @@ export-data:
 		echo "   To share them later, run:"; \
 		echo "   make export-data"; \
 	fi
+
+# Transform all batch files (depends on sync-repo to ensure latest files)
+transform-batches: sync-repo
+	@echo "🔄 Transforming all batch files..."
+	python src/tools/transform_all_batches.py
+	@echo "\n✅ Transformation complete!"
+	@echo "💡 Transformed files are saved with '_transformed' suffix in the data directory"
+	@echo "   Example: batch_1.json -> batch_1_transformed.json"

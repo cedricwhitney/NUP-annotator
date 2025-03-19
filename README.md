@@ -9,8 +9,25 @@ This project facilitates consistent annotation across multiple annotators:
 - All instances are configured with the same taxonomy structure
 - Annotators work independently on their local installations
 - Results can be exported and compared across annotators
+- Balanced batch assignments ensure even distribution of work
+- Unique conversation IDs enable reliable tracking across batches
 
 The setup ensures everyone has identical project configuration while maintaining independent workspaces.
+
+## Data Organization
+
+The project uses a structured approach to manage conversation data:
+
+- **Master Sample File**: Contains all conversations with unique IDs
+- **Batch Files**: Generated using Balanced Incomplete Block Design (BIBD)
+  - Each task is assigned to exactly 2 raters
+  - Each rater gets 20 tasks
+  - Balanced overlap between rater pairs
+  - Robust against rater dropout
+- **Transformed Files**: Processed versions ready for Label Studio
+  - Preserves conversation IDs across transformations
+  - Maintains consistent formatting
+  - Supports dynamic number of turns
 
 ## Data Transformation
 
@@ -18,12 +35,12 @@ The project includes tools for transforming conversation data for annotation:
 
 - **Dynamic Turn Support**: Automatically processes conversations with varying numbers of turns
 - **Role Standardization**: Normalizes different role names to "User" and "LLM"
-- **Task Identification**: Preserves original task IDs and creates custom IDs for tracking
+- **Task Identification**: Uses persistent conversation IDs for reliable tracking
 - **Format Preservation**: Maintains whitespace and formatting in the conversation text
 
-To transform data for Label Studio:
+To transform batch files for Label Studio:
 ```bash
-python -m src.tools.transform_data_for_dynamic_turns input.json output.json [max_turns]
+make transform-batches
 ```
 
 ## Annotation Interface
@@ -41,7 +58,7 @@ The Label Studio interface is configured with:
   - Prompt Quality
   - Answer Form
   - Self-Disclosure
-- **Task Identification**: Displays original task IDs for reference
+- **Task Identification**: Displays conversation IDs for reference
 
 ## Analysis Tools
 
@@ -76,6 +93,7 @@ The project includes several utility tools:
 - `make` command-line tool
   - **Linux/Mac**: Usually pre-installed
   - **Windows**: Install via [chocolatey](https://chocolatey.org/): `choco install make`
+- `uv` package manager (installed automatically if missing)
 
 ## Quick Start
 
@@ -98,21 +116,13 @@ The project includes several utility tools:
    - Create an account
    - Get your API key from Account & Settings > Access Token
 
-4. Select your batch file:
-   - Your name is next to the batch file you will be working on
-   - Each batch contains 20 unique conversations
-   - The batch files are already in the `data/` directory
-   - Run `make start-project` and select your assigned batch file
-
-   Note: You can also add your own JSON/JSONL files to the `data/` directory if needed.
-   The system supports both formats and will automatically convert and validate them.
-
-5. Set up the pre-configured project:
+4. Start your project:
    ```bash
    make start-project
    ```
    This will:
-   - Show available batch files (batch_1.json through batch_12.json)
+   - Pull the latest code and batch files
+   - Show available batch files
    - Guide you to select your assigned batch
    - Set up a new project with your batch's conversations
    - Configure the correct taxonomy structure
@@ -121,140 +131,94 @@ The project includes several utility tools:
 
 To save and share your annotations with other annotators:
 
-1. Get the latest updates from other annotators:
-   ```bash
-   git pull origin main
-   ```
-   This step is crucial to avoid conflicts and ensure you have the most recent annotations.
-
-2. Make sure you've submitted your annotations in Label Studio
-   - Click the "Submit" button after each annotation
-   - Click "Update" if you've made changes to existing annotations
-
-3. Export your annotations:
+1. Export your annotations:
    ```bash
    make export-data
    ```
+   This will:
+   - Pull the latest updates from other annotators
+   - Export your annotations from Label Studio
+   - Check for changes since your last export
+   - Prompt you to share your annotations
 
-   The first time you run this, you'll need your Label Studio API key:
-   - Visit http://localhost:8080
-   - Go to Account & Settings > Access Token
-   - Copy your API key
-   - Optional: Set it as an environment variable to skip the prompt next time:
-     ```bash
-     export LABEL_STUDIO_API_KEY=your_key_here
-     ```
-
-4. When prompted, type 'y' to share your annotations with other annotators
+2. When prompted, type 'y' to share your annotations with other annotators
 
 Your annotations will be:
 - Saved in `annotator_exports/[your_git_username]_annotations.json`
 - Automatically shared with other annotators via GitHub
 - Preserved with full history of all your exports
 
-To get updates from other annotators at any time:
-```bash
-git pull origin main
-```
-
-**Note**: Always pull the latest changes before exporting to ensure your local repository is up to date with other annotators' work.
-
 ## Project Structure
 
 The repository is organized as follows:
 
-    conversation_project/          # This is a directory structure diagram
+    conversation_project/
     ├── src/
     │   ├── core/                 # Core functionality
     │   │   ├── start_project.py      # Label Studio project setup
     │   │   └── label_studio_integration.py
     │   └── tools/                # Utility tools
-    │       ├── csv_to_labelstudio.py     # Convert CSV to Label Studio format
-    │       ├── convert_jsonl_to_json.py   # Convert JSONL to Label Studio format
+    │       ├── add_conversation_ids.py    # Add unique IDs to master file
+    │       ├── create_balanced_batches.py # Create balanced batch assignments
+    │       ├── transform_all_batches.py   # Transform batches for Label Studio
+    │       ├── transform_data_for_dynamic_turns.py  # Transform single batch
     │       └── validate_labelstudio_json.py  # Validate JSON format
-    ├── tests/
+    ├── tests/                    # Test suite
     │   └── tools/                # Tests for utility tools
-    │       ├── test_csv_converter.py     # CSV conversion tests
-    │       ├── test_json_validator.py    # JSON validation tests
-    │       └── test_jsonl_converter.py   # JSONL conversion tests
     ├── data/                     # Data directory
-    │   └── your_tasks.json       # Your annotation tasks in Label Studio format
+    │   ├── master_sample_file.json   # Master file with all conversations
+    │   ├── batch_*.json             # Batch files for each annotator
+    │   └── batch_*_transformed.json  # Transformed files for Label Studio
+    ├── annotator_exports/        # Exported annotations from all annotators
     └── Makefile                  # Project automation
 
-## Testing
+## Common Tasks
 
-### Setting Up a Test Environment
-To test with a fresh Label Studio installation:
+Here are some common tasks and how to perform them:
 
-1. Stop Label Studio if running:
+1. Get latest updates:
+   ```bash
+   make sync-repo
+   ```
+
+2. Transform batch files:
+   ```bash
+   make transform-batches
+   ```
+
+3. Start Label Studio:
+   ```bash
+   make label-studio
+   ```
+
+4. Stop Label Studio:
    ```bash
    make stop-label-studio
    ```
 
-2. Backup existing database:
+5. List available files:
    ```bash
-   mv label-studio.sqlite3 label-studio.sqlite3.backup
+   make refresh-data
    ```
 
-3. Start fresh and create new account:
+6. Run tests:
    ```bash
-   make ensure-label-studio
+   make test
    ```
 
-To restore previous account:
+## Testing
+
+The test suite covers core functionality:
+
+- Batch assignment validation
+- Conversation ID persistence
+- JSON format validation
+- Data transformation accuracy
+- Label Studio integration
+
+Run all tests with:
 ```bash
-make stop-label-studio
-mv label-studio.sqlite3 label-studio.sqlite3.new
-mv label-studio.sqlite3.backup label-studio.sqlite3
-```
-
-### Running Tests
-```bash
-make test           # Run all tests
-make test-csv      # Run CSV tests only
-make test-json     # Run JSON tests only
-make test-jsonl    # Run JSONL tests only
-```
-
-### What's Tested
-
-1. CSV Conversion (`test_csv_converter.py`)
-   - Converts Turn 0-4 format to Label Studio JSON
-   - Validates role assignment (human/llm)
-   - Ensures proper JSON structure
-
-2. JSON Validation (`test_json_validator.py`)
-   - Validates Label Studio JSON format
-   - Catches common format issues:
-     - Missing "data" wrapper
-     - Incorrect conversation structure
-     - Invalid role/text fields
-
-3. JSONL Conversion (`test_jsonl_converter.py`)
-   - Converts JSONL to Label Studio JSON format
-   - Adds required "data" wrapper if missing
-   - Handles empty files correctly
-
-### Example Valid Formats
-
-CSV Input:
-```csv
-Turn 0,Turn 1,Turn 2,Turn 3,Turn 4
-"Hello","Hi there","How are you?","I'm good","Great!"
-```
-
-JSON Output:
-```json
-[
-  {
-    "data": {
-      "conversation": [
-        {"role": "human", "text": "Hello"},
-        {"role": "llm", "text": "Hi there"}
-      ]
-    }
-  }
-]
+make test
 ```
 
 ## Core Features
