@@ -2,56 +2,22 @@
 
 A tool for annotating conversations using Label Studio. This project uses the open source version of [Label Studio](https://github.com/heartexlabs/label-studio) - many thanks to the Label Studio team for making this possible!
 
-## Overview
-
-This project facilitates consistent annotation across multiple annotators:
-- Each annotator runs their own local instance of Label Studio
-- All instances are configured with the same taxonomy structure
-- Annotators work independently on their local installations
-- Results can be exported and compared across annotators
-- Balanced batch assignments ensure even distribution of work
-- Unique conversation IDs enable reliable tracking across batches
-
-The setup ensures everyone has identical project configuration while maintaining independent workspaces.
-
-## Data Organization
-
-The project uses a structured approach to manage conversation data:
-
-- **Master Sample File**: Contains all conversations with unique IDs
-- **Batch Files**: Distributed tasks for each annotator
-  - Each task is assigned to exactly 2 raters
-  - Each rater gets 20 tasks
-  - Balanced overlap between rater pairs
-  - Robust against rater dropout
-
-## Annotation Interface
-
-The Label Studio interface is configured with:
-
-- **Conversation Display**: Shows the full conversation with proper formatting
-- **Turn Selection**: Allows annotators to focus on specific turns
-- **Comprehensive Taxonomy**: Includes categories for:
-  - Media Format
-  - Function/Purpose
-  - Topic Classification
-  - Interaction Features
-  - Restricted Flags
-  - Prompt Quality
-  - Answer Form
-  - Self-Disclosure
-- **Task Identification**: Displays conversation IDs for reference
-
-## Prerequisites
-
-- Python 3.x
-- Git (pre-installed on macOS, check version with `git --version`)
-- `make` command-line tool
-  - **Linux/Mac**: Usually pre-installed
-  - **Windows**: Install via [chocolatey](https://chocolatey.org/): `choco install make`
-- `uv` package manager (installed automatically if missing)
-
 ## Quick Start
+
+0. Install prerequisites:
+   - Python 3.x
+   - Git (pre-installed on macOS, check version with `git --version`)
+   - `make` command-line tool (pre-installed on Linux/Mac, Windows users: `choco install make`)
+   - `uv` package manager:
+     ```bash
+     curl -LsSf https://astral.sh/uv/install.sh | sh
+     ```
+     After installing uv, you'll need to:
+     - Close and reopen your terminal
+     - Navigate back to your projects directory:
+       ```bash
+       cd Documents/Projects/NUP/Code
+       ```
 
 1. Clone the repository:
    ```bash
@@ -93,6 +59,46 @@ The Label Studio interface is configured with:
    - Guide you to select your assigned batch
    - Set up a new project with your batch's conversations
    - Configure the correct taxonomy structure
+
+## Overview
+
+This project facilitates consistent annotation across multiple annotators:
+- Each annotator runs their own local instance of Label Studio
+- All instances are configured with the same taxonomy structure
+- Annotators work independently on their local installations
+- Results can be exported and compared across annotators
+- Balanced batch assignments ensure even distribution of work
+- Unique conversation IDs enable reliable tracking across batches
+
+The setup ensures everyone has identical project configuration while maintaining independent workspaces.
+
+## Data Organization
+
+The project uses a structured approach to manage conversation data:
+
+- **Master Sample File**: Contains all conversations with unique IDs
+- **Batch Files**: Distributed tasks for each annotator
+  - Each task is assigned to exactly 2 raters
+  - Each rater gets 20 tasks
+  - Balanced overlap between rater pairs
+  - Robust against rater dropout
+
+## Annotation Interface
+
+The Label Studio interface is configured with:
+
+- **Conversation Display**: Shows the full conversation with proper formatting
+- **Turn Selection**: Allows annotators to focus on specific turns
+- **Comprehensive Taxonomy**: Includes categories for:
+  - Media Format
+  - Function/Purpose
+  - Topic Classification
+  - Interaction Features
+  - Restricted Flags
+  - Prompt Quality
+  - Answer Form
+  - Self-Disclosure
+- **Task Identification**: Displays conversation IDs for reference
 
 ## Annotation Export & Sharing
 
