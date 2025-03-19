@@ -16,7 +16,7 @@ A tool for annotating conversations using Label Studio. This project uses the op
      - Close and reopen your terminal
      - Navigate back to your projects directory:
        ```bash
-       cd Documents/Projects/NUP/Code
+       cd path/to/project
        ```
 
 1. Clone the repository:
