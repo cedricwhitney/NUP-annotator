@@ -412,20 +412,21 @@ def get_input_file():
                 print("Invalid choice. Please press 'r' to refresh or 'q' to quit.")
                 continue
         
-        print("\n📁 Available files:")
+        print()  # Just add a newline for spacing
         # Create a list of tuples (filename, display_name) sorted by assignee name
         display_files = []
-        for i, file in enumerate(data_files, 1):
+        for file in data_files:
             filename = file.name
             assignee = BATCH_ASSIGNMENTS.get(filename, '')
             # Add the assignee in parentheses if it exists
             display_name = f"{filename} ({assignee})" if assignee else filename
             # Sort by assignee name (or filename if no assignee)
             sort_key = assignee if assignee else filename
-            display_files.append((i, filename, display_name, sort_key))
+            display_files.append((filename, display_name, sort_key, file))
         
         # Sort by assignee name and print
-        for i, filename, display_name, _ in sorted(display_files, key=lambda x: x[3].lower()):
+        sorted_files = sorted(display_files, key=lambda x: x[2].lower())
+        for i, (filename, display_name, _, _) in enumerate(sorted_files, 1):
             print(f"{i}. {display_name}")
         
         print("\nOptions:")
@@ -441,8 +442,8 @@ def get_input_file():
         
         try:
             file_index = int(choice) - 1
-            if 0 <= file_index < len(data_files):
-                chosen_file = data_files[file_index]
+            if 0 <= file_index < len(sorted_files):
+                chosen_file = sorted_files[file_index][3]  # Get the Path object from the tuple
                 break
             else:
                 print("❌ Invalid choice. Please enter a number from the list.")
