@@ -5,7 +5,6 @@ from label_studio_sdk import Client
 import json
 from pathlib import Path
 from src.tools.validate_labelstudio_json import validate_and_fix_json
-from src.tools.transform_data_for_dynamic_turns import transform_data
 
 LABEL_STUDIO_URL = os.getenv("LABEL_STUDIO_URL", "http://localhost:8080")
 
@@ -394,15 +393,16 @@ def get_input_file():
         'batch_9.json': 'Wenting',
         'batch_10.json': 'Yuntian',
         'batch_11.json': 'Zhiping',
-        'batch_12.json': 'Updated'
+        'batch_12.json': 'ZSuperhero'
     }
 
     while True:
-        data_files = list(DATA_DIR.glob("*.json*"))
+        # Only look for batch files
+        data_files = list(DATA_DIR.glob("batch_*.json"))
         
         if not data_files:
-            print("\n❌ No JSON/JSONL files found in data directory")
-            print(f"Please add your tasks file to: {DATA_DIR}/")
+            print("\n❌ No batch files found in data directory")
+            print(f"Please add your batch file to: {DATA_DIR}/")
             choice = input("\nPress 'r' to refresh after adding your file, or 'q' to quit: ").strip().lower()
             if choice == 'q':
                 sys.exit(1)
@@ -464,10 +464,6 @@ def prepare_tasks_file():
         print("❌ Error: Invalid JSON format. Please fix the format and try again.")
         sys.exit(1)
     
-    # Transform the data for dynamic turns
-    print("🔄 Transforming data for dynamic turns...")
-    transformed_file = input_file.with_name(f"{input_file.stem}_transformed.json")
-    
     # Read the input file to get the actual number of turns
     with open(input_file, 'r') as f:
         tasks = json.load(f)
@@ -477,13 +473,9 @@ def prepare_tasks_file():
         # Use the 95th percentile, capped at MAX_CHAT_TURNS
         percentile_95 = turn_counts[int(len(turn_counts) * 0.95)]
         reasonable_max = min(MAX_CHAT_TURNS, percentile_95)
-        print(f"📊 Using a reasonable maximum of {reasonable_max} turns for transformation")
+        print(f"📊 Using a reasonable maximum of {reasonable_max} turns for the interface")
     
-    if not transform_data(str(input_file), str(transformed_file), reasonable_max):
-        print("❌ Error: Failed to transform data for dynamic turns.")
-        sys.exit(1)
-    
-    return str(transformed_file)
+    return str(input_file)
 
 def start_project():
     """Start a new Label Studio project with pre-configured settings."""
