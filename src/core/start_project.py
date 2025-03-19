@@ -82,6 +82,7 @@ def generate_dynamic_label_config(max_turns=None):
                                         <Choice value="Audio" />
                                         <Choice value="Charts / graphs" />
                                         <Choice value="Formatted enumeration / itemization" />
+                                        <Choice value="HTML" />
                                         <Choice value="Images" />
                                         <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Math / symbols" />
@@ -218,13 +219,14 @@ def generate_dynamic_label_config(max_turns=None):
                                     <Choices name="media_format_response_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Audio" />
                                         <Choice value="Charts / graphs" />
-                                        <Choice value="Code" />
                                         <Choice value="Formatted enumeration / itemization" />
+                                        <Choice value="HTML" />
                                         <Choice value="Images" />
                                         <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Math / symbols" />
-                                        <Choice value="Natural language" />
                                         <Choice value="URLs" />
+                                        <Choice value="Natural language" />
+                                        <Choice value="Code" />
                                         <Choice value="Other" />
                                     </Choices>
                                 </Panel>
