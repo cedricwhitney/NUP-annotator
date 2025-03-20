@@ -371,7 +371,7 @@ def generate_dynamic_label_config(max_turns=None):
                             
                             <Collapse>
                                 <Panel value="Other Feedback">
-                                    <TextArea name="other_feedback_response_{turn_num}" toName="conversation" 
+                                    <TextArea name="other_feedback_whole_{turn_num}" toName="conversation" 
                                               placeholder="Enter any additional feedback, observations, or notes about this turn (including 'other' selections)..." 
                                               rows="4" maxSubmissions="1" editable="true" />
                                 </Panel>
