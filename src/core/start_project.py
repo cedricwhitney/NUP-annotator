@@ -75,8 +75,8 @@ def generate_dynamic_label_config(max_turns=None):
                             </View>
                             <Collapse>
                                 <Panel value="Media Format">
-                                    <Filter name="filter_media_{turn_num}" toName="media_format_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
-                                    <Choices name="media_format_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Filter name="filter_media_prompt_{turn_num}" toName="media_format_prompt_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
+                                    <Choices name="media_format_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Audio" />
                                         <Choice value="Charts / graphs" />
                                         <Choice value="Formatted enumeration / itemization" />
@@ -166,8 +166,8 @@ def generate_dynamic_label_config(max_turns=None):
 
                             <Collapse>
                                 <Panel value="Restricted Flags">
-                                    <Filter name="filter_flags_{turn_num}" toName="restricted_flags_{turn_num}" minlength="0" placeholder="Filter flags..."/>
-                                    <Choices name="restricted_flags_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Filter name="filter_flags_prompt_{turn_num}" toName="restricted_flags_prompt_{turn_num}" minlength="0" placeholder="Filter flags..."/>
+                                    <Choices name="restricted_flags_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Sexually explicit content: Fictitious person" />
                                         <Choice value="Sexually explicit content: Real person" />
                                         <Choice value="Sexually explicit content: Request / discussion of CSAM" />
