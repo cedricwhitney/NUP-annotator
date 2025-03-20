@@ -197,52 +197,6 @@ def generate_dynamic_label_config(max_turns=None):
                             </Collapse>
 
                             <Collapse>
-                                <Panel value="Topic">
-                                    <Filter name="filter_topic_turn_{turn_num}" toName="topic_turn_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                    <Choices name="topic_turn_{turn_num}" toName="conversation" choice="multiple" required="true">
-                                        <Choice value="Adult &amp; illicit content" />
-                                        <Choice value="Art &amp; design" />
-                                        <Choice value="Business &amp; finances" />
-                                        <Choice value="Culture" />
-                                        <Choice value="Economics" />
-                                        <Choice value="Education" />
-                                        <Choice value="Employment &amp; hiring" />
-                                        <Choice value="Entertainment, hobbies &amp; leisure" />
-                                        <Choice value="Fantasy / fiction / fanfiction" />
-                                        <Choice value="Fashion &amp; beauty" />
-                                        <Choice value="Food &amp; dining" />
-                                        <Choice value="Geography" />
-                                        <Choice value="Health &amp; medicine" />
-                                        <Choice value="History" />
-                                        <Choice value="Housing" />
-                                        <Choice value="Immigration / migration" />
-                                        <Choice value="Insurance &amp; social scoring" />
-                                        <Choice value="Interpersonal relationships &amp; communication" />
-                                        <Choice value="Law, criminal justice, law enforcement" />
-                                        <Choice value="Lifestyle" />
-                                        <Choice value="Linguistics &amp; languages" />
-                                        <Choice value="Literature &amp; writing" />
-                                        <Choice value="Math &amp; sciences" />
-                                        <Choice value="Nature &amp; environment" />
-                                        <Choice value="News &amp; current affairs" />
-                                        <Choice value="Non-software engineering &amp; infrastructure" />
-                                        <Choice value="Politics &amp; elections" />
-                                        <Choice value="Psychology, philosophy &amp; human behavior" />
-                                        <Choice value="Religion &amp; spirituality" />
-                                        <Choice value="Same topics as prior conversation turn" />
-                                        <Choice value="Social issues &amp; movements" />
-                                        <Choice value="Sports" />
-                                        <Choice value="Technology, software &amp; computing" />
-                                        <Choice value="Transportation" />
-                                        <Choice value="Travel &amp; tourism" />
-                                        <Choice value="Video games" />
-                                        <Choice value="Other" />
-                                        <Choice value="None" />
-                                    </Choices>
-                                </Panel>
-                            </Collapse>
-
-                            <Collapse>
                                 <Panel value="Other Feedback">
                                     <TextArea name="other_feedback_prompt_{turn_num}" toName="conversation" 
                                               placeholder="Enter any additional feedback, observations, or notes about this turn (including 'other' selections)..." 
@@ -346,9 +300,33 @@ def generate_dynamic_label_config(max_turns=None):
                             </Collapse>
 
                             <Collapse>
+                                <Panel value="Other Feedback">
+                                    <TextArea name="other_feedback_response_{turn_num}" toName="conversation" 
+                                              placeholder="Enter any additional feedback, observations, or notes about this turn (including 'other' selections)..." 
+                                              rows="4" maxSubmissions="1" editable="true" />
+                                </Panel>
+                            </Collapse>
+                        </View>
+                    </Panel>
+                </Collapse>
+            </View>
+        </View>
+"""
+       
+        # Create panel for the whole panel
+       whole_panel = f"""
+        <View>
+            <View whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected">
+                <Collapse visibleWhen="$turn{turn_num}_dialogue[1].text">
+                    <Panel value="Turn {turn_num} - Whole Turn">
+                        <View>
+                            <View style="margin-bottom: 1em;">
+                                <Text name="turn_{turn_num}_whole_turn_warning" value="⚠️ Please complete all required fields for Turn {turn_num} - Whole Turn:" style="color: #ff6b6b; font-weight: bold;" />
+                            </View>
+                            <Collapse>
                                 <Panel value="Topic">
-                                    <Filter name="filter_topic_turn_response_{turn_num}" toName="topic_turn_response_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                    <Choices name="topic_turn_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Filter name="filter_topic_turn_whole_{turn_num}" toName="topic_turn_whole_{turn_num}" minlength="0" placeholder="Filter topics..."/>
+                                    <Choices name="topic_turn_whole_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Adult &amp; illicit content" />
                                         <Choice value="Art &amp; design" />
                                         <Choice value="Business &amp; finances" />
@@ -390,7 +368,7 @@ def generate_dynamic_label_config(max_turns=None):
                                     </Choices>
                                 </Panel>
                             </Collapse>
-
+                            
                             <Collapse>
                                 <Panel value="Other Feedback">
                                     <TextArea name="other_feedback_response_{turn_num}" toName="conversation" 
@@ -404,7 +382,7 @@ def generate_dynamic_label_config(max_turns=None):
             </View>
         </View>
 """
-        turn_panels += prompt_panel + response_panel
+        turn_panels += prompt_panel + response_panel + whole_panel
 
     # Close the views
     closing_tags = """
