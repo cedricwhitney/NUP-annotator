@@ -73,6 +73,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <View style="margin-bottom: 1em;">
                                 <Text name="turn_{turn_num}_prompt_warning" value="⚠️ Please complete all required fields for Turn {turn_num} - Prompt:" style="color: #ff6b6b; font-weight: bold;" />
                             </View>
+
                             <Collapse>
                                 <Panel value="Media Format">
                                     <Filter name="filter_media_prompt_{turn_num}" toName="media_format_prompt_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
@@ -85,6 +86,7 @@ def generate_dynamic_label_config(max_turns=None):
                                         <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Math / symbols" />
                                         <Choice value="URLs" />
+                                        <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Natural language" />
                                         <Choice value="Code" />
                                         <Choice value="Other" />
@@ -143,10 +145,10 @@ def generate_dynamic_label_config(max_turns=None):
                                 <Panel value="Multi-turn Relationship">
                                     <Choices name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single" required="true">
                                         <Choice value="First request" />
-                                        <Choice value="Unrelated request" />
-                                        <Choice value="Same / similar task, new request" />
-                                        <Choice value="Repeated / revision request" />
-                                        <Choice value="New task, related request" />
+                                        <Choice value="Completely new request" />
+                                        <Choice value="Re-attempt / revision on prior request" />
+                                        <Choice value="New variation of prior task" />
+                                        <Choice value="Extend, deepen, or build on prior task" />
                                     </Choices>
                                 </Panel>
                             </Collapse>
@@ -165,30 +167,29 @@ def generate_dynamic_label_config(max_turns=None):
                             </Collapse>
 
                             <Collapse>
-                                <Panel value="Restricted Flags">
+                                <Panel value="Sensitive Use Flags">
                                     <Filter name="filter_flags_prompt_{turn_num}" toName="restricted_flags_prompt_{turn_num}" minlength="0" placeholder="Filter flags..."/>
                                     <Choices name="restricted_flags_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Sexually explicit content: Fictitious person" />
                                         <Choice value="Sexually explicit content: Real person" />
                                         <Choice value="Sexually explicit content: Request / discussion of CSAM" />
                                         <Choice value="Sexually explicit content: Other" />
+                                        <Choice value="Apparent attempt to impersonate a real person or organization" />
+                                        <Choice value="Apparent use or generation of misinformation" />
                                         <Choice value="CBRN-related outputs" />
-                                        <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                        <Choice value="Cyberattacks" />
-                                        <Choice value="Discriminatory practices" />
+                                        <Choice value="Content related to criminal planning or other suspected illegal activity not listed elsewhere" />
+                                        <Choice value="Content related to cyberattacks (enabling / enacting malware, viruses, worms, etc.)" />
+                                        <Choice value="Discriminatory practices: Misrepresnetation, stereotyping, or inappropriate reference to sensitive attributes" />
                                         <Choice value="Generating defamatory content" />
                                         <Choice value="Generating spam" />
-                                        <Choice value="Impersonation attempts" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Harassment &amp; bullying" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Physical harm" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Self-harm" />
-                                        <Choice value="Misinformation" />
-                                        <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                        <Choice value="Output misrepresentation: Disclaiming AI use" />
                                         <Choice value="Possible presence of copyrighted, unreferenced material" />
-                                        <Choice value="Potential violation of external policy / ethics" />
-                                        <Choice value="Privacy concerns: Possible identifiable information" />
-                                        <Choice value="Privacy concerns: Possible sensitive information" />
+                                        <Choice value="Private information: Possible identifiable information (e.g., social security, driver's license, passport, biometric, financial, address, phone number, etc.)" />
+                                        <Choice value="Private information: Possible sensitive information (e.g., API keys, passwords, other confidential information)" />
+                                        <Choice value="Uses that may violate academic or professional standards" />
+                                        <Choice value="Uses related to high-stakes automated decision-making" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Harassment &amp; bullying" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Physical harm" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Self-harm" />
                                         <Choice value="Weapons &amp; drugs" />
                                         <Choice value="Other" />
                                         <Choice value="None" />
@@ -232,6 +233,7 @@ def generate_dynamic_label_config(max_turns=None):
                                         <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Math / symbols" />
                                         <Choice value="URLs" />
+                                        <Choice value="Likely retrieved / pasted content" />
                                         <Choice value="Natural language" />
                                         <Choice value="Code" />
                                         <Choice value="Other" />
@@ -247,6 +249,7 @@ def generate_dynamic_label_config(max_turns=None):
                                         <Choice value="Partial refusal / expressing uncertainty / disclaiming" />
                                         <Choice value="Direct answer / open generation" />
                                         <Choice value="Continuation of input" />
+                                        <Choice value="Request for information or clarification" />
                                     </Choices>
                                 </Panel>
                             </Collapse>
@@ -268,30 +271,29 @@ def generate_dynamic_label_config(max_turns=None):
                             </Collapse>
 
                             <Collapse>
-                                <Panel value="Restricted Flags">
+                                <Panel value="Sensitive Use Flags">
                                     <Filter name="filter_flags_response_{turn_num}" toName="restricted_flags_response_{turn_num}" minlength="0" placeholder="Filter flags..."/>
                                     <Choices name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Sexually explicit content: Fictitious person" />
                                         <Choice value="Sexually explicit content: Real person" />
                                         <Choice value="Sexually explicit content: Request / discussion of CSAM" />
                                         <Choice value="Sexually explicit content: Other" />
+                                        <Choice value="Apparent attempt to impersonate a real person or organization" />
+                                        <Choice value="Apparent use or generation of misinformation" />
                                         <Choice value="CBRN-related outputs" />
-                                        <Choice value="Criminal planning or other suspected illegal activity not listed elsewhere" />
-                                        <Choice value="Cyberattacks" />
-                                        <Choice value="Discriminatory practices" />
+                                        <Choice value="Content related to criminal planning or other suspected illegal activity not listed elsewhere" />
+                                        <Choice value="Content related to cyberattacks (enabling / enacting malware, viruses, worms, etc.)" />
+                                        <Choice value="Discriminatory practices: Misrepresnetation, stereotyping, or inappropriate reference to sensitive attributes" />
                                         <Choice value="Generating defamatory content" />
                                         <Choice value="Generating spam" />
-                                        <Choice value="Impersonation attempts" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Harassment &amp; bullying" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Physical harm" />
-                                        <Choice value="Inciting violence, hateful or other harmful behavior: Self-harm" />
-                                        <Choice value="Misinformation" />
-                                        <Choice value="Output misrepresentation: Automated decision-making without disclosure" />
-                                        <Choice value="Output misrepresentation: Disclaiming AI use" />
                                         <Choice value="Possible presence of copyrighted, unreferenced material" />
-                                        <Choice value="Potential violation of external policy / ethics" />
-                                        <Choice value="Privacy concerns: Possible identifiable information" />
-                                        <Choice value="Privacy concerns: Possible sensitive information" />
+                                        <Choice value="Private information: Possible identifiable information (e.g., social security, driver's license, passport, biometric, financial, address, phone number, etc.)" />
+                                        <Choice value="Private information: Possible sensitive information (e.g., API keys, passwords, other confidential information)" />
+                                        <Choice value="Uses that may violate academic or professional standards" />
+                                        <Choice value="Uses related to high-stakes automated decision-making" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Harassment &amp; bullying" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Physical harm" />
+                                        <Choice value="Violent, hateful or other harmful behavior: Self-harm" />
                                         <Choice value="Weapons &amp; drugs" />
                                         <Choice value="Other" />
                                         <Choice value="None" />
