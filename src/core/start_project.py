@@ -77,7 +77,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Media Format">
                                     <Filter name="filter_media_prompt_{turn_num}" toName="media_format_prompt_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
-                                    <Choices name="media_format_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="media_format_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Audio" />
                                         <Choice value="Charts / graphs" />
                                         <Choice value="Formatted enumeration / itemization" />
@@ -97,7 +97,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Function/Purpose">
                                     <Filter name="filter_function_{turn_num}" toName="function_purpose_{turn_num}" minlength="0" placeholder="Filter functions..."/>
-                                    <Choices name="function_purpose_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="function_purpose_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Advice, guidance, &amp; recommendations: Instructions / how-to" />
                                         <Choice value="Advice, guidance, &amp; recommendations: Social and personal advice" />
                                         <Choice value="Advice, guidance, &amp; recommendations: Professional advice" />
@@ -143,7 +143,7 @@ def generate_dynamic_label_config(max_turns=None):
 
                             <Collapse>
                                 <Panel value="Multi-turn Relationship">
-                                    <Choices name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="multi_turn_relationship_{turn_num}" toName="conversation" choice="single" required="true">
                                         <Choice value="First request" />
                                         <Choice value="Completely new request" />
                                         <Choice value="Re-attempt / revision on prior request" />
@@ -155,7 +155,7 @@ def generate_dynamic_label_config(max_turns=None):
 
                             <Collapse>
                                 <Panel value="Interaction Features">
-                                    <Choices name="interaction_features_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="interaction_features_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Companionship" />
                                         <Choice value="Courtesy / politeness" />
                                         <Choice value="Jailbreak attempt" />
@@ -169,7 +169,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Sensitive Use Flags">
                                     <Filter name="filter_flags_prompt_{turn_num}" toName="restricted_flags_prompt_{turn_num}" minlength="0" placeholder="Filter flags..."/>
-                                    <Choices name="restricted_flags_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="restricted_flags_prompt_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Sexually explicit content: Fictitious person" />
                                         <Choice value="Sexually explicit content: Real person" />
                                         <Choice value="Sexually explicit content: Request / discussion of CSAM" />
@@ -224,7 +224,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Media Format">
                                     <Filter name="filter_media_response_{turn_num}" toName="media_format_response_{turn_num}" minlength="0" placeholder="Filter media formats..."/>
-                                    <Choices name="media_format_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="media_format_response_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Audio" />
                                         <Choice value="Charts / graphs" />
                                         <Choice value="Formatted enumeration / itemization" />
@@ -243,7 +243,7 @@ def generate_dynamic_label_config(max_turns=None):
 
                             <Collapse>
                                 <Panel value="Answer Form">
-                                    <Choices name="answer_form_response_{turn_num}" toName="conversation" choice="single" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="answer_form_response_{turn_num}" toName="conversation" choice="single" required="true">
                                         <Choice value="Refusal to answer (with explanation)" />
                                         <Choice value="Refusal to answer (without explanation)" />
                                         <Choice value="Partial refusal / expressing uncertainty / disclaiming" />
@@ -256,7 +256,7 @@ def generate_dynamic_label_config(max_turns=None):
 
                             <Collapse>
                                 <Panel value="Interaction Features">
-                                    <Choices name="interaction_features_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="interaction_features_response_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Apology" />
                                         <Choice value="Content: Direct response" />
                                         <Choice value="Content: Preferences / feelings / opinions / religious beliefs" />
@@ -273,7 +273,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Sensitive Use Flags">
                                     <Filter name="filter_flags_response_{turn_num}" toName="restricted_flags_response_{turn_num}" minlength="0" placeholder="Filter flags..."/>
-                                    <Choices name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="restricted_flags_response_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Sexually explicit content: Fictitious person" />
                                         <Choice value="Sexually explicit content: Real person" />
                                         <Choice value="Sexually explicit content: Request / discussion of CSAM" />
@@ -328,7 +328,7 @@ def generate_dynamic_label_config(max_turns=None):
                             <Collapse>
                                 <Panel value="Topic">
                                     <Filter name="filter_topic_turn_whole_{turn_num}" toName="topic_turn_whole_{turn_num}" minlength="0" placeholder="Filter topics..."/>
-                                    <Choices name="topic_turn_whole_{turn_num}" toName="conversation" choice="multiple" required="true">
+                                    <Choices whenTagName="turn_selector" whenChoiceValue="Turn {turn_num}" visibleWhen="choice-selected" name="topic_turn_whole_{turn_num}" toName="conversation" choice="multiple" required="true">
                                         <Choice value="Adult &amp; illicit content" />
                                         <Choice value="Art &amp; design" />
                                         <Choice value="Business &amp; finances" />
