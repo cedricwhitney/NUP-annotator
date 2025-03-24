@@ -10,7 +10,7 @@ export LABEL_STUDIO_DATABASE_ENGINE=sqlite
 export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
 export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
 
-.PHONY: setup run label-studio stop-label-studio create-project sync-repo validate-json refresh-data export-data test
+.PHONY: setup run label-studio stop-label-studio create-project sync-repo validate-json refresh-data export-data test test-project
 
 # Check for uv installation
 check-uv:
@@ -71,6 +71,16 @@ start-project: sync-repo
 	@echo "\nThis will:"
 	@echo "1. Show available batch files"
 	@echo "2. Set up the project in Label Studio"
+	@echo "3. Configure the correct taxonomy structure"
+	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
+	PYTHONPATH=. python src/core/start_project.py
+
+# Test project without syncing from git (for local testing)
+test-project:
+	@echo "Testing pre-configured Label Studio project with local changes..."
+	@echo "\nThis will:"
+	@echo "1. Show available batch files"
+	@echo "2. Set up the project in Label Studio with your local changes"
 	@echo "3. Configure the correct taxonomy structure"
 	@echo "\nTip: Make sure to select your assigned batch when prompted\n"
 	PYTHONPATH=. python src/core/start_project.py
