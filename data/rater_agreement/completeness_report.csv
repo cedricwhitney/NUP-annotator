@@ -1,0 +1,121 @@
+Task ID,Expected Annotators,Actual Annotators Found,Annotator Status,Annotator 1,Annotator 1 Turn Status,Annotator 2,Annotator 2 Turn Status
+conv_0001,"Ahmet, Anka","Ahmet, Anka",Annotators Complete,Ahmet,Turns Complete,Anka,Turns Complete
+conv_0002,"Ahmet, Anka","Ahmet, Anka",Annotators Complete,Ahmet,Turns Complete,Anka,Turns Complete
+conv_0003,"Cedric, Zoey","Cedric, Zoey",Annotators Complete,Cedric,Turns Complete,Zoey,Turns Complete
+conv_0004,"Cedric, Zoey","Cedric, Zoey",Annotators Complete,Cedric,Turns Complete,Zoey,Turns Complete
+conv_0005,"Megan, Niloofar","Megan, Niloofar",Annotators Complete,Megan,Turns Complete,Niloofar,Turns Complete
+conv_0006,"Megan, Niloofar","Megan, Niloofar",Annotators Complete,Megan,Turns Complete,Niloofar,Turns Complete
+conv_0007,"Shayne, Victor","Shayne, Victor",Annotators Complete,Shayne,Turns Complete,Victor,Turns Complete
+conv_0008,"Shayne, Victor","Shayne, Victor",Annotators Complete,Shayne,Turns Complete,Victor,Turns Complete
+conv_0009,"Wenting, Yuntian",Yuntian,Annotator Missing: Wenting,Yuntian,Turns Complete,,
+conv_0010,"Wenting, Yuntian",Yuntian,Annotator Missing: Wenting,Yuntian,Turns Complete,,
+conv_0011,"ZSuperhero, Zhiping",Zhiping,Annotator Missing: ZSuperhero,Zhiping,Turns Complete,,
+conv_0012,"ZSuperhero, Zhiping",Zhiping,Annotator Missing: ZSuperhero,Zhiping,Turns Complete,,
+conv_0013,"Ahmet, Cedric","Ahmet, Cedric",Annotators Complete,Ahmet,Turns Complete,Cedric,Turns Complete
+conv_0014,"Anka, Zoey","Anka, Zoey",Annotators Complete,Anka," - Missing Turns: [11, 12, 13, 14, 15]",Zoey," - Missing Turns: [11, 12, 13, 14, 15]"
+conv_0015,"Ahmet, Cedric","Ahmet, Cedric",Annotators Complete,Ahmet,Turns Complete,Cedric,Turns Complete
+conv_0016,"Anka, Zoey","Anka, Zoey",Annotators Complete,Anka,Turns Complete,Zoey,Turns Complete
+conv_0017,"Megan, Shayne","Megan, Shayne",Annotators Complete,Megan,Turns Complete,Shayne,Turns Complete
+conv_0018,"Niloofar, Victor","Niloofar, Victor",Annotators Complete,Niloofar,Turns Complete,Victor,Turns Complete
+conv_0019,"Megan, Shayne","Megan, Shayne",Annotators Complete,Megan,Turns Complete,Shayne,Turns Complete
+conv_0020,"Niloofar, Victor","Niloofar, Victor",Annotators Complete,Niloofar,Turns Complete,Victor,Turns Complete
+conv_0021,"Wenting, Zhiping",Zhiping,Annotator Missing: Wenting,Zhiping,Turns Complete,,
+conv_0022,"Yuntian, ZSuperhero",Yuntian,Annotator Missing: ZSuperhero,Yuntian,Turns Complete,,
+conv_0023,"Wenting, Zhiping",Zhiping,Annotator Missing: Wenting,Zhiping,Turns Complete,,
+conv_0024,"Yuntian, ZSuperhero",Yuntian,Annotator Missing: ZSuperhero,Yuntian,Turns Complete,,
+conv_0025,"Ahmet, Zoey","Ahmet, Zoey",Annotators Complete,Ahmet,Turns Complete,Zoey,Turns Complete
+conv_0026,"Anka, Cedric","Anka, Cedric",Annotators Complete,Anka,Turns Complete,Cedric,Turns Complete
+conv_0027,"Anka, Cedric","Anka, Cedric",Annotators Complete,Anka,Turns Complete,Cedric,Turns Complete
+conv_0028,"Ahmet, Zoey","Ahmet, Zoey",Annotators Complete,Ahmet,Turns Complete,Zoey,Turns Complete
+conv_0029,"Megan, Victor","Megan, Victor",Annotators Complete,Megan,Turns Complete,Victor,Turns Complete
+conv_0030,"Niloofar, Shayne","Niloofar, Shayne",Annotators Complete,Niloofar,Turns Complete,Shayne,Turns Complete
+conv_0031,"Niloofar, Shayne","Niloofar, Shayne",Annotators Complete,Niloofar," - Missing Turns: [2, 3]",Shayne,Turns Complete
+conv_0032,"Megan, Victor","Megan, Victor",Annotators Complete,Megan,Turns Complete,Victor,Turns Complete
+conv_0033,"Wenting, ZSuperhero",None,"Annotators Missing Both (Wenting, ZSuperhero)",,No annotations found,,
+conv_0034,"Yuntian, Zhiping","Yuntian, Zhiping",Annotators Complete,Yuntian,Turns Complete,Zhiping,Turns Complete
+conv_0035,"Yuntian, Zhiping","Yuntian, Zhiping",Annotators Complete,Yuntian,Turns Complete,Zhiping,Turns Complete
+conv_0036,"Wenting, ZSuperhero",None,"Annotators Missing Both (Wenting, ZSuperhero)",,No annotations found,,
+conv_0037,"Ahmet, Megan","Ahmet, Megan",Annotators Complete,Ahmet,Turns Complete,Megan,Turns Complete
+conv_0038,"Anka, Niloofar","Anka, Niloofar",Annotators Complete,Anka,Turns Complete,Niloofar,Turns Complete
+conv_0039,"Cedric, Shayne","Cedric, Shayne",Annotators Complete,Cedric,Turns Complete,Shayne,Turns Complete
+conv_0040,"Victor, Zoey","Victor, Zoey",Annotators Complete,Victor,Turns Complete,Zoey,Turns Complete
+conv_0041,"Ahmet, Megan","Ahmet, Megan",Annotators Complete,Ahmet,Turns Complete,Megan,Turns Complete
+conv_0042,"Anka, Niloofar","Anka, Niloofar",Annotators Complete,Anka," - Missing Turns: [7, 8, 9]",Niloofar," - Missing Turns: [2, 3, 4, 5, 6, 7, 8, 9]"
+conv_0043,"Cedric, Shayne","Cedric, Shayne",Annotators Complete,Cedric,Turns Complete,Shayne,Turns Complete
+conv_0044,"Victor, Zoey","Victor, Zoey",Annotators Complete,Victor,Turns Complete,Zoey,Turns Complete
+conv_0045,"Wenting, Yuntian",Yuntian,Annotator Missing: Wenting,Yuntian,Turns Complete,,
+conv_0046,"Yuntian, Zhiping","Yuntian, Zhiping",Annotators Complete,Yuntian,Turns Complete,Zhiping, - Missing Turns: [4]
+conv_0047,"Wenting, Zhiping",Zhiping,Annotator Missing: Wenting,Zhiping,Turns Complete,,
+conv_0048,"Ahmet, ZSuperhero",Ahmet,Annotator Missing: ZSuperhero,Ahmet, - Missing Turns: [4],,
+conv_0049,"Ahmet, ZSuperhero",Ahmet,Annotator Missing: ZSuperhero,Ahmet,Turns Complete,,
+conv_0050,"Anka, Megan","Anka, Megan",Annotators Complete,Anka, - Missing Turns: [3],Megan,Turns Complete
+conv_0051,"Cedric, Niloofar","Cedric, Niloofar",Annotators Complete,Cedric,Turns Complete,Niloofar,Turns Complete
+conv_0052,"Shayne, Zoey","Shayne, Zoey",Annotators Complete,Shayne,Turns Complete,Zoey,Turns Complete
+conv_0053,"Anka, Megan","Anka, Megan",Annotators Complete,Anka,Turns Complete,Megan,Turns Complete
+conv_0054,"Cedric, Niloofar","Cedric, Niloofar",Annotators Complete,Cedric,Turns Complete,Niloofar,Turns Complete
+conv_0055,"Shayne, Zoey","Shayne, Zoey",Annotators Complete,Shayne,Turns Complete,Zoey,Turns Complete
+conv_0056,"Victor, Wenting",Victor,Annotator Missing: Wenting,Victor,Turns Complete,,
+conv_0057,"Victor, Wenting",Victor,Annotator Missing: Wenting,Victor,Turns Complete,,
+conv_0058,"Yuntian, ZSuperhero",Yuntian,Annotator Missing: ZSuperhero,Yuntian,Turns Complete,,
+conv_0059,"Ahmet, Zhiping","Ahmet, Zhiping",Annotators Complete,Ahmet,Turns Complete,Zhiping,Turns Complete
+conv_0060,"ZSuperhero, Zhiping",Zhiping,Annotator Missing: ZSuperhero,Zhiping,Turns Complete,,
+conv_0061,"Ahmet, Zhiping","Ahmet, Zhiping",Annotators Complete,Ahmet,Turns Complete,Zhiping,Turns Complete
+conv_0062,"Anka, Yuntian","Anka, Yuntian",Annotators Complete,Anka,Turns Complete,Yuntian,Turns Complete
+conv_0063,"Cedric, Megan","Cedric, Megan",Annotators Complete,Cedric,Turns Complete,Megan,Turns Complete
+conv_0064,"Niloofar, Zoey","Niloofar, Zoey",Annotators Complete,Niloofar," - Missing Turns: [2, 3, 4, 5, 6]",Zoey,Turns Complete
+conv_0065,"Cedric, Megan","Cedric, Megan",Annotators Complete,Cedric,Turns Complete,Megan,Turns Complete
+conv_0066,"Niloofar, Zoey","Niloofar, Zoey",Annotators Complete,Niloofar,Turns Complete,Zoey,Turns Complete
+conv_0067,"Anka, Shayne","Anka, Shayne",Annotators Complete,Anka,Turns Complete,Shayne,Turns Complete
+conv_0068,"Victor, Yuntian","Victor, Yuntian",Annotators Complete,Victor,Turns Complete,Yuntian,Turns Complete
+conv_0069,"Shayne, Wenting",Shayne,Annotator Missing: Wenting,Shayne,Turns Complete,,
+conv_0070,"Victor, Yuntian","Victor, Yuntian",Annotators Complete,Victor,Turns Complete,Yuntian,Turns Complete
+conv_0071,"Anka, Zhiping","Anka, Zhiping",Annotators Complete,Anka,Turns Complete,Zhiping,Turns Complete
+conv_0072,"Wenting, ZSuperhero",None,"Annotators Missing Both (Wenting, ZSuperhero)",,No annotations found,,
+conv_0073,"Ahmet, ZSuperhero",Ahmet,Annotator Missing: ZSuperhero,Ahmet,Turns Complete,,
+conv_0074,"Anka, Shayne","Anka, Shayne",Annotators Complete,Anka,Turns Complete,Shayne,Turns Complete
+conv_0075,"Cedric, Victor","Cedric, Victor",Annotators Complete,Cedric,Turns Complete,Victor,Turns Complete
+conv_0076,"Megan, Zoey","Megan, Zoey",Annotators Complete,Megan,Turns Complete,Zoey,Turns Complete
+conv_0077,"Megan, Zoey","Megan, Zoey",Annotators Complete,Megan,Turns Complete,Zoey,Turns Complete
+conv_0078,"Ahmet, Niloofar","Ahmet, Niloofar",Annotators Complete,Ahmet,Turns Complete,Niloofar,Turns Complete
+conv_0079,"Shayne, Wenting",Shayne,Annotator Missing: Wenting,Shayne,Turns Complete,,
+conv_0080,"Cedric, Victor","Cedric, Victor",Annotators Complete,Cedric,Turns Complete,Victor,Turns Complete
+conv_0081,"Niloofar, Wenting",Niloofar,Annotator Missing: Wenting,Niloofar," - Missing Turns: [2, 3, 4]",,
+conv_0082,"Anka, Yuntian","Anka, Yuntian",Annotators Complete,Anka," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]",Yuntian," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54]"
+conv_0083,"Anka, Zhiping","Anka, Zhiping",Annotators Complete,Anka,Turns Complete,Zhiping,Turns Complete
+conv_0084,"Cedric, ZSuperhero",Cedric,Annotator Missing: ZSuperhero,Cedric," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]",,
+conv_0085,"Ahmet, Niloofar","Ahmet, Niloofar",Annotators Complete,Ahmet,Turns Complete,Niloofar," - Missing Turns: [2, 3, 4, 5]"
+conv_0086,"Anka, ZSuperhero",Anka,Annotator Missing: ZSuperhero,Anka,Turns Complete,,
+conv_0087,"Cedric, ZSuperhero",Cedric,Annotator Missing: ZSuperhero,Cedric,Turns Complete,,
+conv_0088,"Yuntian, Zoey","Yuntian, Zoey",Annotators Complete,Yuntian," - Missing Turns: [11, 12, 13, 14, 15, 16]",Zoey," - Missing Turns: [11, 12, 13, 14, 15, 16]"
+conv_0089,"Megan, Zhiping","Megan, Zhiping",Annotators Complete,Megan,Turns Complete,Zhiping,Turns Complete
+conv_0090,"Niloofar, Wenting",Niloofar,Annotator Missing: Wenting,Niloofar,Turns Complete,,
+conv_0091,"Ahmet, Shayne","Ahmet, Shayne",Annotators Complete,Ahmet,Turns Complete,Shayne,Turns Complete
+conv_0092,"Victor, Zhiping","Victor, Zhiping",Annotators Complete,Victor,Turns Complete,Zhiping,Turns Complete
+conv_0093,"Wenting, Zoey",Zoey,Annotator Missing: Wenting,Zoey,Turns Complete,,
+conv_0094,"Yuntian, Zoey","Yuntian, Zoey",Annotators Complete,Yuntian,Turns Complete,Zoey,Turns Complete
+conv_0095,"Megan, Zhiping","Megan, Zhiping",Annotators Complete,Megan," - Missing Turns: [1, 2, 3, 4, 5, 6, 7, 8, 9]",Zhiping, - Missing Turns: [10]
+conv_0096,"Shayne, ZSuperhero",Shayne,Annotator Missing: ZSuperhero,Shayne,Turns Complete,,
+conv_0097,"Ahmet, Shayne","Ahmet, Shayne",Annotators Complete,Ahmet,Turns Complete,Shayne,Turns Complete
+conv_0098,"Anka, ZSuperhero",Anka,Annotator Missing: ZSuperhero,Anka, - Missing Turns: [3],,
+conv_0099,"Cedric, Yuntian","Cedric, Yuntian",Annotators Complete,Cedric,Turns Complete,Yuntian,Turns Complete
+conv_0100,"Wenting, Zoey",Zoey,Annotator Missing: Wenting,Zoey,Turns Complete,,
+conv_0101,"Megan, Victor","Megan, Victor",Annotators Complete,Megan,Turns Complete,Victor,Turns Complete
+conv_0102,"Niloofar, Yuntian","Niloofar, Yuntian",Annotators Complete,Niloofar,Turns Complete,Yuntian,Turns Complete
+conv_0103,"Shayne, ZSuperhero",Shayne,Annotator Missing: ZSuperhero,Shayne," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19]",,
+conv_0104,"Victor, Zhiping","Victor, Zhiping",Annotators Complete,Victor,Turns Complete,Zhiping,Turns Complete
+conv_0105,"Ahmet, Wenting",Ahmet,Annotator Missing: Wenting,Ahmet,Turns Complete,,
+conv_0106,"Cedric, Yuntian","Cedric, Yuntian",Annotators Complete,Cedric," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]",Yuntian," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]"
+conv_0107,"Niloofar, Zhiping","Niloofar, Zhiping",Annotators Complete,Niloofar,Turns Complete,Zhiping,Turns Complete
+conv_0108,"Megan, ZSuperhero",Megan,Annotator Missing: ZSuperhero,Megan," - Missing Turns: [11, 12, 13, 14, 15, 16, 17]",,
+conv_0109,"Ahmet, Wenting",Ahmet,Annotator Missing: Wenting,Ahmet," - Missing Turns: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]",,
+conv_0110,"Anka, Victor","Anka, Victor",Annotators Complete,Anka,Turns Complete,Victor,Turns Complete
+conv_0111,"Cedric, Zhiping","Cedric, Zhiping",Annotators Complete,Cedric,Turns Complete,Zhiping,Turns Complete
+conv_0112,"Ahmet, Zoey","Ahmet, Zoey",Annotators Complete,Ahmet,Turns Complete,Zoey,Turns Complete
+conv_0113,"Megan, Yuntian","Megan, Yuntian",Annotators Complete,Megan," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]",Yuntian," - Missing Turns: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]"
+conv_0114,"Anka, Niloofar","Anka, Niloofar",Annotators Complete,Anka,Turns Complete,Niloofar,Turns Complete
+conv_0115,"Cedric, Shayne","Cedric, Shayne",Annotators Complete,Cedric,Turns Complete,Shayne,Turns Complete
+conv_0116,"Victor, Zoey","Victor, Zoey",Annotators Complete,Victor,Turns Complete,Zoey,Turns Complete
+conv_0117,"Megan, Wenting",Megan,Annotator Missing: Wenting,Megan,Turns Complete,,
+conv_0118,"Niloofar, Yuntian","Niloofar, Yuntian",Annotators Complete,Niloofar," - Missing Turns: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]",Yuntian," - Missing Turns: [11, 12]"
+conv_0119,"Shayne, Zhiping","Shayne, Zhiping",Annotators Complete,Shayne,Turns Complete,Zhiping,Turns Complete
+conv_0120,"Victor, ZSuperhero",Victor,Annotator Missing: ZSuperhero,Victor,Turns Complete,,

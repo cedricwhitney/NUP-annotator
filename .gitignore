@@ -22,9 +22,9 @@ wheels/
 .installed.cfg
 *.egg
 
-# Data - ignore all data files except batch files
-data/*
-!data/batch_*.json
+# Data - Track all data files
+# data/* # Removed to track all data
+# !data/batch_*.json # Removed to track all data
 
 # IDE files
 .idea/
