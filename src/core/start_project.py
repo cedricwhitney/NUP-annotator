@@ -413,16 +413,21 @@ def get_input_file():
         'batch_9.json': 'Wenting',
         'batch_10.json': 'Yuntian',
         'batch_11.json': 'Zhiping',
-        'batch_12.json': 'ZSuperhero'
+        'batch_12.json': 'ZSuperhero',
+        'shayne_rater_disagreement.json': 'Shayne (Disagreement)',
+        'anka_rater_disagreement.json': 'Anka (Disagreement)'
     }
 
     while True:
-        # Only look for batch files
-        data_files = list(DATA_DIR.glob("batch_*.json"))
+        # Look for batch files and disagreement files in the 'batches' subdirectory
+        batches_subdir = DATA_DIR / "batches" # Define the subdirectory path
+        batch_files = list(batches_subdir.glob("batch_*.json"))
+        disagreement_files = list(batches_subdir.glob("*_rater_disagreement.json"))
+        data_files = batch_files + disagreement_files # Combine lists
         
         if not data_files:
-            print("\n❌ No batch files found in data directory")
-            print(f"Please add your batch file to: {DATA_DIR}/")
+            print("\n❌ No batch or disagreement files found in data/batches directory") # Updated message
+            print(f"Please add your batch files to: {batches_subdir}/")
             choice = input("\nPress 'r' to refresh after adding your file, or 'q' to quit: ").strip().lower()
             if choice == 'q':
                 sys.exit(1)
