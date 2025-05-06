@@ -92,7 +92,7 @@ def analyze_annotations(annotator_name, data):
         print(f"\n{annotator_name} has completed all tasks!")
 
 def main():
-    annotations_dir = "annotator_exports/round two annotations"
+    annotations_dir = "data/annotator_exports/round two annotations"
     annotator = "zhiping"  # Check Zhiping's annotations
     
     json_file = os.path.join(annotations_dir, f"{annotator}.json")

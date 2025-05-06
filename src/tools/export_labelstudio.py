@@ -6,8 +6,8 @@ from pathlib import Path
 
 LABEL_STUDIO_URL = os.getenv("LABEL_STUDIO_URL", "http://localhost:8080")
 LABEL_STUDIO_API_KEY = os.getenv("LABEL_STUDIO_API_KEY")
-# Store exports in a git-tracked directory
-EXPORT_DIR = Path("annotator_exports")
+# Store exports in a git-tracked directory within data/
+EXPORT_DIR = Path("data/annotator_exports")
 
 def get_api_key():
     if not LABEL_STUDIO_API_KEY:

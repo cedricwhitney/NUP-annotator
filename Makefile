@@ -97,7 +97,7 @@ stop-label-studio:
 # Validate JSON format
 validate-json:
 	@echo "Validating JSON format..."
-	python src/tools/validate_labelstudio_json.py data/batch_1.json
+	python src/tools/validate_labelstudio_json.py data/batches/batch_1.json
 
 # Run tests
 test:
@@ -106,10 +106,11 @@ test:
 
 # List available data files (depends on sync-repo to ensure latest files)
 refresh-data: sync-repo
-	@echo "\n📁 Available batch files:"
-	@ls -1 data/batch_*.json 2>/dev/null || echo "No batch files found in data directory"
+	@echo "\n📁 Available data files in data/batches:"
+	@ls -1 data/batches/batch_*.json 2>/dev/null || echo "No batch files found"
+	@ls -1 data/batches/*_rater_disagreement.json 2>/dev/null || echo "No disagreement batch files found"
 	@echo "\nTo use a new file:"
-	@echo "1. Copy your batch file to the data/ directory"
+	@echo "1. Copy your batch file to the data/batches/ directory"
 	@echo "2. Run 'make refresh-data' to verify it's detected"
 	@echo "3. Run 'make start-project' to create a new project with the file"
 
@@ -128,26 +129,15 @@ export-data: sync-repo label-studio
 		PYTHONPATH=. python src/tools/export_labelstudio.py; \
 	fi
 	@echo "\n📁 Checking for changes in your annotations..."
-	@if git diff --quiet annotator_exports/; then \
+	@if git diff --quiet data/annotator_exports/; then \
 		echo "✨ No new changes found since your last export"; \
 		echo "💡 Tip: If you've made new annotations, make sure you've submitted them in Label Studio!"; \
-		exit 0; \
-	fi
-	@echo "✨ New changes detected in your annotations"
-	@echo "\n💭 Would you like to share these updates with other annotators?"
-	@echo "   • Your new annotations will be saved to GitHub"
-	@echo "   • Your previous annotations will be preserved"
-	@echo "   • Other annotators will be able to see your work\n"
-	@read -p "Share your annotations? [y/N] " answer; \
-	if [ "$$answer" = "y" ] || [ "$$answer" = "Y" ]; then \
-		echo "\n🔄 Checking Git permissions..."; \
 		if ! git push --dry-run origin main > /dev/null 2>&1; then \
 			echo "❌ Error: You don't have permission to push to this repository."; \
 			echo "Please contact the repository administrator for access."; \
-			exit 1; \
 		fi; \
 		echo "\n🔄 Saving your annotations..."; \
-		git add annotator_exports/; \
+		git add data/annotator_exports/; \
 		git commit -m "Update annotations"; \
 		echo "\n🚀 Sharing your work..."; \
 		git push origin main; \
